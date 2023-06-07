@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-5eda90ddb7b18798be8dd7e5434b55200eb821cf6d73256183e8ac27faead1656008e2dd512a2932059b6818259be3247b30a1e356d8bf84616f0b072b519843",
+            "id": "component-AppComponent-f7246eb4923d27635152e4f6e375c8b00c3b0318fd02d75cfd3204bdfd8cb6f38e461f04c16e9c103c95ca83ef5aeaa9a23a759c480f8bd1e5f1dbbb381e4eb1",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -28,18 +28,7 @@
             "hostDirectives": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [
-                {
-                    "name": "title",
-                    "defaultValue": "'storybook-ng-material'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
-                    "line": 9
-                }
-            ],
+            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -50,7 +39,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'storybook-ng-material';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -60,18 +49,515 @@
             ],
             "stylesData": "",
             "templateData": "<router-outlet></router-outlet>\n"
+        },
+        {
+            "name": "BadgeModule",
+            "id": "component-BadgeModule-ebf1bd02aa23025b3375c0d6b0ade0bc0e2a3790a3476553409c56d3a50f8d87e4ec5c52a7054abdc61c20dd1d638e86a3502e819105185970ab5f7bfe3b22d2",
+            "file": "src/stories/components/badge/badge.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-badge",
+            "styleUrls": [],
+            "styles": [
+                "\n      .container {\n        display: flex;\n        padding: 3rem;\n      }\n    "
+            ],
+            "template": "<sb-header title=\"Badge\" matLink=\"badge\" />\n<div class=\"container\">\n  <button\n    mat-raised-button\n    [matBadgeHidden]=\"hidden\"\n    [matBadgeOverlap]=\"overlap\"\n    [matBadge]=\"label\"\n    [matBadgePosition]=\"position\"\n    [matBadgeColor]=\"color\"\n    [matBadgeSize]=\"size\"\n    [matBadgeDisabled]=\"disabled\"\n  >\n    [Button]\n  </button>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "\"primary\" | \"accent\" | \"warn\"",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 39,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "hidden",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "overlap",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "position",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "\"above after\" | \"above before\" | \"below before\" | \"below after\" | \"before\" | \"after\" | \"above\" | \"below\"",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "\"small\" | \"medium\" | \"large\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatBadgeModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { MatBadgeModule } from '@angular/material/badge';\nimport { MatButtonModule } from '@angular/material/button';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-badge',\n  standalone: true,\n  imports: [CommonModule, MatBadgeModule, MatButtonModule, SBHeaderModule],\n  styles: [\n    `\n      .container {\n        display: flex;\n        padding: 3rem;\n      }\n    `\n  ],\n  template: `\n    <sb-header title=\"Badge\" matLink=\"badge\" />\n    <div class=\"container\">\n      <button\n        mat-raised-button\n        [matBadgeHidden]=\"hidden\"\n        [matBadgeOverlap]=\"overlap\"\n        [matBadge]=\"label\"\n        [matBadgePosition]=\"position\"\n        [matBadgeColor]=\"color\"\n        [matBadgeSize]=\"size\"\n        [matBadgeDisabled]=\"disabled\"\n      >\n        [Button]\n      </button>\n    </div>\n  `\n})\nexport class BadgeModule {\n  @Input() color!: 'primary' | 'accent' | 'warn';\n  @Input() disabled!: boolean;\n  @Input() overlap!: boolean;\n  @Input() label!: string;\n  @Input() hidden!: boolean;\n  @Input() position!: 'above after' | 'above before' | 'below before' | 'below after' | 'before' | 'after' | 'above' | 'below';\n  @Input() size!: 'small' | 'medium' | 'large';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .container {\n        display: flex;\n        padding: 3rem;\n      }\n    \n"
+        },
+        {
+            "name": "BottomSheetModule",
+            "id": "component-BottomSheetModule-ebad1d6b58c8523e7525c1c1a1508eed5f09c603c6ef7d0db3fa03c3227ea1c2e8cb7ddcb636645ceb5c35f4a875b5a1f42993a00c30745f827901c169c3d6ea",
+            "file": "src/stories/components/bottom-sheet/bottom-sheet.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-bottom-sheet",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Bottom sheet\" matLink=\"bottom-sheet\" />\n<button class=\"mx-4\" mat-stroked-button (click)=\"openBottomSheet()\">[Open bottom sheet]</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "hasBackdrop",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "openBottomSheet",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatBottomSheetModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef } from '@angular/material/bottom-sheet';\nimport { MatButtonModule } from '@angular/material/button';\nimport { SBHeaderModule } from 'src/stories/assets/sb-header';\n\n@Component({\n  selector: 'app-bottom-sheet',\n  standalone: true,\n  imports: [MatBottomSheetModule, MatButtonModule, SBHeaderModule],\n  styles: [],\n  template: `\n    <sb-header title=\"Bottom sheet\" matLink=\"bottom-sheet\" />\n    <button class=\"mx-4\" mat-stroked-button (click)=\"openBottomSheet()\">[Open bottom sheet]</button>\n  `\n})\nexport class BottomSheetModule {\n  @Input() hasBackdrop!: boolean;\n\n  constructor(private bottomSheet: MatBottomSheet) {}\n\n  openBottomSheet() {\n    this.bottomSheet.open(BottomSheetOverviewExampleSheet, { hasBackdrop: this.hasBackdrop });\n  }\n}\n\n@Component({\n  selector: 'bottom-sheet-overview-example-sheet',\n  template: `<h1>Bottom sheet</h1>`\n})\nexport class BottomSheetOverviewExampleSheet {\n  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) {}\n\n  openLink(event: MouseEvent) {\n    this.bottomSheetRef.dismiss();\n    event.preventDefault();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "bottomSheet",
+                        "type": "MatBottomSheet",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 17,
+                "jsdoctags": [
+                    {
+                        "name": "bottomSheet",
+                        "type": "MatBottomSheet",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "BottomSheetOverviewExampleSheet",
+            "id": "component-BottomSheetOverviewExampleSheet-ebad1d6b58c8523e7525c1c1a1508eed5f09c603c6ef7d0db3fa03c3227ea1c2e8cb7ddcb636645ceb5c35f4a875b5a1f42993a00c30745f827901c169c3d6ea",
+            "file": "src/stories/components/bottom-sheet/bottom-sheet.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "bottom-sheet-overview-example-sheet",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<h1>Bottom sheet</h1>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "openLink",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "MouseEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef } from '@angular/material/bottom-sheet';\nimport { MatButtonModule } from '@angular/material/button';\nimport { SBHeaderModule } from 'src/stories/assets/sb-header';\n\n@Component({\n  selector: 'app-bottom-sheet',\n  standalone: true,\n  imports: [MatBottomSheetModule, MatButtonModule, SBHeaderModule],\n  styles: [],\n  template: `\n    <sb-header title=\"Bottom sheet\" matLink=\"bottom-sheet\" />\n    <button class=\"mx-4\" mat-stroked-button (click)=\"openBottomSheet()\">[Open bottom sheet]</button>\n  `\n})\nexport class BottomSheetModule {\n  @Input() hasBackdrop!: boolean;\n\n  constructor(private bottomSheet: MatBottomSheet) {}\n\n  openBottomSheet() {\n    this.bottomSheet.open(BottomSheetOverviewExampleSheet, { hasBackdrop: this.hasBackdrop });\n  }\n}\n\n@Component({\n  selector: 'bottom-sheet-overview-example-sheet',\n  template: `<h1>Bottom sheet</h1>`\n})\nexport class BottomSheetOverviewExampleSheet {\n  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) {}\n\n  openLink(event: MouseEvent) {\n    this.bottomSheetRef.dismiss();\n    event.preventDefault();\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "bottomSheetRef",
+                        "type": "MatBottomSheetRef<BottomSheetOverviewExampleSheet>",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 30,
+                "jsdoctags": [
+                    {
+                        "name": "bottomSheetRef",
+                        "type": "MatBottomSheetRef<BottomSheetOverviewExampleSheet>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ButtonModule",
+            "id": "component-ButtonModule-661f7998f5b2537e090be6f6127fe8c7f553b0eb831b9d59da0cd6a436e66f39402d87d0eb6074a5e84e56ad44ded40fd4a1b5d2572b00645d530794b63b6685",
+            "file": "src/stories/components/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-button",
+            "styleUrls": [],
+            "styles": [
+                "\n      .container {\n        display: flex;\n        padding: 3rem;\n      }\n    "
+            ],
+            "template": "<sb-header title=\"Button\" matLink=\"button\" />\n<ng-container [ngSwitch]=\"type\">\n  <button *ngSwitchDefault mat-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">{{ label }}</button>\n  <button *ngSwitchCase=\"'raised'\" mat-raised-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">\n    {{ label }}\n  </button>\n  <button *ngSwitchCase=\"'flat'\" mat-flat-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">\n    {{ label }}\n  </button>\n  <button *ngSwitchCase=\"'stroked'\" mat-stroked-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">\n    {{ label }}\n  </button>\n</ng-container>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "ThemePalette | \"default\"",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 39,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "\"default\" | \"flat\" | \"stroked\" | \"raised\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { ThemePalette } from '@angular/material/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [CommonModule, MatButtonModule, SBHeaderModule],\n  styles: [\n    `\n      .container {\n        display: flex;\n        padding: 3rem;\n      }\n    `\n  ],\n  template: `\n    <sb-header title=\"Button\" matLink=\"button\" />\n    <ng-container [ngSwitch]=\"type\">\n      <button *ngSwitchDefault mat-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">{{ label }}</button>\n      <button *ngSwitchCase=\"'raised'\" mat-raised-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">\n        {{ label }}\n      </button>\n      <button *ngSwitchCase=\"'flat'\" mat-flat-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">\n        {{ label }}\n      </button>\n      <button *ngSwitchCase=\"'stroked'\" mat-stroked-button [color]=\"color\" [disabled]=\"disabled\" [disableRipple]=\"disableRipple\">\n        {{ label }}\n      </button>\n    </ng-container>\n  `\n})\nexport class ButtonModule {\n  @Input() label!: string;\n  @Input() color!: ThemePalette | 'default';\n  @Input() type!: 'default' | 'flat' | 'stroked' | 'raised';\n  @Input() disabled!: boolean;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .container {\n        display: flex;\n        padding: 3rem;\n      }\n    \n"
+        },
+        {
+            "name": "SBHeaderModule",
+            "id": "component-SBHeaderModule-337ad8ec0c3f8aae94cae85c4eed16dba8a113da9167979a8a37c80e4a05ba6c42c0b0daed012d2a300f1023dd8af901185fff5f1adc9992175b909768438b10",
+            "file": "src/stories/assets/sb-header/sb-header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sb-header",
+            "styleUrls": [],
+            "styles": [
+                "\n      :host {\n        display: block;\n        width: 100%;\n      }\n      .container {\n        display: block;\n        width: calc(100% - 32px);\n        margin-left: 16px;\n      }\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 16px;\n      }\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n      mat-divider {\n        margin-bottom: 16px;\n      }\n      a {\n        padding-bottom: 16px;\n      }\n    "
+            ],
+            "template": "<div class=\"container\">\n  <h2>{{ title }}</h2>\n  <a href=\"https://material.angular.io/components/{{ matLink }}/api\" target=\"_blank\"> Angular material documentation </a>\n\n  <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\n  <mat-divider></mat-divider>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "clipboard",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 53,
+                    "type": "BooleanInput",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "matLink",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 52,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 51,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_clipboard",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 59
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatDividerModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { MatDividerModule } from '@angular/material/divider';\r\nimport { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';\r\n\r\n@Component({\r\n  selector: 'sb-header',\r\n  standalone: true,\r\n  imports: [CommonModule, MatDividerModule],\r\n  styles: [\r\n    `\r\n      :host {\r\n        display: block;\r\n        width: 100%;\r\n      }\r\n      .container {\r\n        display: block;\r\n        width: calc(100% - 32px);\r\n        margin-left: 16px;\r\n      }\r\n      h2 {\r\n        font-size: 50px !important;\r\n        font-weight: bold !important;\r\n        margin-bottom: 6px !important;\r\n        text-transform: capitalize;\r\n        padding-bottom: 16px;\r\n      }\r\n      small {\r\n        padding-top: 12px;\r\n        display: block;\r\n      }\r\n      mat-divider {\r\n        margin-bottom: 16px;\r\n      }\r\n      a {\r\n        padding-bottom: 16px;\r\n      }\r\n    `\r\n  ],\r\n  template: `\r\n    <div class=\"container\">\r\n      <h2>{{ title }}</h2>\r\n      <a href=\"https://material.angular.io/components/{{ matLink }}/api\" target=\"_blank\"> Angular material documentation </a>\r\n\r\n      <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\r\n      <mat-divider></mat-divider>\r\n    </div>\r\n  `\r\n})\r\nexport class SBHeaderModule {\r\n  @Input({ required: true }) title!: string;\r\n  @Input({ required: true }) matLink!: string;\r\n  @Input() set clipboard(value: BooleanInput) {\r\n    this._clipboard = coerceBooleanProperty(value);\r\n  }\r\n  get clipboard() {\r\n    return this._clipboard;\r\n  }\r\n  _clipboard = false;\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      :host {\n        display: block;\n        width: 100%;\n      }\n      .container {\n        display: block;\n        width: calc(100% - 32px);\n        margin-left: 16px;\n      }\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 16px;\n      }\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n      mat-divider {\n        margin-bottom: 16px;\n      }\n      a {\n        padding-bottom: 16px;\n      }\n    \n",
+            "accessors": {
+                "clipboard": {
+                    "name": "clipboard",
+                    "setSignature": {
+                        "name": "clipboard",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "value",
+                                "type": "BooleanInput",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 53,
+                        "jsdoctags": [
+                            {
+                                "name": "value",
+                                "type": "BooleanInput",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "clipboard",
+                        "type": "",
+                        "returnType": "",
+                        "line": 56
+                    }
+                }
+            }
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-0380eb99dc933726a298e8346c6bccd22e1b5cc04b104327b1338c34576989e47a18332184e6619667ea44cdcc8415094943c57e1610f717c21a145170f5c250",
+            "id": "module-AppModule-a5ab16d5fdd77ae5761eed0d9bb59ff3cd28a70ea40be79c4aaaff027b46791619245c0742b5483a46ce34b29eba54714c32a5fc7c097e7470617ce6e2696a26",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    BrowserAnimationsModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -113,13 +599,13 @@
         },
         {
             "name": "AppRoutingModule",
-            "id": "module-AppRoutingModule-78922b3ae99d2c5249b333980bd5afde1b120b2cc6fedfd41b8b2cc90f279797cb4b22e183bf7e1d1dfab8c6100e77e7812c110234d81f866f544f28a3e18b15",
+            "id": "module-AppRoutingModule-19f9b93b406581c4eeba9376fbdda8417c0f9120be46945392e67eab7f7120b1cd9a3eb39a618425296417a896bb7b806ab3a2097d6e4e3ea5079ede7ba39406",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app-routing.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -151,6 +637,126 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<BottomSheetModule>",
+                "defaultValue": "{\r\n  hasBackdrop: true\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<BadgeModule>",
+                "defaultValue": "{\r\n  label: '0',\r\n  color: 'primary',\r\n  size: 'medium',\r\n  position: 'above after',\r\n  disabled: false,\r\n  overlap: false,\r\n  hidden: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ButtonModule>",
+                "defaultValue": "{\r\n  label: 'Button',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<BottomSheetModule>",
+                "defaultValue": "{\r\n  hasBackdrop: { control: { type: 'boolean' } },\r\n  openBottomSheet: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<BadgeModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' } },\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' }\r\n  },\r\n  size: {\r\n    options: ['small', 'medium', 'large'],\r\n    control: { type: 'radio' }\r\n  },\r\n  position: {\r\n    options: ['above after', 'above before', 'below before', 'below after', 'before', 'after', 'above', 'below'],\r\n    control: { type: 'select' }\r\n  },\r\n  disabled: { control: { type: 'boolean' } },\r\n  overlap: { control: { type: 'boolean' } },\r\n  hidden: { control: { type: 'boolean' } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ButtonModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' } },\r\n  disabled: { control: { type: 'boolean' } },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' }\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio', label: 'Button Type' }\r\n  }\r\n}"
+            },
+            {
+                "name": "Badge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args\r\n}"
+            },
+            {
+                "name": "BottomSheet",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args\r\n}"
+            },
+            {
+                "name": "Button",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args }"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BottomSheetModule>",
+                "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeModule>",
+                "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonModule>",
+                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  argTypes\r\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -162,9 +768,169 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
+        "typealiases": [
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BottomSheetModule>",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BadgeModule>",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonModule>",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            }
+        ],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<BottomSheetModule>",
+                    "defaultValue": "{\r\n  hasBackdrop: true\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<BottomSheetModule>",
+                    "defaultValue": "{\r\n  hasBackdrop: { control: { type: 'boolean' } },\r\n  openBottomSheet: { table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "BottomSheet",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BottomSheetModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/badge/badge.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<BadgeModule>",
+                    "defaultValue": "{\r\n  label: '0',\r\n  color: 'primary',\r\n  size: 'medium',\r\n  position: 'above after',\r\n  disabled: false,\r\n  overlap: false,\r\n  hidden: false\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<BadgeModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' } },\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' }\r\n  },\r\n  size: {\r\n    options: ['small', 'medium', 'large'],\r\n    control: { type: 'radio' }\r\n  },\r\n  position: {\r\n    options: ['above after', 'above before', 'below before', 'below after', 'before', 'after', 'above', 'below'],\r\n    control: { type: 'select' }\r\n  },\r\n  disabled: { control: { type: 'boolean' } },\r\n  overlap: { control: { type: 'boolean' } },\r\n  hidden: { control: { type: 'boolean' } }\r\n}"
+                },
+                {
+                    "name": "Badge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BadgeModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ButtonModule>",
+                    "defaultValue": "{\r\n  label: 'Button',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ButtonModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' } },\r\n  disabled: { control: { type: 'boolean' } },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' }\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio', label: 'Button Type' }\r\n  }\r\n}"
+                },
+                {
+                    "name": "Button",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  argTypes\r\n}"
+                }
+            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -180,7 +946,47 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedTypeAliases": {
+            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BottomSheetModule>",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeModule>",
+                    "file": "src/stories/components/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonModule>",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ]
+        }
     },
     "routes": {
         "name": "<root>",
@@ -216,7 +1022,172 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/assets/sb-header/sb-header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SBHeaderModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/badge/badge.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BadgeModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Badge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/badge/badge.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/bottom-sheet/bottom-sheet.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BottomSheetModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/bottom-sheet/bottom-sheet.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BottomSheetOverviewExampleSheet",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BottomSheet",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Button",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             }
         ]
