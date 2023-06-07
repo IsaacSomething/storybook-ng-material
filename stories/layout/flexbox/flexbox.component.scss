@@ -1,0 +1,158 @@
+.container {
+  display: flex;
+  display: flex;
+  width: calc(100vw - 29px);
+  margin-left: 12px;
+  border-radius: 4px;
+  border: 2px dashed #f3f3f3;
+  height: calc(50vh - 32px);
+  &.full-height {
+    height: calc(100vh - 32px);
+  }
+  .box {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+.direction {
+  &-row {
+    flex-direction: row;
+  }
+  &-row-reverse {
+    flex-direction: row-reverse;
+  }
+  &-column {
+    flex-direction: column;
+  }
+  &-column-reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+.flex-wrap {
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  &-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.justify-content {
+  &-flex-start {
+    justify-content: flex-start;
+  }
+  &-flex-end {
+    justify-content: flex-end;
+  }
+  &-center {
+    justify-content: center;
+  }
+  &-space-between {
+    justify-content: space-between;
+  }
+  &-space-around {
+    justify-content: space-around;
+  }
+  &-space-evenly {
+    justify-content: space-evenly;
+  }
+  &-start {
+    justify-content: start;
+  }
+  &-end {
+    justify-content: end;
+  }
+  &-left {
+    justify-content: left;
+  }
+  &-right {
+    justify-content: right;
+  }
+}
+
+.align-items {
+  &-stretch {
+    align-items: stretch;
+  }
+  &-flex-start {
+    align-items: flex-start;
+  }
+  &-flex-end {
+    align-items: flex-end;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-baseline {
+    align-items: baseline;
+  }
+  &-first-baseline {
+    align-items: first-baseline;
+  }
+  &-last-baseline {
+    align-items: last-baseline;
+  }
+  &-start {
+    align-items: start;
+  }
+  &-end {
+    align-items: end;
+  }
+  &-self-start {
+    align-items: self-start;
+  }
+  &-self-end {
+    align-items: self-end;
+  }
+}
+
+.align-content {
+  &-flex-start {
+    align-content: flex-start;
+  }
+  &-flex-end {
+    align-content: flex-end;
+  }
+  &-center {
+    align-content: center;
+  }
+  &-space-between {
+    align-content: space-between;
+  }
+  &-space-around {
+    align-content: space-around;
+  }
+  &-space-evenly {
+    align-content: space-evenly;
+  }
+  &-stretch {
+    align-content: stretch;
+  }
+  &-start {
+    align-content: start;
+  }
+  &-end {
+    align-content: end;
+  }
+  &-baseline {
+    align-content: baseline;
+  }
+  &-first-baseline {
+    align-content: first-baseline;
+  }
+  &-last-baseline {
+    align-content: last-baseline;
+  }
+}
