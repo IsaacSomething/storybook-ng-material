@@ -1,0 +1,7 @@
+$text: 'default', 'primary', 'accent', 'warn', 'divider';
+
+@each $color in $text {
+  .text-#{$color} {
+    color: var(--mat-#{$color});
+  }
+}

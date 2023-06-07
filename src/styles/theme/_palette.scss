@@ -1,0 +1,202 @@
+/**
+ * playground Palette
+ * Default set color palettes for primary, accent and warn
+ *
+ * To set a new color palette use the site below
+ * http://mcg.mbitson.com/
+ * 
+ **/
+
+:root {
+  // Defining root variables
+  // Can be used anywhere else in the application and will be injected into the palette definition
+  --mat-primary: #f1881f;
+  --mat-primary-50: #fdf1e4;
+  --mat-primary-100: #fbdbbc;
+  --mat-primary-200: #f8c48f;
+  --mat-primary-300: #f5ac62;
+  --mat-primary-400: #f39a41;
+  --mat-primary-500: #f1881f;
+  --mat-primary-600: #ef801b;
+  --mat-primary-700: #ed7517;
+  --mat-primary-800: #eb6b12;
+  --mat-primary-900: #e7580a;
+  --mat-primary-A100: #ffffff;
+  --mat-primary-A200: #ffe7dd;
+  --mat-primary-A400: #ffc4aa;
+  --mat-primary-A700: #ffb390;
+  --mat-primary-contrast-50: #000000;
+  --mat-primary-contrast-100: #000000;
+  --mat-primary-contrast-200: #000000;
+  --mat-primary-contrast-300: #000000;
+  --mat-primary-contrast-400: #000000;
+  --mat-primary-contrast-500: #000000;
+  --mat-primary-contrast-600: #000000;
+  --mat-primary-contrast-700: #000000;
+  --mat-primary-contrast-800: #000000;
+  --mat-primary-contrast-900: #ffffff;
+  --mat-primary-contrast-A100: #000000;
+  --mat-primary-contrast-A200: #000000;
+  --mat-primary-contrast-A400: #000000;
+  --mat-primary-contrast-A700: #000000;
+
+  --mat-accent: #5c5c5c;
+  --mat-accent-50: #ebebeb;
+  --mat-accent-100: #cecece;
+  --mat-accent-200: #aeaeae;
+  --mat-accent-300: #8d8d8d;
+  --mat-accent-400: #747474;
+  --mat-accent-500: #5c5c5c;
+  --mat-accent-600: #545454;
+  --mat-accent-700: #4a4a4a;
+  --mat-accent-800: #414141;
+  --mat-accent-900: #303030;
+  --mat-accent-A100: #747474;
+  --mat-accent-A200: #5c5c5c;
+  --mat-accent-A400: #545454;
+  --mat-accent-A700: #4a4a4a;
+  --mat-accent-contrast-50: #000000;
+  --mat-accent-contrast-100: #000000;
+  --mat-accent-contrast-200: #000000;
+  --mat-accent-contrast-300: #000000;
+  --mat-accent-contrast-400: #000000;
+  --mat-accent-contrast-500: #000000;
+  --mat-accent-contrast-600: #000000;
+  --mat-accent-contrast-700: #000000;
+  --mat-accent-contrast-800: #ffffff;
+  --mat-accent-contrast-900: #ffffff;
+  --mat-accent-contrast-A100: #000000;
+  --mat-accent-contrast-A200: #000000;
+  --mat-accent-contrast-A400: #000000;
+  --mat-accent-contrast-A700: #000000;
+
+  --mat-warn: #d72828;
+  --mat-warn-50: #fae5e5;
+  --mat-warn-100: #f3bfbf;
+  --mat-warn-200: #eb9494;
+  --mat-warn-300: #e36969;
+  --mat-warn-400: #dd4848;
+  --mat-warn-500: #d72828;
+  --mat-warn-600: #d32424;
+  --mat-warn-700: #cd1e1e;
+  --mat-warn-800: #c71818;
+  --mat-warn-900: #be0f0f;
+  --mat-warn-A100: #ffebeb;
+  --mat-warn-A200: #ffb8b8;
+  --mat-warn-A400: #ff8585;
+  --mat-warn-A700: #ff6c6c;
+  --mat-warn-contrast-50: #000000;
+  --mat-warn-contrast-100: #000000;
+  --mat-warn-contrast-200: #000000;
+  --mat-warn-contrast-300: #000000;
+  --mat-warn-contrast-400: #000000;
+  --mat-warn-contrast-500: #ffffff;
+  --mat-warn-contrast-600: #ffffff;
+  --mat-warn-contrast-700: #ffffff;
+  --mat-warn-contrast-800: #ffffff;
+  --mat-warn-contrast-900: #ffffff;
+  --mat-warn-contrast-A100: #000000;
+  --mat-warn-contrast-A200: #ffffff;
+  --mat-warn-contrast-A400: #ffffff;
+  --mat-warn-contrast-A700: #ffffff;
+}
+
+// Defining palette
+$mat-primary-palette: (
+  50: var(--mat-primary-50),
+  100: var(--mat-primary-100),
+  200: var(--mat-primary-200),
+  300: var(--mat-primary-300),
+  400: var(--mat-primary-400),
+  500: var(--mat-primary-500),
+  600: var(--mat-primary-600),
+  700: var(--mat-primary-700),
+  800: var(--mat-primary-800),
+  900: var(--mat-primary-900),
+  A100: var(--mat-primary-A100),
+  A200: var(--mat-primary-A200),
+  A400: var(--mat-primary-A400),
+  A700: var(--mat-primary-A700),
+  contrast: (
+    50: var(--mat-primary-contrast-50),
+    100: var(--mat-primary-contrast-100),
+    200: var(--mat-primary-contrast-200),
+    300: var(--mat-primary-contrast-300),
+    400: var(--mat-primary-contrast-400),
+    500: var(--mat-primary-contrast-500),
+    600: var(--mat-primary-contrast-600),
+    700: var(--mat-primary-contrast-700),
+    800: var(--mat-primary-contrast-800),
+    900: var(--mat-primary-contrast-900),
+    A100: var(--mat-primary-contrast-A100),
+    A200: var(--mat-primary-contrast-A200),
+    A400: var(--mat-primary-contrast-A400),
+    A700: var(--mat-primary-contrast-A700)
+  )
+);
+
+$mat-accent-palette: (
+  50: var(--mat-accent-50),
+  100: var(--mat-accent-100),
+  200: var(--mat-accent-200),
+  300: var(--mat-accent-300),
+  400: var(--mat-accent-400),
+  500: var(--mat-accent-500),
+  600: var(--mat-accent-600),
+  700: var(--mat-accent-700),
+  800: var(--mat-accent-800),
+  900: var(--mat-accent-900),
+  A100: var(--mat-accent-A100),
+  A200: var(--mat-accent-A200),
+  A400: var(--mat-accent-A400),
+  A700: var(--mat-accent-A700),
+  contrast: (
+    50: var(--mat-accent-contrast-50),
+    100: var(--mat-accent-contrast-100),
+    200: var(--mat-accent-contrast-200),
+    300: var(--mat-accent-contrast-300),
+    400: var(--mat-accent-contrast-400),
+    500: var(--mat-accent-contrast-500),
+    600: var(--mat-accent-contrast-600),
+    700: var(--mat-accent-contrast-700),
+    800: var(--mat-accent-contrast-800),
+    900: var(--mat-accent-contrast-900),
+    A100: var(--mat-accent-contrast-A100),
+    A200: var(--mat-accent-contrast-A200),
+    A400: var(--mat-accent-contrast-A400),
+    A700: var(--mat-accent-contrast-A700)
+  )
+);
+
+$mat-warn-palette: (
+  50: var(--mat-warn-50),
+  100: var(--mat-warn-100),
+  200: var(--mat-warn-200),
+  300: var(--mat-warn-300),
+  400: var(--mat-warn-400),
+  500: var(--mat-warn-500),
+  600: var(--mat-warn-600),
+  700: var(--mat-warn-700),
+  800: var(--mat-warn-800),
+  900: var(--mat-warn-900),
+  A100: var(--mat-warn-A100),
+  A200: var(--mat-warn-A200),
+  A400: var(--mat-warn-A400),
+  A700: var(--mat-warn-A700),
+  contrast: (
+    50: var(--mat-warn-contrast-50),
+    100: var(--mat-warn-contrast-100),
+    200: var(--mat-warn-contrast-200),
+    300: var(--mat-warn-contrast-300),
+    400: var(--mat-warn-contrast-400),
+    500: var(--mat-warn-contrast-500),
+    600: var(--mat-warn-contrast-600),
+    700: var(--mat-warn-contrast-700),
+    800: var(--mat-warn-contrast-800),
+    900: var(--mat-warn-contrast-900),
+    A100: var(--mat-warn-contrast-A100),
+    A200: var(--mat-warn-contrast-A200),
+    A400: var(--mat-warn-contrast-A400),
+    A700: var(--mat-warn-contrast-A700)
+  )
+);
