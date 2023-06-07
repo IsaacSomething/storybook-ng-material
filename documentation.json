@@ -704,7 +704,7 @@
         },
         {
             "name": "ColorsModule",
-            "id": "component-ColorsModule-598524cca95354fe091f4429a3ba0738187d2cfb6cf2147be71c2289bef008e0b70144111c4bdaf90a09f52da7ddcdda00c50e27bd7f69f3a6bf991b2417aac8",
+            "id": "component-ColorsModule-2df2e21e154822fc14ac4b86f2d2fa90707aacd329a78ed52f1983d2fe116a5bdb78f25baa6313bc84088210d6c327fd0896e6e2cc4fa974a7de47c6fe2843b9",
             "file": "src/stories/theme/colors/colors.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -712,9 +712,11 @@
             "outputs": [],
             "providers": [],
             "selector": "app-colors",
-            "styleUrls": [],
+            "styleUrls": [
+                "./colors.component.scss"
+            ],
             "styles": [],
-            "template": "<sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n<div\n  class=\"block\"\n  matRipple\n  cdkCopyToClipboard=\"var(--mat-{{ color }}-{{ hue }})\"\n  *ngFor=\"let hue of ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700']\"\n  style=\"background-color:var(--mat-{{ color }}-{{ hue }})\"\n>\n  <h1 style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\">{{ hue }}</h1>\n  <span style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\"> var(--mat-{{ color }}-{{ hue }}) </span>\n</div>\n",
+            "template": "<sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n<div class=\"mx-4\">\n  <div\n    class=\"block\"\n    matRipple\n    cdkCopyToClipboard=\"var(--mat-{{ color }}-{{ hue }})\"\n    *ngFor=\"let hue of ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700']\"\n    style=\"background-color:var(--mat-{{ color }}-{{ hue }})\"\n  >\n    <h1 style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\">{{ hue }}</h1>\n    <span style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\"> var(--mat-{{ color }}-{{ hue }}) </span>\n  </div>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -723,8 +725,8 @@
                     "name": "color",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
-                    "type": "ThemePalette | \"default\"",
+                    "line": 31,
+                    "type": "ThemePalette",
                     "decorators": []
                 }
             ],
@@ -757,14 +759,19 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatRippleModule, ThemePalette } from '@angular/material/core';\nimport { ClipboardModule } from '@angular/cdk/clipboard';\n\n@Component({\n  selector: 'app-colors',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, ClipboardModule, MatRippleModule],\n  template: `\n    <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n    <div\n      class=\"block\"\n      matRipple\n      cdkCopyToClipboard=\"var(--mat-{{ color }}-{{ hue }})\"\n      *ngFor=\"let hue of ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700']\"\n      style=\"background-color:var(--mat-{{ color }}-{{ hue }})\"\n    >\n      <h1 style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\">{{ hue }}</h1>\n      <span style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\"> var(--mat-{{ color }}-{{ hue }}) </span>\n    </div>\n  `,\n  styles: []\n})\nexport class ColorsModule {\n  @Input() color!: ThemePalette | 'default';\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatRippleModule, ThemePalette } from '@angular/material/core';\nimport { ClipboardModule } from '@angular/cdk/clipboard';\n\n@Component({\n  selector: 'app-colors',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, ClipboardModule, MatRippleModule],\n  styleUrls: ['./colors.component.scss'],\n  template: `\n    <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n    <div class=\"mx-4\">\n      <div\n        class=\"block\"\n        matRipple\n        cdkCopyToClipboard=\"var(--mat-{{ color }}-{{ hue }})\"\n        *ngFor=\"let hue of ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700']\"\n        style=\"background-color:var(--mat-{{ color }}-{{ hue }})\"\n      >\n        <h1 style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\">{{ hue }}</h1>\n        <span style=\"color:var(--mat-{{ color }}-contrast-{{ hue }})\"> var(--mat-{{ color }}-{{ hue }}) </span>\n      </div>\n    </div>\n  `,\n  styles: []\n})\nexport class ColorsModule {\n  @Input() color!: ThemePalette ;\n}\n",
             "assetsDirs": [],
-            "styleUrlsData": "",
+            "styleUrlsData": [
+                {
+                    "data": ".block {\r\n  height: 80px;\r\n  width: 160px;\r\n  border-radius: 4px;\r\n  display: inline-block;\r\n  margin-right: 16px;\r\n  margin-bottom: 16px;\r\n  padding: 8px;\r\n  position: relative;\r\n  &:hover {\r\n    cursor: copy;\r\n  }\r\n\r\n  h1 {\r\n    font-weight: bold;\r\n    font-weight: 50px;\r\n  }\r\n  span {\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n    background: rgb(0 0 0 / 5%);\r\n    padding: 6px 10px;\r\n    width: 88%;\r\n    font-weight: normal;\r\n    font-size: 11px;\r\n    width: 100%;\r\n  }\r\n}\r\n\r\nh4 {\r\n  font-weight: bold !important;\r\n}\r\n\r\nsmall {\r\n  font-weight: 400;\r\n  letter-spacing: 1px;\r\n  font-size: 10px;\r\n}\r\n",
+                    "styleUrl": "./colors.component.scss"
+                }
+            ],
             "stylesData": ""
         },
         {
             "name": "SBHeaderModule",
-            "id": "component-SBHeaderModule-2670de42385316982592c310331fb1da3aa57bf31bd52594b12625e5718b93b7a3d41c5c9b9dc31270f236384148444947ba1e1edab8fc482e437ee6643f9149",
+            "id": "component-SBHeaderModule-751bb1d9d26d17199c24a2c2489118a80f7c2c5c383512acb8f6db7c12cce93885ef651b9ffc3100f2e51b6f37b5e610ff13656626e94fec5b8d0768d7a8eb4c",
             "file": "src/stories/assets/sb-header/sb-header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -774,9 +781,9 @@
             "selector": "sb-header",
             "styleUrls": [],
             "styles": [
-                "\n      :host {\n        display: block;\n        width: 100%;\n      }\n      .container {\n        display: block;\n        width: calc(100% - 32px);\n        margin-left: 16px;\n      }\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 16px;\n      }\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n      mat-divider {\n        margin-bottom: 16px;\n      }\n      a {\n        padding-bottom: 16px;\n      }\n    "
+                "\n      :host {\n        display: block;\n        width: 100%;\n      }\n\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 30px;\n        padding-top: 16px;\n      }\n\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n\n      mat-divider {\n        margin-bottom: 16px;\n      }\n\n      a {\n        padding-bottom: 16px;\n      }\n    "
             ],
-            "template": "<div class=\"container\">\n  <h2>{{ title }}</h2>\n  <a href=\"https://material.angular.io/components/{{ matLink }}/api\" target=\"_blank\"> Angular material documentation </a>\n\n  <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\n  <mat-divider></mat-divider>\n</div>\n",
+            "template": "<div class=\"container\">\n  <h2>{{ title }}</h2>\n  <a *ngIf=\"matLink\" href=\"https://material.angular.io/components/{{ matLink }}/api\" target=\"_blank\">\n    Angular material documentation\n  </a>\n\n  <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\n  <mat-divider></mat-divider>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -785,7 +792,7 @@
                     "name": "clipboard",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 53,
+                    "line": 55,
                     "type": "BooleanInput",
                     "decorators": []
                 },
@@ -793,7 +800,7 @@
                     "name": "matLink",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 52,
+                    "line": 54,
                     "type": "string",
                     "decorators": []
                 },
@@ -803,7 +810,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
-                    "line": 51,
+                    "line": 53,
                     "type": "string",
                     "decorators": []
                 }
@@ -818,7 +825,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 59
+                    "line": 61
                 }
             ],
             "methodsClass": [],
@@ -840,10 +847,10 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { MatDividerModule } from '@angular/material/divider';\r\nimport { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';\r\n\r\n@Component({\r\n  selector: 'sb-header',\r\n  standalone: true,\r\n  imports: [CommonModule, MatDividerModule],\r\n  styles: [\r\n    `\r\n      :host {\r\n        display: block;\r\n        width: 100%;\r\n      }\r\n      .container {\r\n        display: block;\r\n        width: calc(100% - 32px);\r\n        margin-left: 16px;\r\n      }\r\n      h2 {\r\n        font-size: 50px !important;\r\n        font-weight: bold !important;\r\n        margin-bottom: 6px !important;\r\n        text-transform: capitalize;\r\n        padding-bottom: 16px;\r\n      }\r\n      small {\r\n        padding-top: 12px;\r\n        display: block;\r\n      }\r\n      mat-divider {\r\n        margin-bottom: 16px;\r\n      }\r\n      a {\r\n        padding-bottom: 16px;\r\n      }\r\n    `\r\n  ],\r\n  template: `\r\n    <div class=\"container\">\r\n      <h2>{{ title }}</h2>\r\n      <a href=\"https://material.angular.io/components/{{ matLink }}/api\" target=\"_blank\"> Angular material documentation </a>\r\n\r\n      <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\r\n      <mat-divider></mat-divider>\r\n    </div>\r\n  `\r\n})\r\nexport class SBHeaderModule {\r\n  @Input({ required: true }) title!: string;\r\n  @Input() matLink!: string;\r\n  @Input() set clipboard(value: BooleanInput) {\r\n    this._clipboard = coerceBooleanProperty(value);\r\n  }\r\n  get clipboard() {\r\n    return this._clipboard;\r\n  }\r\n  _clipboard = false;\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { MatDividerModule } from '@angular/material/divider';\r\nimport { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';\r\n\r\n@Component({\r\n  selector: 'sb-header',\r\n  standalone: true,\r\n  imports: [CommonModule, MatDividerModule],\r\n  styles: [\r\n    `\r\n      :host {\r\n        display: block;\r\n        width: 100%;\r\n      }\r\n\r\n      h2 {\r\n        font-size: 50px !important;\r\n        font-weight: bold !important;\r\n        margin-bottom: 6px !important;\r\n        text-transform: capitalize;\r\n        padding-bottom: 30px;\r\n        padding-top: 16px;\r\n      }\r\n\r\n      small {\r\n        padding-top: 12px;\r\n        display: block;\r\n      }\r\n\r\n      mat-divider {\r\n        margin-bottom: 16px;\r\n      }\r\n\r\n      a {\r\n        padding-bottom: 16px;\r\n      }\r\n    `\r\n  ],\r\n  template: `\r\n    <div class=\"container\">\r\n      <h2>{{ title }}</h2>\r\n      <a *ngIf=\"matLink\" href=\"https://material.angular.io/components/{{ matLink }}/api\" target=\"_blank\">\r\n        Angular material documentation\r\n      </a>\r\n\r\n      <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\r\n      <mat-divider></mat-divider>\r\n    </div>\r\n  `\r\n})\r\nexport class SBHeaderModule {\r\n  @Input({ required: true }) title!: string;\r\n  @Input() matLink!: string;\r\n  @Input() set clipboard(value: BooleanInput) {\r\n    this._clipboard = coerceBooleanProperty(value);\r\n  }\r\n  get clipboard() {\r\n    return this._clipboard;\r\n  }\r\n  _clipboard = false;\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "\n      :host {\n        display: block;\n        width: 100%;\n      }\n      .container {\n        display: block;\n        width: calc(100% - 32px);\n        margin-left: 16px;\n      }\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 16px;\n      }\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n      mat-divider {\n        margin-bottom: 16px;\n      }\n      a {\n        padding-bottom: 16px;\n      }\n    \n",
+            "stylesData": "\n      :host {\n        display: block;\n        width: 100%;\n      }\n\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 30px;\n        padding-top: 16px;\n      }\n\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n\n      mat-divider {\n        margin-bottom: 16px;\n      }\n\n      a {\n        padding-bottom: 16px;\n      }\n    \n",
             "accessors": {
                 "clipboard": {
                     "name": "clipboard",
@@ -861,7 +868,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 53,
+                        "line": 55,
                         "jsdoctags": [
                             {
                                 "name": "value",
@@ -878,14 +885,14 @@
                         "name": "clipboard",
                         "type": "",
                         "returnType": "",
-                        "line": 56
+                        "line": 58
                     }
                 }
             }
         },
         {
             "name": "TypographyModule",
-            "id": "component-TypographyModule-2caace579831dc912710dbf2232afce7c24c3c062492e14d288205e243476b1127a9d92b0e6ee144de32749da09ecd8d567da713a5d14649f920ce45117b292e",
+            "id": "component-TypographyModule-1457b4ecd86cbd647ce6cf755b4276e449e29dd8961413bba6de1cac5c94e1baeabc7c5711c4d7f40abc28b7f8de53dcdda3ee3d203c45df0ce799779987998e",
             "file": "src/stories/theme/typography/typography.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -895,11 +902,20 @@
             "selector": "app-typography",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />",
+            "template": "<sb-header title=\"Typography\" />\n\n<div class=\"mx-4\">\n  <h1 class=\"text-{{ color }}\">[h1] abcdefghijklmnopqrstuvwxyz</h1>\n  <h2 class=\"text-{{ color }}\">[h2] abcdefghijklmnopqrstuvwxyz</h2>\n  <h3 class=\"text-{{ color }}\">[h3] abcdefghijklmnopqrstuvwxyz</h3>\n  <h4 class=\"text-{{ color }}\">[h4] abcdefghijklmnopqrstuvwxyz</h4>\n  <h5 class=\"text-{{ color }}\">[h5] abcdefghijklmnopqrstuvwxyz</h5>\n  <h6 class=\"text-{{ color }}\">[h6] abcdefghijklmnopqrstuvwxyz</h6>\n\n  <p class=\"text-{{ color }}\">\n    [p] abcdefghijklmnopqrstuvwxyz Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, aspernatur excepturi nostrum\n    pariatur quam natus dicta exercitationem vel consectetur, culpa inventore adipisci numquam eum deserunt ipsa iure ad, corporis\n    explicabo?\n  </p>\n\n  <label class=\"text-{{ color }}\">[label] abcdefghijklmnopqrstuvwxyz</label>\n  <br />\n  <small class=\"text-{{ color }}\">[small] abcdefghijklmnopqrstuvwxyz</small>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "ThemePalette | \"default\"",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -921,7 +937,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { MatCardModule } from '@angular/material/card';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatButtonModule } from '@angular/material/button';\n\n@Component({\n  selector: 'app-typography',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule],\n  template: ` <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" /> `,\n  styles: []\n})\nexport class TypographyModule {}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { ThemePalette } from '@angular/material/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-typography',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule],\n  styles: [],\n  template: `\n    <sb-header title=\"Typography\" />\n\n    <div class=\"mx-4\">\n      <h1 class=\"text-{{ color }}\">[h1] abcdefghijklmnopqrstuvwxyz</h1>\n      <h2 class=\"text-{{ color }}\">[h2] abcdefghijklmnopqrstuvwxyz</h2>\n      <h3 class=\"text-{{ color }}\">[h3] abcdefghijklmnopqrstuvwxyz</h3>\n      <h4 class=\"text-{{ color }}\">[h4] abcdefghijklmnopqrstuvwxyz</h4>\n      <h5 class=\"text-{{ color }}\">[h5] abcdefghijklmnopqrstuvwxyz</h5>\n      <h6 class=\"text-{{ color }}\">[h6] abcdefghijklmnopqrstuvwxyz</h6>\n\n      <p class=\"text-{{ color }}\">\n        [p] abcdefghijklmnopqrstuvwxyz Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, aspernatur excepturi nostrum\n        pariatur quam natus dicta exercitationem vel consectetur, culpa inventore adipisci numquam eum deserunt ipsa iure ad, corporis\n        explicabo?\n      </p>\n\n      <label class=\"text-{{ color }}\">[label] abcdefghijklmnopqrstuvwxyz</label>\n      <br />\n      <small class=\"text-{{ color }}\">[small] abcdefghijklmnopqrstuvwxyz</small>\n    </div>\n  `\n})\nexport class TypographyModule {\n  @Input() color!: ThemePalette | 'default';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -1066,6 +1082,16 @@
                 "defaultValue": "{\r\n  color: 'primary'\r\n}"
             },
             {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TypographyModule>",
+                "defaultValue": "{\r\n  color: 'default'\r\n}"
+            },
+            {
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1114,6 +1140,16 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<ColorsModule>",
                 "defaultValue": "{\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<TypographyModule>",
+                "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
             },
             {
                 "name": "Autocomplete",
@@ -1166,26 +1202,6 @@
                 "defaultValue": "{\r\n  /* args */\r\n}"
             },
             {
-                "name": "Card",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/theme/colors/colors.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{ args }"
-            },
-            {
-                "name": "Card",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/theme/typography/typography.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  /* args */\r\n}"
-            },
-            {
                 "name": "Chips",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1196,14 +1212,14 @@
                 "defaultValue": "{\r\n  args\r\n}"
             },
             {
-                "name": "meta",
+                "name": "Colors",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "file": "src/stories/theme/colors/colors.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<BadgeModule>",
-                "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "type": "Story",
+                "defaultValue": "{ args }"
             },
             {
                 "name": "meta",
@@ -1219,21 +1235,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<BottomSheetModule>",
-                "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "type": "Meta<BadgeModule>",
+                "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<CardModule>",
-                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
+                "type": "Meta<BottomSheetModule>",
+                "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1259,11 +1275,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CardModule>",
+                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/theme/colors/colors.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ColorsModule>",
-                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "defaultValue": "{\r\n  title: 'Theme/Colors',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1273,7 +1299,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TypographyModule>",
-                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: TypographyModule,\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
+                "defaultValue": "{\r\n  title: 'Theme/Typography',\r\n  component: TypographyModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "preview",
@@ -1284,21 +1310,20 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/\n      }\n    }\n  }\n}"
+            },
+            {
+                "name": "Typography",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{ args }"
             }
         ],
         "functions": [],
         "typealiases": [
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeModule>",
-                "file": "src/stories/components/badge/badge.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
             {
                 "name": "Story",
                 "ctype": "miscellaneous",
@@ -1314,8 +1339,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BottomSheetModule>",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "rawtype": "StoryObj<BadgeModule>",
+                "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1325,8 +1350,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CardModule>",
-                "file": "src/stories/components/card/card.stories.ts",
+                "rawtype": "StoryObj<BottomSheetModule>",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1349,6 +1374,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ChipsModule>",
                 "file": "src/stories/components/chips/chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CardModule>",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1569,7 +1605,7 @@
                     "defaultValue": "{\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
                 },
                 {
-                    "name": "Card",
+                    "name": "Colors",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/theme/colors/colors.stories.ts",
@@ -1586,7 +1622,49 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ColorsModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                    "defaultValue": "{\r\n  title: 'Theme/Colors',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/theme/typography/typography.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TypographyModule>",
+                    "defaultValue": "{\r\n  color: 'default'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<TypographyModule>",
+                    "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TypographyModule>",
+                    "defaultValue": "{\r\n  title: 'Theme/Typography',\r\n  component: TypographyModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                },
+                {
+                    "name": "Typography",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
                 }
             ],
             "src/stories/components/autocomplete/autocomplete.stories.ts": [
@@ -1633,28 +1711,6 @@
                     "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
                 }
             ],
-            "src/stories/theme/typography/typography.stories.ts": [
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/typography/typography.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  /* args */\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/typography/typography.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TypographyModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: TypographyModule,\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
-                }
-            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -1671,19 +1727,6 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "src/stories/components/badge/badge.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BadgeModule>",
-                    "file": "src/stories/components/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/autocomplete/autocomplete.stories.ts": [
                 {
                     "name": "Story",
@@ -1697,6 +1740,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/components/badge/badge.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BadgeModule>",
+                    "file": "src/stories/components/badge/badge.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
                 {
                     "name": "Story",
@@ -1704,19 +1760,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BottomSheetModule>",
                     "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/card/card.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardModule>",
-                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1743,6 +1786,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ChipsModule>",
                     "file": "src/stories/components/chips/chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardModule>",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2120,7 +2176,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Card",
+                "name": "Colors",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2141,6 +2197,16 @@
                 "linktype": "component",
                 "name": "TypographyModule",
                 "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/theme/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
@@ -2149,7 +2215,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Card",
+                "name": "argTypes",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2160,6 +2226,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/theme/typography/typography.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Typography",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
