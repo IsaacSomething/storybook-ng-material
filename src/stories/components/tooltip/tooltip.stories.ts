@@ -3,20 +3,7 @@ import { TooltipModule } from './tooltip.component';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-/* const argTypes: ArgTypes<TooltipModule> = {
-  yPosition: {
-    options: ['above', 'below'],
-    control: { type: 'radio' },
-    name: 'Y position'
-  },
-  xPosition: {
-    options: ['before', 'after'],
-    control: { type: 'radio' },
-    name: 'X position'
-  },
-  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },
-  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }
-}; */
+const argTypes: ArgTypes<TooltipModule> = {};
 
 const args: Partial<TooltipModule> = {};
 

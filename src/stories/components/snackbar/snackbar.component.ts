@@ -15,9 +15,8 @@ import { SBHeaderModule } from 'src/stories/assets/sb-header';
 })
 export class SnackbarModule {
   @Input() label!: string;
-  @Input() message!: string;
   @Input() hasAction!: boolean;
-  @Input() duration!: boolean;
+  @Input() duration!: number;
   @Input() xPosition!: 'start' | 'center' | 'end' | 'left' | 'right';
   @Input() yPosition!: 'top' | 'bottom';
 
@@ -25,7 +24,7 @@ export class SnackbarModule {
 
   openSnackbar() {
     this.snackbar.open(this.label, this.hasAction ? 'Action' : undefined, {
-      duration: this.duration ? 2000 : undefined,
+      duration: this.duration ? this.duration : 5000,
       verticalPosition: this.yPosition,
       horizontalPosition: this.xPosition
     });

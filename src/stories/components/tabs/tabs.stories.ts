@@ -3,34 +3,42 @@ import { TabsModule } from './tabs.component';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-/* const argTypes: ArgTypes<TabsModule> = {
-  yPosition: {
-    options: ['above', 'below'],
+const argTypes: ArgTypes<TabsModule> = {
+  color: {
+    options: ['default', 'primary', 'accent', 'warn'],
     control: { type: 'radio' },
-    name: 'Y position'
+    name: 'Color'
   },
-  xPosition: {
-    options: ['before', 'after'],
+  backgroundColor: {
+    options: ['default', 'primary', 'accent', 'warn'],
     control: { type: 'radio' },
-    name: 'X position'
+    name: 'Background color'
   },
-  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },
-  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }
-}; */
+  stretch: { control: { type: 'boolean' }, name: 'Stretch' },
+  duration: { control: { type: 'range', step: 100, max: 1000 }, name: 'Animation duration' },
+  align: { control: { type: 'boolean' }, name: 'Align' },
+  fitInkBarToContent: { control: { type: 'boolean' }, name: 'Fit ink bar to content' },
+  headerPosition: { control: { type: 'select', options: ['below', 'above'] }, name: 'Header position' }
+};
 
-const args: Partial<TabsModule> = {};
+const args: Partial<TabsModule> = {
+  color: 'primary',
+  backgroundColor: 'primary',
+  stretch: true,
+  duration: 100,
+  align: true,
+  fitInkBarToContent: true,
+  headerPosition: 'below'
+};
 
 const meta: Meta<TabsModule> = {
   title: 'Components/Tabs',
   component: TabsModule,
   parameters: { options: { showPanel: true } },
-  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]
-  /* argTypes */
+  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],
+  argTypes
 };
 
-export default meta;
 type Story = StoryObj<TabsModule>;
-
-export const Tabs: Story = {
-  /* args */
-};
+export default meta;
+export const Tabs: Story = { args };

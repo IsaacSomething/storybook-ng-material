@@ -11,20 +11,36 @@ import { MatTabsModule } from '@angular/material/tabs';
   template: `
     <sb-header title="Tabs" matLink="components/tabs/api" />
 
-    <mat-tab-group [color]="color" [animationDuration]="duration">
-      <mat-tab label="First">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium
-        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?
-      </mat-tab>
-      <mat-tab label="Second">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium
-        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?
-      </mat-tab>
-      <mat-tab label="Third">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium
-        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?
-      </mat-tab>
-    </mat-tab-group>
+    <div class="p-4">
+      <mat-tab-group
+        [color]="color"
+        [animationDuration]="duration"
+        [fitInkBarToContent]="fitInkBarToContent"
+        [headerPosition]="headerPosition"
+        [mat-stretch-tabs]="stretch"
+        [backgroundColor]="backgroundColor"
+        [color]="color"
+      >
+        <mat-tab label="First">
+          <p class="p-4">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio
+            praesentium debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?
+          </p>
+        </mat-tab>
+        <mat-tab label="Second">
+          <p class="p-4">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio
+            praesentium debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?
+          </p>
+        </mat-tab>
+        <mat-tab label="Third">
+          <p class="p-4">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio
+            praesentium debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?
+          </p>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   `,
   styles: []
 })

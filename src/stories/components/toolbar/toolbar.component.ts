@@ -10,12 +10,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [CommonModule, SBHeaderModule, MatToolbarModule],
   template: `
     <sb-header title="Toolbar" matLink="components/toolbar/api" />
-    <mat-toolbar>
-      <span>FirstRow</span>
-    </mat-toolbar>
+
+    <div class="mx-5">
+      <mat-toolbar [color]="color">
+        <span>[Left]</span>
+        <span class="flex-auto"></span>
+        <span>[Right]</span>
+      </mat-toolbar>
+    </div>
   `,
   styles: []
 })
 export class ToolbarModule {
-  @Input() color!: ThemePalette;
+  @Input() color!: ThemePalette | 'default';
 }

@@ -10,7 +10,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [CommonModule, SBHeaderModule, MatProgressSpinnerModule],
   template: `
     <sb-header title="Progress Spinner" matLink="components/progress-spinner/api" />
-    <mat-spinner [value]="value" [diameter]="diameter" [strokeWidth]="strokeWidth" [color]="color" [mode]="mode"></mat-spinner>
+    <div class="m-4">
+      <mat-spinner [value]="value" [diameter]="diameter" [strokeWidth]="strokeWidth" [color]="color" [mode]="mode"></mat-spinner>
+    </div>
   `,
   styles: []
 })
