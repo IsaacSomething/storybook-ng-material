@@ -13,9 +13,9 @@ import { SBHeaderModule } from '../../assets/sb-header';
 
     <mat-list>
       <mat-list-item>[Item 1]</mat-list-item>
-      <mat-divider [vertical]="true" [inset]="inset"></mat-divider>
+      <mat-divider [inset]="inset"></mat-divider>
       <mat-list-item>[Item 2]</mat-list-item>
-      <mat-divider [vertical]="true" [inset]="inset"></mat-divider>
+      <mat-divider [inset]="inset"></mat-divider>
       <mat-list-item>[Item 3]</mat-list-item>
     </mat-list>
   `,

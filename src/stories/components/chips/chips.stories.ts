@@ -18,8 +18,8 @@ const argTypes: ArgTypes<ChipsModule> = {
 const args: Partial<ChipsModule> = {
   color: 'default',
   hideSingle: false,
-  multiple: false,
-  selectable: false,
+  multiple: true,
+  selectable: true,
   highlighted: false
 };
 

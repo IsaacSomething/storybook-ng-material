@@ -12,6 +12,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
       :host {
         display: block;
         width: 100%;
+        padding: 0 16px;
       }
 
       h2 {
@@ -33,18 +34,18 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
       }
 
       a {
-        padding-bottom: 16px;
+        margin-top: -20px;
+        margin-bottom: 14px;
+        display: block;
       }
     `
   ],
   template: `
-    <div class="container">
-      <h2>{{ title }}</h2>
-      <a *ngIf="matLink" href="https://material.angular.io/{{ matLink }}" target="_blank"> Angular material documentation </a>
+    <h2>{{ title }}</h2>
+    <a *ngIf="matLink" href="https://material.angular.io/{{ matLink }}" target="_blank"> Angular material documentation </a>
 
-      <small *ngIf="clipboard">CLICK TO COPY VALUE</small>
-      <mat-divider></mat-divider>
-    </div>
+    <small *ngIf="clipboard">CLICK TO COPY VALUE</small>
+    <mat-divider></mat-divider>
   `
 })
 export class SBHeaderModule {

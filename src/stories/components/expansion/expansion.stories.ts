@@ -19,8 +19,8 @@ const argTypes: ArgTypes<ExpansionModule> = {
     control: { type: 'radio' },
     name: 'Toggle position'
   },
-  opened: { action: 'opened' },
-  closed: { action: 'closed' }
+  opened: { action: 'opened', table: { disable: true } },
+  closed: { action: 'closed', table: { disable: true } }
 };
 
 const args: Partial<ExpansionModule> = {

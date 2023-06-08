@@ -15,17 +15,6 @@
     font-weight: bold;
     font-weight: 50px;
   }
-  span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: rgb(0 0 0 / 5%);
-    padding: 6px 10px;
-    width: 88%;
-    font-weight: normal;
-    font-size: 11px;
-    width: 100%;
-  }
 }
 
 h4 {
@@ -33,7 +22,12 @@ h4 {
 }
 
 small {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgb(0 0 0 / 5%);
+  width: 100%;
   font-weight: 400;
-  letter-spacing: 1px;
-  font-size: 10px;
+  padding: 6px 10px;
+  letter-spacing: -0.9px;
 }

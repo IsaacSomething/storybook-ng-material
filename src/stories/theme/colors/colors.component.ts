@@ -21,12 +21,12 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
         style="background-color:var(--mat-{{ color }}-{{ hue }})"
       >
         <h1 style="color:var(--mat-{{ color }}-contrast-{{ hue }})">{{ hue }}</h1>
-        <span style="color:var(--mat-{{ color }}-contrast-{{ hue }})"> var(--mat-{{ color }}-{{ hue }}) </span>
+        <small style="color:var(--mat-{{ color }}-contrast-{{ hue }})"> var(--mat-{{ color }}-{{ hue }}) </small>
       </div>
     </div>
   `,
   styles: []
 })
 export class ColorsModule {
-  @Input() color!: ThemePalette ;
+  @Input() color!: ThemePalette;
 }

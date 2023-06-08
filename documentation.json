@@ -1781,7 +1781,7 @@
         },
         {
             "name": "SBHeaderModule",
-            "id": "component-SBHeaderModule-cd466a52d29812c678f3d82348246dd06a248b87deda7e499b12a85b65693ed4f5519eece59883ab8538474b41d7b92d672459455719aab5b9ea18eb76876719",
+            "id": "component-SBHeaderModule-bab0f4b9cbff72f426f461923b3067d7ff830084c8ce3f58a6245ee99ce925501a204aaf3fbb61ad581ea046bb40102cc737a2e32169653c5dccf0d10c4a72a9",
             "file": "src/stories/assets/sb-header/sb-header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1793,7 +1793,7 @@
             "styles": [
                 "\n      :host {\n        display: block;\n        width: 100%;\n      }\n\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 30px;\n        padding-top: 16px;\n      }\n\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n\n      mat-divider {\n        margin-bottom: 16px;\n      }\n\n      a {\n        padding-bottom: 16px;\n      }\n    "
             ],
-            "template": "<div class=\"container\">\n  <h2>{{ title }}</h2>\n  <a *ngIf=\"matLink\" href=\"https://material.angular.io/{{ matLink }}\" target=\"_blank\"> Angular material documentation </a>\n\n  <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\n  <mat-divider></mat-divider>\n</div>\n",
+            "template": "<div class=\"container\">\n  <h2>{{ title }}</h2>\n  <a class=\"pb-6\" *ngIf=\"matLink\" href=\"https://material.angular.io/{{ matLink }}\" target=\"_blank\"> Angular material documentation </a>\n\n  <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\n  <mat-divider></mat-divider>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -1857,7 +1857,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatDividerModule } from '@angular/material/divider';\nimport { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'sb-header',\n  standalone: true,\n  imports: [CommonModule, MatDividerModule],\n  styles: [\n    `\n      :host {\n        display: block;\n        width: 100%;\n      }\n\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 30px;\n        padding-top: 16px;\n      }\n\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n\n      mat-divider {\n        margin-bottom: 16px;\n      }\n\n      a {\n        padding-bottom: 16px;\n      }\n    `\n  ],\n  template: `\n    <div class=\"container\">\n      <h2>{{ title }}</h2>\n      <a *ngIf=\"matLink\" href=\"https://material.angular.io/{{ matLink }}\" target=\"_blank\"> Angular material documentation </a>\n\n      <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\n      <mat-divider></mat-divider>\n    </div>\n  `\n})\nexport class SBHeaderModule {\n  @Input({ required: true }) title!: string;\n  @Input() matLink!: string;\n  @Input() set clipboard(value: BooleanInput) {\n    this._clipboard = coerceBooleanProperty(value);\n  }\n  get clipboard() {\n    return this._clipboard;\n  }\n  _clipboard = false;\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatDividerModule } from '@angular/material/divider';\nimport { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';\n\n@Component({\n  selector: 'sb-header',\n  standalone: true,\n  imports: [CommonModule, MatDividerModule],\n  styles: [\n    `\n      :host {\n        display: block;\n        width: 100%;\n      }\n\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 30px;\n        padding-top: 16px;\n      }\n\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n\n      mat-divider {\n        margin-bottom: 16px;\n      }\n\n      a {\n        padding-bottom: 16px;\n      }\n    `\n  ],\n  template: `\n    <div class=\"container\">\n      <h2>{{ title }}</h2>\n      <a class=\"pb-6\" *ngIf=\"matLink\" href=\"https://material.angular.io/{{ matLink }}\" target=\"_blank\"> Angular material documentation </a>\n\n      <small *ngIf=\"clipboard\">CLICK TO COPY VALUE</small>\n      <mat-divider></mat-divider>\n    </div>\n  `\n})\nexport class SBHeaderModule {\n  @Input({ required: true }) title!: string;\n  @Input() matLink!: string;\n  @Input() set clipboard(value: BooleanInput) {\n    this._clipboard = coerceBooleanProperty(value);\n  }\n  get clipboard() {\n    return this._clipboard;\n  }\n  _clipboard = false;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "\n      :host {\n        display: block;\n        width: 100%;\n      }\n\n      h2 {\n        font-size: 50px !important;\n        font-weight: bold !important;\n        margin-bottom: 6px !important;\n        text-transform: capitalize;\n        padding-bottom: 30px;\n        padding-top: 16px;\n      }\n\n      small {\n        padding-top: 12px;\n        display: block;\n      }\n\n      mat-divider {\n        margin-bottom: 16px;\n      }\n\n      a {\n        padding-bottom: 16px;\n      }\n    \n",
@@ -2212,6 +2212,53 @@
                     }
                 ]
             }
+        },
+        {
+            "name": "TableModule",
+            "id": "component-TableModule-ea8cf7a6ac502a5568228d3ac231ee509ea41a08e3e9f824cc84bee2261951786afaabd517c61996bf3bfe98e8ed94a8277d96eed1c8c5f5b3936c037fdd83ae",
+            "file": "src/stories/components/table/table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-table",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Table\" matLink=\"components/table/api\" />",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatTableModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatTableModule } from '@angular/material/table';\n\n@Component({\n  selector: 'app-table',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatTableModule],\n  template: ` <sb-header title=\"Table\" matLink=\"components/table/api\" /> `,\n  styles: []\n})\nexport class TableModule {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
         },
         {
             "name": "TabsModule",
@@ -2621,21 +2668,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<BadgeModule>",
-                "defaultValue": "{\n  label: '0',\n  color: 'primary',\n  size: 'medium',\n  position: 'above after',\n  disabled: false,\n  overlap: false,\n  hidden: false\n}"
+                "type": "Partial<BottomSheetModule>",
+                "defaultValue": "{\n  hasBackdrop: true\n}"
             },
             {
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
+                "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<CardModule>",
-                "defaultValue": "{\n  title: true,\n  subtitle: true,\n  content: true,\n  actions: true,\n  footer: true,\n  avatar: true,\n  image: true,\n  media: true,\n  mediaSize: 'md',\n  align: 'start',\n  appearance: 'outlined'\n}"
+                "type": "Partial<BadgeModule>",
+                "defaultValue": "{\n  label: '0',\n  color: 'primary',\n  size: 'medium',\n  position: 'above after',\n  disabled: false,\n  overlap: false,\n  hidden: false\n}"
             },
             {
                 "name": "args",
@@ -2651,21 +2698,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ChipsModule>",
-                "defaultValue": "{\n  color: 'default',\n  hideSingle: false,\n  multiple: false,\n  selectable: false,\n  highlighted: false\n}"
+                "type": "Partial<CardModule>",
+                "defaultValue": "{\n  title: true,\n  subtitle: true,\n  content: true,\n  actions: true,\n  footer: true,\n  avatar: true,\n  image: true,\n  media: true,\n  mediaSize: 'md',\n  align: 'start',\n  appearance: 'outlined'\n}"
             },
             {
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<BottomSheetModule>",
-                "defaultValue": "{\n  hasBackdrop: true\n}"
+                "type": "Partial<ChipsModule>",
+                "defaultValue": "{\n  color: 'default',\n  hideSingle: false,\n  multiple: false,\n  selectable: false,\n  highlighted: false\n}"
             },
             {
                 "name": "args",
@@ -2731,6 +2778,16 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TableModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2756,26 +2813,6 @@
                 "deprecationMessage": "",
                 "type": "Partial<TooltipModule>",
                 "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/theme/colors/colors.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ColorsModule>",
-                "defaultValue": "{\n  color: 'primary'\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/theme/typography/typography.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<TypographyModule>",
-                "defaultValue": "{\n  color: 'default'\n}"
             },
             {
                 "name": "args",
@@ -2908,6 +2945,36 @@
                 "defaultValue": "{\n  centered: false,\n  disabled: false,\n  radius: undefined,\n  unbounded: false,\n  color: 'default'\n}"
             },
             {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/colors/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ColorsModule>",
+                "defaultValue": "{\n  color: 'primary'\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TypographyModule>",
+                "defaultValue": "{\n  color: 'default'\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<BottomSheetModule>",
+                "defaultValue": "{\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\n  openBottomSheet: { table: { disable: true } }\n}"
+            },
+            {
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -2916,16 +2983,6 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<BadgeModule>",
                 "defaultValue": "{\n  label: { control: { type: 'text' }, name: 'Label' },\n  color: {\n    options: ['primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  size: {\n    options: ['small', 'medium', 'large'],\n    control: { type: 'radio' },\n    name: 'Size'\n  },\n  position: {\n    options: ['above after', 'above before', 'below before', 'below after', 'before', 'after', 'above', 'below'],\n    control: { type: 'select' },\n    name: 'Position'\n  },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  overlap: { control: { type: 'boolean' }, name: 'Overlay' },\n  hidden: { control: { type: 'boolean' }, name: 'Hidden' }\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<CardModule>",
-                "defaultValue": "{\n  title: { control: { type: 'boolean' }, name: 'Has title' },\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\n  content: { control: { type: 'boolean' }, name: 'Has content' },\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\n  image: { control: { type: 'boolean' }, name: 'Has image' },\n  media: { control: { type: 'boolean' }, name: 'Has media' },\n  mediaSize: {\n    options: ['xl', 'lg', 'md', 'sm'],\n    control: { type: 'radio' },\n    name: 'Media size'\n  },\n  align: {\n    options: ['start', 'end'],\n    control: { type: 'radio' },\n    name: 'Align actions'\n  },\n  appearance: {\n    options: ['outlined', 'raised'],\n    control: { type: 'radio' },\n    name: 'Appearance'\n  }\n}"
             },
             {
                 "name": "argTypes",
@@ -2941,21 +2998,21 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ChipsModule>",
-                "defaultValue": "{\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\n}"
+                "type": "ArgTypes<CardModule>",
+                "defaultValue": "{\n  title: { control: { type: 'boolean' }, name: 'Has title' },\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\n  content: { control: { type: 'boolean' }, name: 'Has content' },\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\n  image: { control: { type: 'boolean' }, name: 'Has image' },\n  media: { control: { type: 'boolean' }, name: 'Has media' },\n  mediaSize: {\n    options: ['xl', 'lg', 'md', 'sm'],\n    control: { type: 'radio' },\n    name: 'Media size'\n  },\n  align: {\n    options: ['start', 'end'],\n    control: { type: 'radio' },\n    name: 'Align actions'\n  },\n  appearance: {\n    options: ['outlined', 'raised'],\n    control: { type: 'radio' },\n    name: 'Appearance'\n  }\n}"
             },
             {
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<BottomSheetModule>",
-                "defaultValue": "{\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\n  openBottomSheet: { table: { disable: true } }\n}"
+                "type": "ArgTypes<ChipsModule>",
+                "defaultValue": "{\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\n}"
             },
             {
                 "name": "argTypes",
@@ -3001,21 +3058,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/theme/colors/colors.stories.ts",
+                "file": "src/stories/components/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ColorsModule>",
-                "defaultValue": "{\n  color: {\n    options: ['primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/theme/typography/typography.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<TypographyModule>",
-                "defaultValue": "{\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
+                "type": "ArgTypes<TableModule>",
+                "defaultValue": "{}"
             },
             {
                 "name": "argTypes",
@@ -3146,6 +3193,26 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<RipplesModule>",
                 "defaultValue": "{\n  color: {\n    options: ['primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  centered: { control: { type: 'boolean' }, name: 'Disabled' },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  unbounded: { control: { type: 'boolean' }, name: 'Disabled' },\n  radius: { control: { type: 'number' }, name: 'Radius' }\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/colors/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ColorsModule>",
+                "defaultValue": "{\n  color: {\n    options: ['primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<TypographyModule>",
+                "defaultValue": "{\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
             },
             {
                 "name": "Autocomplete",
@@ -3311,21 +3378,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<BadgeModule>",
-                "defaultValue": "{\n  title: 'Components/Badge',\n  component: BadgeModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                "type": "Meta<BottomSheetModule>",
+                "defaultValue": "{\n  title: 'Components/Bottom Sheet',\n  component: BottomSheetModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
+                "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<CardModule>",
-                "defaultValue": "{\n  title: 'Components/Card',\n  component: CardModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                "type": "Meta<BadgeModule>",
+                "defaultValue": "{\n  title: 'Components/Badge',\n  component: BadgeModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
             },
             {
                 "name": "meta",
@@ -3341,21 +3408,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ChipsModule>",
-                "defaultValue": "{\n  title: 'Components/Chips',\n  component: ChipsModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
+                "type": "Meta<CardModule>",
+                "defaultValue": "{\n  title: 'Components/Card',\n  component: CardModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<BottomSheetModule>",
-                "defaultValue": "{\n  title: 'Components/Bottom Sheet',\n  component: BottomSheetModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                "type": "Meta<ChipsModule>",
+                "defaultValue": "{\n  title: 'Components/Chips',\n  component: ChipsModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
             },
             {
                 "name": "meta",
@@ -3431,6 +3498,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TableModule>",
+                "defaultValue": "{\n  title: 'Components/Table',\n  component: TableModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3461,26 +3538,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/theme/colors/colors.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ColorsModule>",
-                "defaultValue": "{\n  title: 'Theme/Colors',\n  component: ColorsModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/theme/typography/typography.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TypographyModule>",
-                "defaultValue": "{\n  title: 'Theme/Typography',\n  component: TypographyModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3505,7 +3562,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<DatePickerModule>",
-                "defaultValue": "{\n  title: 'Forms/Date picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
+                "defaultValue": "{\n  title: 'Forms/Date Picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
             },
             {
                 "name": "meta",
@@ -3595,7 +3652,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<GridModule>",
-                "defaultValue": "{\n  title: 'Forms/Slider',\n  component: GridModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                "defaultValue": "{\n  title: 'Helpers/Grid',\n  component: GridModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
             },
             {
                 "name": "meta",
@@ -3606,6 +3663,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<RipplesModule>",
                 "defaultValue": "{\n  title: 'Helpers/Ripples',\n  component: RipplesModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/colors/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ColorsModule>",
+                "defaultValue": "{\n  title: 'Theme/Colors',\n  component: ColorsModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TypographyModule>",
+                "defaultValue": "{\n  title: 'Theme/Typography',\n  component: TypographyModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
             },
             {
                 "name": "preview",
@@ -3708,6 +3785,16 @@
                 "defaultValue": "{\n  /* args */\n}"
             },
             {
+                "name": "Table",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args\n}"
+            },
+            {
                 "name": "Tabs",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -3764,8 +3851,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeModule>",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "rawtype": "StoryObj<BottomSheetModule>",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3775,8 +3862,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CardModule>",
-                "file": "src/stories/components/card/card.stories.ts",
+                "rawtype": "StoryObj<BadgeModule>",
+                "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3797,8 +3884,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ChipsModule>",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "rawtype": "StoryObj<CardModule>",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3808,8 +3895,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BottomSheetModule>",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "rawtype": "StoryObj<ChipsModule>",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -3896,6 +3983,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<TableModule>",
+                "file": "src/stories/components/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<TabsModule>",
                 "file": "src/stories/components/tabs/tabs.stories.ts",
                 "deprecated": false,
@@ -3920,28 +4018,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TooltipModule>",
                 "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ColorsModule>",
-                "file": "src/stories/theme/colors/colors.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<TypographyModule>",
-                "file": "src/stories/theme/typography/typography.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4089,10 +4165,74 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ColorsModule>",
+                "file": "src/stories/theme/colors/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TypographyModule>",
+                "file": "src/stories/theme/typography/typography.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<BottomSheetModule>",
+                    "defaultValue": "{\n  hasBackdrop: true\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<BottomSheetModule>",
+                    "defaultValue": "{\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\n  openBottomSheet: { table: { disable: true } }\n}"
+                },
+                {
+                    "name": "BottomSheet",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BottomSheetModule>",
+                    "defaultValue": "{\n  title: 'Components/Bottom Sheet',\n  component: BottomSheetModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                }
+            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -4133,48 +4273,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<BadgeModule>",
                     "defaultValue": "{\n  title: 'Components/Badge',\n  component: BadgeModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                }
-            ],
-            "src/stories/components/card/card.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<CardModule>",
-                    "defaultValue": "{\n  title: true,\n  subtitle: true,\n  content: true,\n  actions: true,\n  footer: true,\n  avatar: true,\n  image: true,\n  media: true,\n  mediaSize: 'md',\n  align: 'start',\n  appearance: 'outlined'\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<CardModule>",
-                    "defaultValue": "{\n  title: { control: { type: 'boolean' }, name: 'Has title' },\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\n  content: { control: { type: 'boolean' }, name: 'Has content' },\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\n  image: { control: { type: 'boolean' }, name: 'Has image' },\n  media: { control: { type: 'boolean' }, name: 'Has media' },\n  mediaSize: {\n    options: ['xl', 'lg', 'md', 'sm'],\n    control: { type: 'radio' },\n    name: 'Media size'\n  },\n  align: {\n    options: ['start', 'end'],\n    control: { type: 'radio' },\n    name: 'Align actions'\n  },\n  appearance: {\n    options: ['outlined', 'raised'],\n    control: { type: 'radio' },\n    name: 'Appearance'\n  }\n}"
-                },
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardModule>",
-                    "defaultValue": "{\n  title: 'Components/Card',\n  component: CardModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
                 }
             ],
             "src/stories/components/button/button.stories.ts": [
@@ -4219,6 +4317,48 @@
                     "defaultValue": "{\n  title: 'Components/Button',\n  component: ButtonModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
                 }
             ],
+            "src/stories/components/card/card.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<CardModule>",
+                    "defaultValue": "{\n  title: true,\n  subtitle: true,\n  content: true,\n  actions: true,\n  footer: true,\n  avatar: true,\n  image: true,\n  media: true,\n  mediaSize: 'md',\n  align: 'start',\n  appearance: 'outlined'\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<CardModule>",
+                    "defaultValue": "{\n  title: { control: { type: 'boolean' }, name: 'Has title' },\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\n  content: { control: { type: 'boolean' }, name: 'Has content' },\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\n  image: { control: { type: 'boolean' }, name: 'Has image' },\n  media: { control: { type: 'boolean' }, name: 'Has media' },\n  mediaSize: {\n    options: ['xl', 'lg', 'md', 'sm'],\n    control: { type: 'radio' },\n    name: 'Media size'\n  },\n  align: {\n    options: ['start', 'end'],\n    control: { type: 'radio' },\n    name: 'Align actions'\n  },\n  appearance: {\n    options: ['outlined', 'raised'],\n    control: { type: 'radio' },\n    name: 'Appearance'\n  }\n}"
+                },
+                {
+                    "name": "Card",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardModule>",
+                    "defaultValue": "{\n  title: 'Components/Card',\n  component: CardModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                }
+            ],
             "src/stories/components/chips/chips.stories.ts": [
                 {
                     "name": "args",
@@ -4259,48 +4399,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<ChipsModule>",
                     "defaultValue": "{\n  title: 'Components/Chips',\n  component: ChipsModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
-                }
-            ],
-            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<BottomSheetModule>",
-                    "defaultValue": "{\n  hasBackdrop: true\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<BottomSheetModule>",
-                    "defaultValue": "{\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\n  openBottomSheet: { table: { disable: true } }\n}"
-                },
-                {
-                    "name": "BottomSheet",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<BottomSheetModule>",
-                    "defaultValue": "{\n  title: 'Components/Bottom Sheet',\n  component: BottomSheetModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
                 }
             ],
             "src/stories/components/divider/divider.stories.ts": [
@@ -4535,6 +4633,48 @@
                     "defaultValue": "{\n  args\n}"
                 }
             ],
+            "src/stories/components/table/table.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TableModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<TableModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TableModule>",
+                    "defaultValue": "{\n  title: 'Components/Table',\n  component: TableModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                },
+                {
+                    "name": "Table",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args\n}"
+                }
+            ],
             "src/stories/components/tabs/tabs.stories.ts": [
                 {
                     "name": "args",
@@ -4629,90 +4769,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  /* args */\n}"
-                }
-            ],
-            "src/stories/theme/colors/colors.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ColorsModule>",
-                    "defaultValue": "{\n  color: 'primary'\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ColorsModule>",
-                    "defaultValue": "{\n  color: {\n    options: ['primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
-                },
-                {
-                    "name": "Colors",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ColorsModule>",
-                    "defaultValue": "{\n  title: 'Theme/Colors',\n  component: ColorsModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                }
-            ],
-            "src/stories/theme/typography/typography.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/typography/typography.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<TypographyModule>",
-                    "defaultValue": "{\n  color: 'default'\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/typography/typography.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<TypographyModule>",
-                    "defaultValue": "{\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/typography/typography.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TypographyModule>",
-                    "defaultValue": "{\n  title: 'Theme/Typography',\n  component: TypographyModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                },
-                {
-                    "name": "Typography",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/theme/typography/typography.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
                 }
             ],
             "src/stories/forms/autocomplete/autocomplete.stories.ts": [
@@ -4838,7 +4894,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<DatePickerModule>",
-                    "defaultValue": "{\n  title: 'Forms/Date picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
+                    "defaultValue": "{\n  title: 'Forms/Date Picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
                 }
             ],
             "src/stories/forms/form-field/form-field.stories.ts": [
@@ -5216,7 +5272,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<GridModule>",
-                    "defaultValue": "{\n  title: 'Forms/Slider',\n  component: GridModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                    "defaultValue": "{\n  title: 'Helpers/Grid',\n  component: GridModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
                 }
             ],
             "src/stories/helpers/ripples/ripples.stories.ts": [
@@ -5261,6 +5317,90 @@
                     "defaultValue": "{\n  args\n}"
                 }
             ],
+            "src/stories/theme/colors/colors.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ColorsModule>",
+                    "defaultValue": "{\n  color: 'primary'\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ColorsModule>",
+                    "defaultValue": "{\n  color: {\n    options: ['primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
+                },
+                {
+                    "name": "Colors",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ColorsModule>",
+                    "defaultValue": "{\n  title: 'Theme/Colors',\n  component: ColorsModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                }
+            ],
+            "src/stories/theme/typography/typography.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TypographyModule>",
+                    "defaultValue": "{\n  color: 'default'\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<TypographyModule>",
+                    "defaultValue": "{\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TypographyModule>",
+                    "defaultValue": "{\n  title: 'Theme/Typography',\n  component: TypographyModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                },
+                {
+                    "name": "Typography",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                }
+            ],
             "src/stories/components/snackbar/snackbar.stories.ts": [
                 {
                     "name": "meta",
@@ -5299,6 +5439,19 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BottomSheetModule>",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -5306,19 +5459,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BadgeModule>",
                     "file": "src/stories/components/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/card/card.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardModule>",
-                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -5338,6 +5478,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/components/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardModule>",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/chips/chips.stories.ts": [
                 {
                     "name": "Story",
@@ -5345,19 +5498,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ChipsModule>",
                     "file": "src/stories/components/chips/chips.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BottomSheetModule>",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -5455,6 +5595,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/components/table/table.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TableModule>",
+                    "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/tabs/tabs.stories.ts": [
                 {
                     "name": "Story",
@@ -5488,32 +5641,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TooltipModule>",
                     "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/theme/colors/colors.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ColorsModule>",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/theme/typography/typography.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TypographyModule>",
-                    "file": "src/stories/theme/typography/typography.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -5683,6 +5810,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<RipplesModule>",
                     "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/theme/colors/colors.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColorsModule>",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/theme/typography/typography.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TypographyModule>",
+                    "file": "src/stories/theme/typography/typography.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6290,6 +6443,55 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Snackbar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TableModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/table/table.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Table",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -19,8 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
         <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu" /> With Avatar
       </mat-chip-option>
       <mat-chip-option> <mat-icon matChipTrailingIcon>bolt</mat-icon>With trailing icon </mat-chip-option>
-      <mat-chip-option>Highlighted</mat-chip-option>
-      <mat-chip-option [color]="color" selected>Selected</mat-chip-option>
+      <mat-chip-option [color]="color" selected>Selected with color</mat-chip-option>
       <mat-chip-option [highlighted]="highlighted">Highlighted</mat-chip-option>
     </mat-chip-listbox>
   `,
