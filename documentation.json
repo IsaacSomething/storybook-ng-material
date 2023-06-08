@@ -53,7 +53,7 @@
         {
             "name": "AutocompleteModule",
             "id": "component-AutocompleteModule-66341ae741fcc0595a9f290dc3e702c503d18bd6d8ccd11a7f3a77dd70ed6a5b1d65c43c5b196e4cb81b4671191a2d5a0508b23eafb8900afe39c119d9a785ba",
-            "file": "src/stories/components/autocomplete/autocomplete.component.ts",
+            "file": "src/stories/forms/autocomplete/autocomplete.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -177,6 +177,137 @@
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
+        },
+        {
+            "name": "AutocompleteModule",
+            "id": "component-AutocompleteModule-66341ae741fcc0595a9f290dc3e702c503d18bd6d8ccd11a7f3a77dd70ed6a5b1d65c43c5b196e4cb81b4671191a2d5a0508b23eafb8900afe39c119d9a785ba-1",
+            "file": "src/stories/forms/checkbox/autocomplete.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-autocomplete",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n<form class=\"mx-4\">\n  <mat-form-field>\n    <mat-label>Number</mat-label>\n    <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\" />\n    <mat-autocomplete autoActiveFirstOption #auto=\"matAutocomplete\">\n      <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n        {{ option }}\n      </mat-option>\n    </mat-autocomplete>\n  </mat-form-field>\n</form>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "filteredOptions",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<string[]>",
+                    "optional": false,
+                    "description": "",
+                    "line": 34
+                },
+                {
+                    "name": "myControl",
+                    "defaultValue": "new FormControl('')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "['Option one', 'Option two', 'Option three']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "_filter",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string[]",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatFormFieldModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatInputModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatAutocompleteModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { FormControl, ReactiveFormsModule } from '@angular/forms';\nimport { MatAutocompleteModule } from '@angular/material/autocomplete';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { Observable, map, startWith } from 'rxjs';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-autocomplete',\n  standalone: true,\n  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, SBHeaderModule],\n  template: `\n    <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n    <form class=\"mx-4\">\n      <mat-form-field>\n        <mat-label>Number</mat-label>\n        <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\" />\n        <mat-autocomplete autoActiveFirstOption #auto=\"matAutocomplete\">\n          <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n            {{ option }}\n          </mat-option>\n        </mat-autocomplete>\n      </mat-form-field>\n    </form>\n  `,\n  styles: []\n})\nexport class AutocompleteModule {\n  myControl = new FormControl('');\n  options: string[] = ['Option one', 'Option two', 'Option three'];\n  filteredOptions!: Observable<string[]>;\n\n  ngOnInit() {\n    this.filteredOptions = this.myControl.valueChanges.pipe(\n      startWith(''),\n      map(value => this._filter(value || ''))\n    );\n  }\n\n  _filter(value: string): string[] {\n    const filterValue = value.toLowerCase();\n    return this.options.filter(option => option.toLowerCase().includes(filterValue));\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "AutocompleteModule-1"
         },
         {
             "name": "BadgeModule",
@@ -1086,7 +1217,7 @@
         },
         {
             "name": "MenuModule",
-            "id": "component-MenuModule-4694239905b4f0c39af9c4e96a1ddc63dfb891562a2ac912ff6e894f895f1ee31de8aefabdaccce7fcc38fb29bb8b6263174dfe943965f045b67f34eab188abf",
+            "id": "component-MenuModule-2f808d9d7a9ecd5e2f959f2ba41c47577f36f11c722e64a7d8734a1621704801056b7398031a8a6e2e8747ac60599ab7e498d210ef0335410cb56aa58fd9cbf9",
             "file": "src/stories/components/menu/menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1096,16 +1227,32 @@
             "selector": "app-menu",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n\n<button mat-button [matMenuTriggerFor]=\"menu\">Menu</button>\n<mat-menu #menu=\"matMenu\" [yPosition]=\"yPosition\" [xPosition]=\"xPosition\">\n  <button mat-menu-item>Item 1</button>\n  <button mat-menu-item>Item 2</button>\n</mat-menu>\n",
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n\n<button mat-flat-button color=\"primary\" [matMenuTriggerFor]=\"menu\">[Menu]</button>\n<mat-menu #menu=\"matMenu\" [yPosition]=\"yPosition\" [xPosition]=\"xPosition\" [hasBackdrop]=\"hasBackdrop\" [overlapTrigger]=\"overlapTrigger\">\n  <button mat-menu-item>Level 1a</button>\n  <button mat-menu-item>Level 2b</button>\n  <button mat-menu-item [matMenuTriggerFor]=\"level2\">Multi level</button>\n</mat-menu>\n\n<mat-menu\n  #level2=\"matMenu\"\n  [yPosition]=\"yPosition\"\n  [xPosition]=\"xPosition\"\n  [hasBackdrop]=\"hasBackdrop\"\n  [overlapTrigger]=\"overlapTrigger\"\n>\n  <button mat-menu-item>Level 2a</button>\n  <button mat-menu-item>Level 2b</button>\n  <button mat-menu-item [matMenuTriggerFor]=\"level3\">Level 2c</button>\n</mat-menu>\n\n<mat-menu\n  #level3=\"matMenu\"\n  [yPosition]=\"yPosition\"\n  [xPosition]=\"xPosition\"\n  [hasBackdrop]=\"hasBackdrop\"\n  [overlapTrigger]=\"overlapTrigger\"\n>\n  <button mat-menu-item>Level 3a</button>\n  <button mat-menu-item>Level 3b</button>\n  <button mat-menu-item>Level 3c</button>\n</mat-menu>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "hasBackdrop",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 50,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "overlapTrigger",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 51,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
                     "name": "xPosition",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 49,
                     "type": "\"before\" | \"after\"",
                     "decorators": []
                 },
@@ -1113,7 +1260,7 @@
                     "name": "yPosition",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 48,
                     "type": "\"above\" | \"below\"",
                     "decorators": []
                 }
@@ -1147,7 +1294,267 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatMenuModule } from '@angular/material/menu';\n\n@Component({\n  selector: 'app-menu',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatMenuModule, MatButtonModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n\n    <button mat-button [matMenuTriggerFor]=\"menu\">Menu</button>\n    <mat-menu #menu=\"matMenu\" [yPosition]=\"yPosition\" [xPosition]=\"xPosition\">\n      <button mat-menu-item>Item 1</button>\n      <button mat-menu-item>Item 2</button>\n    </mat-menu>\n  `,\n  styles: []\n})\nexport class MenuModule {\n  @Input() yPosition!: 'above' | 'below';\n  @Input() xPosition!: 'before' | 'after';\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatMenuModule } from '@angular/material/menu';\n\n@Component({\n  selector: 'app-menu',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatMenuModule, MatButtonModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n\n    <button mat-flat-button color=\"primary\" [matMenuTriggerFor]=\"menu\">[Menu]</button>\n    <mat-menu #menu=\"matMenu\" [yPosition]=\"yPosition\" [xPosition]=\"xPosition\" [hasBackdrop]=\"hasBackdrop\" [overlapTrigger]=\"overlapTrigger\">\n      <button mat-menu-item>Level 1a</button>\n      <button mat-menu-item>Level 2b</button>\n      <button mat-menu-item [matMenuTriggerFor]=\"level2\">Multi level</button>\n    </mat-menu>\n\n    <mat-menu\n      #level2=\"matMenu\"\n      [yPosition]=\"yPosition\"\n      [xPosition]=\"xPosition\"\n      [hasBackdrop]=\"hasBackdrop\"\n      [overlapTrigger]=\"overlapTrigger\"\n    >\n      <button mat-menu-item>Level 2a</button>\n      <button mat-menu-item>Level 2b</button>\n      <button mat-menu-item [matMenuTriggerFor]=\"level3\">Level 2c</button>\n    </mat-menu>\n\n    <mat-menu\n      #level3=\"matMenu\"\n      [yPosition]=\"yPosition\"\n      [xPosition]=\"xPosition\"\n      [hasBackdrop]=\"hasBackdrop\"\n      [overlapTrigger]=\"overlapTrigger\"\n    >\n      <button mat-menu-item>Level 3a</button>\n      <button mat-menu-item>Level 3b</button>\n      <button mat-menu-item>Level 3c</button>\n    </mat-menu>\n  `,\n  styles: []\n})\nexport class MenuModule {\n  @Input() yPosition!: 'above' | 'below';\n  @Input() xPosition!: 'before' | 'after';\n  @Input() hasBackdrop!: boolean;\n  @Input() overlapTrigger!: boolean;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "ProgressBarModule",
+            "id": "component-ProgressBarModule-8ad7e802b03879774ec982877e4583539fb35f65dc7f04f372f6e0621e738e05f7ef74446b95363ab391e8f277f701c03d33c6e5524f23f993652fe7a3deb958",
+            "file": "src/stories/components/progress-bar/progress-bar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-progress-bar",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n\n<mat-progress-bar mode=\"determinate\" [value]=\"value\"> </mat-progress-bar>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "buffer",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "mode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "\"determinate\" | \"indeterminate\" | \"buffer\" | \"query\"",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatProgressBarModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatProgressBarModule } from '@angular/material/progress-bar';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\n\n@Component({\n  selector: 'app-progress-bar',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatProgressBarModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n\n    <mat-progress-bar mode=\"determinate\" [value]=\"value\"> </mat-progress-bar>\n  `,\n  styles: []\n})\nexport class ProgressBarModule {\n  @Input() value!: number;\n  @Input() buffer!: number;\n  @Input() color!: ThemePalette;\n  @Input() mode!: 'determinate' | 'indeterminate' | 'buffer' | 'query';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "ProgressSpinnerModule",
+            "id": "component-ProgressSpinnerModule-d9e664af525f345dee9b3cbc6d07bd5be3ec104fd77d2a95bf1588b4d75c2e90721c07bbefd6c808ef1a62dc6f276b97cd8155a46efb7b131e668ce9288f9e6e",
+            "file": "src/stories/components/progress-spinner/progress-spinner.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-progress-spinner",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n<mat-spinner [value]=\"value\" [diameter]=\"diameter\" [strokeWidth]=\"strokeWidth\" [color]=\"color\" [mode]=\"mode\"></mat-spinner>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "diameter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "mode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "\"determinate\" | \"indeterminate\"",
+                    "decorators": []
+                },
+                {
+                    "name": "strokeWidth",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatProgressSpinnerModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\n\n@Component({\n  selector: 'app-progress-spinner',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatProgressSpinnerModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n    <mat-spinner [value]=\"value\" [diameter]=\"diameter\" [strokeWidth]=\"strokeWidth\" [color]=\"color\" [mode]=\"mode\"></mat-spinner>\n  `,\n  styles: []\n})\nexport class ProgressSpinnerModule {\n  @Input() value!: number;\n  @Input() diameter!: number;\n  @Input() strokeWidth!: number;\n  @Input() color!: ThemePalette;\n  @Input() mode!: 'determinate' | 'indeterminate';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "RipplesModule",
+            "id": "component-RipplesModule-129e0a6a3651413f505a41ccce72cfa19178a23bfa801293f94dc45b01495f194cd3896c1319d17391de47d15ac22637f76d6b9b1da6a31eb1d263eea081407b",
+            "file": "src/stories/components/ripples/ripples.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-ripples",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n<mat-card\n  matRipple\n  [matRippleCentered]=\"centered\"\n  [matRippleColor]=\"color\"\n  [matRippleDisabled]=\"disabled\"\n  [matRippleRadius]=\"radius\"\n  [matRippleUnbounded]=\"unbounded\"\n>\n</mat-card>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "centered",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "radius",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "unbounded",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatCardModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatRippleModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatCardModule } from '@angular/material/card';\nimport { MatRippleModule } from '@angular/material/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-ripples',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatCardModule, MatRippleModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n    <mat-card\n      matRipple\n      [matRippleCentered]=\"centered\"\n      [matRippleColor]=\"color\"\n      [matRippleDisabled]=\"disabled\"\n      [matRippleRadius]=\"radius\"\n      [matRippleUnbounded]=\"unbounded\"\n    >\n    </mat-card>\n  `,\n  styles: []\n})\nexport class RipplesModule {\n  @Input() centered!: boolean;\n  @Input() disabled!: boolean;\n  @Input() radius!: number;\n  @Input() unbounded!: boolean;\n  @Input() color!: string;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -1272,6 +1679,676 @@
                     }
                 }
             }
+        },
+        {
+            "name": "SnackbarModule",
+            "id": "component-SnackbarModule-7ab3a9b310a9de45b63489f298b59b89a0c4f772308fb73408468602ae8c2d45f2b0740bd503155a87e1ba2c5ca11c81e47a411ab66b4188639578c073f3b51e",
+            "file": "src/stories/components/snackbar/snackbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-snackbar",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Bottom sheet\" matLink=\"bottom-sheet\" />\n<button class=\"mx-4\" mat-stroked-button (click)=\"openSnackbar()\">[Open snackbar]</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "duration",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "hasAction",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "message",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "xPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "\"start\" | \"center\" | \"end\" | \"left\" | \"right\"",
+                    "decorators": []
+                },
+                {
+                    "name": "yPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "\"top\" | \"bottom\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "openSnackbar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatButtonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatSnackBarModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';\nimport { SBHeaderModule } from 'src/stories/assets/sb-header';\n\n@Component({\n  selector: 'app-snackbar',\n  standalone: true,\n  imports: [MatButtonModule, SBHeaderModule, MatSnackBarModule],\n  styles: [],\n  template: `\n    <sb-header title=\"Bottom sheet\" matLink=\"bottom-sheet\" />\n    <button class=\"mx-4\" mat-stroked-button (click)=\"openSnackbar()\">[Open snackbar]</button>\n  `\n})\nexport class SnackbarModule {\n  @Input() label!: string;\n  @Input() message!: string;\n  @Input() hasAction!: boolean;\n  @Input() duration!: boolean;\n  @Input() xPosition!: 'start' | 'center' | 'end' | 'left' | 'right';\n  @Input() yPosition!: 'top' | 'bottom';\n\n  constructor(private snackbar: MatSnackBar) {}\n\n  openSnackbar() {\n    this.snackbar.open(this.label, this.hasAction ? 'Action' : undefined, {\n      duration: this.duration ? 2000 : undefined,\n      verticalPosition: this.yPosition,\n      horizontalPosition: this.xPosition\n    });\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "snackbar",
+                        "type": "MatSnackBar",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 22,
+                "jsdoctags": [
+                    {
+                        "name": "snackbar",
+                        "type": "MatSnackBar",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TabsModule",
+            "id": "component-TabsModule-5fe3fdb447926720d516ac422a1af5b046130a72f6a0b7a1f4e0171425db8bb4e2c2a99ac811d6e54dbcc5bd891085504388cd817a2aa557f9c9428e72b80100",
+            "file": "src/stories/components/tabs/tabs.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tabs",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n\n<mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n  <mat-tab label=\"First\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Second\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Third\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n</mat-tab-group>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "align",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "duration",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "fitInkBarToContent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "headerPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "\"below\" | \"above\"",
+                    "decorators": []
+                },
+                {
+                    "name": "stretch",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatTabsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatTabsModule } from '@angular/material/tabs';\n\n@Component({\n  selector: 'app-tabs',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatTabsModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n\n    <mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n      <mat-tab label=\"First\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Second\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Third\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n    </mat-tab-group>\n  `,\n  styles: []\n})\nexport class TabsModule {\n  @Input() color!: ThemePalette;\n  @Input() backgroundColor!: ThemePalette;\n  @Input() stretch!: boolean;\n  @Input() duration!: number;\n  @Input() align!: boolean;\n  @Input() fitInkBarToContent!: boolean;\n  @Input() headerPosition!: 'below' | 'above';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "TabsModule",
+            "id": "component-TabsModule-5fe3fdb447926720d516ac422a1af5b046130a72f6a0b7a1f4e0171425db8bb4e2c2a99ac811d6e54dbcc5bd891085504388cd817a2aa557f9c9428e72b80100-1",
+            "file": "src/stories/forms/slider/tabs.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tabs",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n\n<mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n  <mat-tab label=\"First\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Second\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Third\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n</mat-tab-group>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "align",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "duration",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "fitInkBarToContent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "headerPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "\"below\" | \"above\"",
+                    "decorators": []
+                },
+                {
+                    "name": "stretch",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatTabsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatTabsModule } from '@angular/material/tabs';\n\n@Component({\n  selector: 'app-tabs',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatTabsModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n\n    <mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n      <mat-tab label=\"First\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Second\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Third\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n    </mat-tab-group>\n  `,\n  styles: []\n})\nexport class TabsModule {\n  @Input() color!: ThemePalette;\n  @Input() backgroundColor!: ThemePalette;\n  @Input() stretch!: boolean;\n  @Input() duration!: number;\n  @Input() align!: boolean;\n  @Input() fitInkBarToContent!: boolean;\n  @Input() headerPosition!: 'below' | 'above';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "TabsModule-1"
+        },
+        {
+            "name": "TabsModule",
+            "id": "component-TabsModule-5fe3fdb447926720d516ac422a1af5b046130a72f6a0b7a1f4e0171425db8bb4e2c2a99ac811d6e54dbcc5bd891085504388cd817a2aa557f9c9428e72b80100-2",
+            "file": "src/stories/forms/slide-toggle/tabs.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tabs",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n\n<mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n  <mat-tab label=\"First\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Second\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Third\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n</mat-tab-group>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "align",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "duration",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "fitInkBarToContent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "headerPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "\"below\" | \"above\"",
+                    "decorators": []
+                },
+                {
+                    "name": "stretch",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatTabsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatTabsModule } from '@angular/material/tabs';\n\n@Component({\n  selector: 'app-tabs',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatTabsModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n\n    <mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n      <mat-tab label=\"First\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Second\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Third\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n    </mat-tab-group>\n  `,\n  styles: []\n})\nexport class TabsModule {\n  @Input() color!: ThemePalette;\n  @Input() backgroundColor!: ThemePalette;\n  @Input() stretch!: boolean;\n  @Input() duration!: number;\n  @Input() align!: boolean;\n  @Input() fitInkBarToContent!: boolean;\n  @Input() headerPosition!: 'below' | 'above';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 2,
+            "duplicateName": "TabsModule-2"
+        },
+        {
+            "name": "TabsModule",
+            "id": "component-TabsModule-5fe3fdb447926720d516ac422a1af5b046130a72f6a0b7a1f4e0171425db8bb4e2c2a99ac811d6e54dbcc5bd891085504388cd817a2aa557f9c9428e72b80100-3",
+            "file": "src/stories/forms/textarea/tabs.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tabs",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n\n<mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n  <mat-tab label=\"First\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Second\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n  <mat-tab label=\"Third\">\n    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n    debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n  </mat-tab>\n</mat-tab-group>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "align",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "duration",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "fitInkBarToContent",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "headerPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "\"below\" | \"above\"",
+                    "decorators": []
+                },
+                {
+                    "name": "stretch",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatTabsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatTabsModule } from '@angular/material/tabs';\n\n@Component({\n  selector: 'app-tabs',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatTabsModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n\n    <mat-tab-group [color]=\"color\" [animationDuration]=\"duration\">\n      <mat-tab label=\"First\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Second\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n      <mat-tab label=\"Third\">\n        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam reprehenderit aut placeat ipsum, error iusto amet optio praesentium\n        debitis cum quibusdam! Nam numquam libero vel ab error atque minima laudantium?\n      </mat-tab>\n    </mat-tab-group>\n  `,\n  styles: []\n})\nexport class TabsModule {\n  @Input() color!: ThemePalette;\n  @Input() backgroundColor!: ThemePalette;\n  @Input() stretch!: boolean;\n  @Input() duration!: number;\n  @Input() align!: boolean;\n  @Input() fitInkBarToContent!: boolean;\n  @Input() headerPosition!: 'below' | 'above';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 3,
+            "duplicateName": "TabsModule-3"
+        },
+        {
+            "name": "ToolbarModule",
+            "id": "component-ToolbarModule-183a036e0d568cda731c2e9c7b4ee750ac512a46f00bec11640ce94f4ee142112fcc20a4707e40a509081211c4d4245a5d12ba6a738990aa6184496f2009a10a",
+            "file": "src/stories/components/toolbar/toolbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-toolbar",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n<mat-toolbar>\n  <span>FirstRow</span>\n</mat-toolbar>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "ThemePalette",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatToolbarModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatToolbarModule } from '@angular/material/toolbar';\n\n@Component({\n  selector: 'app-toolbar',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatToolbarModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n    <mat-toolbar>\n      <span>FirstRow</span>\n    </mat-toolbar>\n  `,\n  styles: []\n})\nexport class ToolbarModule {\n  @Input() color!: ThemePalette;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "TooltipModule",
+            "id": "component-TooltipModule-d615f7804443dfb88445708ac81e452596494e02e6baeae5561f739d80e5ca08accc6014b1ec699606460747d4ab14f92b91853d68e321b6c67827aa05531437",
+            "file": "src/stories/components/tooltip/tooltip.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tooltip",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Menu\" matLink=\"menu\" />\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "ThemePalette",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatTooltipModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\nimport { MatTooltipModule } from '@angular/material/tooltip';\n\n@Component({\n  selector: 'app-tooltip',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatTooltipModule],\n  template: `\n    <sb-header title=\"Menu\" matLink=\"menu\" />\n  `,\n  styles: []\n})\nexport class TooltipModule {\n  @Input() color!: ThemePalette;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
         },
         {
             "name": "TypographyModule",
@@ -1428,41 +2505,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<AutocompleteModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<BottomSheetModule>",
                 "defaultValue": "{\r\n  hasBackdrop: true\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ButtonModule>",
-                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<CardModule>",
-                "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
             },
             {
                 "name": "args",
@@ -1478,21 +2525,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ExpansionModule>",
-                "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                "type": "Partial<CardModule>",
+                "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
             },
             {
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/theme/colors/colors.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ColorsModule>",
-                "defaultValue": "{\r\n  color: 'primary'\r\n}"
+                "type": "Partial<ButtonModule>",
+                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
             },
             {
                 "name": "args",
@@ -1508,11 +2555,141 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ProgressBarModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/menu/menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<MenuModule>",
-                "defaultValue": "{\r\n  yPosition: 'above',\r\n  xPosition: 'before'\r\n}"
+                "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ExpansionModule>",
+                "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<RipplesModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ProgressSpinnerModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ToolbarModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TabsModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TooltipModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AutocompleteModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AutocompleteModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slider/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TabsModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TabsModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/textarea/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TabsModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/colors/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ColorsModule>",
+                "defaultValue": "{\r\n  color: 'primary'\r\n}"
             },
             {
                 "name": "args",
@@ -1538,41 +2715,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<AutocompleteModule>",
-                "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<BottomSheetModule>",
                 "defaultValue": "{\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\r\n  openBottomSheet: { table: { disable: true } }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ButtonModule>",
-                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<CardModule>",
-                "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -1588,21 +2735,21 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ExpansionModule>",
-                "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened' },\r\n  closed: { action: 'closed' }\r\n}"
+                "type": "ArgTypes<CardModule>",
+                "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/theme/colors/colors.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ColorsModule>",
-                "defaultValue": "{\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
+                "type": "ArgTypes<ButtonModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -1622,7 +2769,47 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<MenuModule>",
-                "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  }\r\n  /* toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n   */\r\n}"
+                "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ExpansionModule>",
+                "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened' },\r\n  closed: { action: 'closed' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<AutocompleteModule>",
+                "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<AutocompleteModule>",
+                "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/colors/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ColorsModule>",
+                "defaultValue": "{\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -1638,7 +2825,17 @@
                 "name": "Autocomplete",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Autocomplete",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -1748,41 +2945,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AutocompleteModule>",
-                "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<BottomSheetModule>",
                 "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonModule>",
-                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CardModule>",
-                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1798,21 +2965,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ExpansionModule>",
-                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                "type": "Meta<CardModule>",
+                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/theme/colors/colors.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ColorsModule>",
-                "defaultValue": "{\r\n  title: 'Theme/Colors',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "type": "Meta<ButtonModule>",
+                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1828,11 +2995,151 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ProgressBarModule>",
+                "defaultValue": "{\r\n  title: 'Components/Progress Bar',\r\n  component: ProgressBarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/menu/menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<MenuModule>",
-                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ExpansionModule>",
+                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RipplesModule>",
+                "defaultValue": "{\r\n  title: 'Components/Ripples',\r\n  component: RipplesModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SnackbarModule>",
+                "defaultValue": "{\r\n  title: 'Components/Snackbar',\r\n  component: SnackbarModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ProgressSpinnerModule>",
+                "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ToolbarModule>",
+                "defaultValue": "{\r\n  title: 'Components/Toolbar',\r\n  component: ToolbarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsModule>",
+                "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TooltipModule>",
+                "defaultValue": "{\r\n  title: 'Components/Tooltip',\r\n  component: TooltipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AutocompleteModule>",
+                "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AutocompleteModule>",
+                "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slider/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsModule>",
+                "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsModule>",
+                "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/textarea/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsModule>",
+                "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/theme/colors/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ColorsModule>",
+                "defaultValue": "{\r\n  title: 'Theme/Colors',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1853,6 +3160,106 @@
                 "deprecationMessage": "",
                 "type": "Preview",
                 "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/\n      }\n    }\n  }\n}"
+            },
+            {
+                "name": "ProgressBar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "ProgressSpinner",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Ripples",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Snackbar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Tabs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Tabs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slider/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Tabs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Tabs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/textarea/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Toolbar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
+            },
+            {
+                "name": "Tooltip",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  /* args */\r\n}"
             },
             {
                 "name": "Typography",
@@ -1882,41 +3289,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AutocompleteModule>",
-                "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<BottomSheetModule>",
                 "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonModule>",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<CardModule>",
-                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1937,8 +3311,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ExpansionModule>",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "rawtype": "StoryObj<CardModule>",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1948,8 +3322,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ColorsModule>",
-                "file": "src/stories/theme/colors/colors.stories.ts",
+                "rawtype": "StoryObj<ButtonModule>",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1970,8 +3344,162 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ProgressBarModule>",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<MenuModule>",
                 "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ExpansionModule>",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<RipplesModule>",
+                "file": "src/stories/components/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SnackbarModule>",
+                "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ProgressSpinnerModule>",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ToolbarModule>",
+                "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsModule>",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TooltipModule>",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AutocompleteModule>",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AutocompleteModule>",
+                "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsModule>",
+                "file": "src/stories/forms/slider/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsModule>",
+                "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsModule>",
+                "file": "src/stories/forms/textarea/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ColorsModule>",
+                "file": "src/stories/theme/colors/colors.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -2033,48 +3561,6 @@
                     "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/autocomplete/autocomplete.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AutocompleteModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<AutocompleteModule>",
-                    "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
-                },
-                {
-                    "name": "Autocomplete",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  /* args */\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AutocompleteModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                }
-            ],
             "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
                 {
                     "name": "args",
@@ -2115,90 +3601,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<BottomSheetModule>",
                     "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ButtonModule>",
-                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ButtonModule>",
-                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
-                },
-                {
-                    "name": "Button",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/components/card/card.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<CardModule>",
-                    "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<CardModule>",
-                    "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
-                },
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/chips/chips.stories.ts": [
@@ -2243,32 +3645,32 @@
                     "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/expansion/expansion.stories.ts": [
+            "src/stories/components/card/card.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<ExpansionModule>",
-                    "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                    "type": "Partial<CardModule>",
+                    "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<ExpansionModule>",
-                    "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened' },\r\n  closed: { action: 'closed' }\r\n}"
+                    "type": "ArgTypes<CardModule>",
+                    "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
                 },
                 {
-                    "name": "Expansion",
+                    "name": "Card",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -2278,39 +3680,39 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ExpansionModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                    "type": "Meta<CardModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/theme/colors/colors.stories.ts": [
+            "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<ColorsModule>",
-                    "defaultValue": "{\r\n  color: 'primary'\r\n}"
+                    "type": "Partial<ButtonModule>",
+                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<ColorsModule>",
-                    "defaultValue": "{\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
+                    "type": "ArgTypes<ButtonModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
                 },
                 {
-                    "name": "Colors",
+                    "name": "Button",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -2320,11 +3722,11 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ColorsModule>",
-                    "defaultValue": "{\r\n  title: 'Theme/Colors',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                    "type": "Meta<ButtonModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/divider/divider.stories.ts": [
@@ -2369,6 +3771,38 @@
                     "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
+            "src/stories/components/progress-bar/progress-bar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ProgressBarModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ProgressBarModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Progress Bar',\r\n  component: ProgressBarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "ProgressBar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
             "src/stories/components/menu/menu.stories.ts": [
                 {
                     "name": "args",
@@ -2378,7 +3812,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Partial<MenuModule>",
-                    "defaultValue": "{\r\n  yPosition: 'above',\r\n  xPosition: 'before'\r\n}"
+                    "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
                 },
                 {
                     "name": "argTypes",
@@ -2388,7 +3822,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ArgTypes<MenuModule>",
-                    "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  }\r\n  /* toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n   */\r\n}"
+                    "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
                 },
                 {
                     "name": "Menu",
@@ -2408,7 +3842,431 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<MenuModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                    "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ExpansionModule>",
+                    "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ExpansionModule>",
+                    "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened' },\r\n  closed: { action: 'closed' }\r\n}"
+                },
+                {
+                    "name": "Expansion",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ExpansionModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/ripples/ripples.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<RipplesModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RipplesModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Ripples',\r\n  component: RipplesModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Ripples",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ProgressSpinnerModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ProgressSpinnerModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "ProgressSpinner",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/components/toolbar/toolbar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ToolbarModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ToolbarModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Toolbar',\r\n  component: ToolbarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Toolbar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/components/tabs/tabs.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TabsModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Tabs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/components/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TooltipModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TooltipModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Tooltip',\r\n  component: TooltipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Tooltip",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AutocompleteModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<AutocompleteModule>",
+                    "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "Autocomplete",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AutocompleteModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/forms/checkbox/autocomplete.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AutocompleteModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<AutocompleteModule>",
+                    "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "Autocomplete",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AutocompleteModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/forms/slider/tabs.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slider/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TabsModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slider/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Tabs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slider/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/forms/slide-toggle/tabs.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TabsModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Tabs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/forms/textarea/tabs.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/textarea/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TabsModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/textarea/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Tabs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/textarea/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
+            "src/stories/theme/colors/colors.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ColorsModule>",
+                    "defaultValue": "{\r\n  color: 'primary'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ColorsModule>",
+                    "defaultValue": "{\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
+                },
+                {
+                    "name": "Colors",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ColorsModule>",
+                    "defaultValue": "{\r\n  title: 'Theme/Colors',\r\n  component: ColorsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/theme/typography/typography.stories.ts": [
@@ -2453,6 +4311,28 @@
                     "defaultValue": "{ args }"
                 }
             ],
+            "src/stories/components/snackbar/snackbar.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SnackbarModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Snackbar',\r\n  component: SnackbarModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
+                },
+                {
+                    "name": "Snackbar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                }
+            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -2482,19 +4362,6 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/autocomplete/autocomplete.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AutocompleteModule>",
-                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
                 {
                     "name": "Story",
@@ -2502,32 +4369,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BottomSheetModule>",
                     "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonModule>",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/card/card.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardModule>",
-                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2547,26 +4388,26 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/expansion/expansion.stories.ts": [
+            "src/stories/components/card/card.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ExpansionModule>",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "rawtype": "StoryObj<CardModule>",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 180
                 }
             ],
-            "src/stories/theme/colors/colors.stories.ts": [
+            "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ColorsModule>",
-                    "file": "src/stories/theme/colors/colors.stories.ts",
+                    "rawtype": "StoryObj<ButtonModule>",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2586,6 +4427,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/components/progress-bar/progress-bar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ProgressBarModule>",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/menu/menu.stories.ts": [
                 {
                     "name": "Story",
@@ -2593,6 +4447,175 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<MenuModule>",
                     "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ExpansionModule>",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/ripples/ripples.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RipplesModule>",
+                    "file": "src/stories/components/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/snackbar/snackbar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SnackbarModule>",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ProgressSpinnerModule>",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/toolbar/toolbar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ToolbarModule>",
+                    "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/tabs/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsModule>",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TooltipModule>",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AutocompleteModule>",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/checkbox/autocomplete.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AutocompleteModule>",
+                    "file": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/slider/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsModule>",
+                    "file": "src/stories/forms/slider/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/slide-toggle/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsModule>",
+                    "file": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/textarea/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsModule>",
+                    "file": "src/stories/forms/textarea/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/theme/colors/colors.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColorsModule>",
+                    "file": "src/stories/theme/colors/colors.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2658,55 +4681,6 @@
                 "name": "SBHeaderModule",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/autocomplete/autocomplete.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "AutocompleteModule",
-                "coveragePercent": 0,
-                "coverageCount": "0/6",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "args",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "argTypes",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Autocomplete",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3067,7 +5041,7 @@
                 "linktype": "component",
                 "name": "MenuModule",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -3106,6 +5080,484 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-bar/progress-bar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ProgressBarModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ProgressBar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-spinner/progress-spinner.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ProgressSpinnerModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ProgressSpinner",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/ripples/ripples.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "RipplesModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/ripples/ripples.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/ripples/ripples.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/ripples/ripples.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Ripples",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/snackbar/snackbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SnackbarModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/snackbar/snackbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/snackbar/snackbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Snackbar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tabs/tabs.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabsModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tabs/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tabs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/toolbar/toolbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToolbarModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/toolbar/toolbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/toolbar/toolbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/toolbar/toolbar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Toolbar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tooltip/tooltip.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TooltipModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/tooltip/tooltip.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tooltip",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/autocomplete/autocomplete.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AutocompleteModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Autocomplete",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/checkbox/autocomplete.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AutocompleteModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Autocomplete",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/checkbox/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slide-toggle/tabs.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabsModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slide-toggle/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tabs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slider/tabs.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabsModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slider/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slider/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/slider/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tabs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/textarea/tabs.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TabsModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/textarea/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/textarea/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/forms/textarea/tabs.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tabs",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
