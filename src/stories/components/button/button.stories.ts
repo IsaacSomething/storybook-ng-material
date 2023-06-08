@@ -17,7 +17,7 @@ const argTypes: ArgTypes<ButtonModule> = {
 };
 
 const args: Partial<ButtonModule> = {
-  label: 'Button',
+  label: '[Button]',
   disabled: false,
   color: 'default',
   type: 'default'
