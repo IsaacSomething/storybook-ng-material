@@ -860,6 +860,122 @@
             "stylesData": ""
         },
         {
+            "name": "DividerModule",
+            "id": "component-DividerModule-f88cf5b941d09baa0e48515b0ac284017d4b893cfcd83aac8c17a50160fbc8a6c84de39d55224c7eb5c4a3d7cec11dc83a2de4e6a08976c7e9f6df2e624d3eed",
+            "file": "src/stories/components/divider/divider.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-divider",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Chips\" matLink=\"chips\" />\n\n<mat-list>\n  <mat-list-item>[Item 1]</mat-list-item>\n  <mat-divider [vertical]=\"true\" [inset]=\"inset\"></mat-divider>\n  <mat-list-item>[Item 2]</mat-list-item>\n  <mat-divider [vertical]=\"true\" [inset]=\"inset\"></mat-divider>\n  <mat-list-item>[Item 3]</mat-list-item>\n</mat-list>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "inset",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatDividerModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatListModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatDividerModule } from '@angular/material/divider';\nimport { MatListModule } from '@angular/material/list';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-divider',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatDividerModule, MatListModule],\n  template: `\n    <sb-header title=\"Chips\" matLink=\"chips\" />\n\n    <mat-list>\n      <mat-list-item>[Item 1]</mat-list-item>\n      <mat-divider [vertical]=\"true\" [inset]=\"inset\"></mat-divider>\n      <mat-list-item>[Item 2]</mat-list-item>\n      <mat-divider [vertical]=\"true\" [inset]=\"inset\"></mat-divider>\n      <mat-list-item>[Item 3]</mat-list-item>\n    </mat-list>\n  `,\n  styles: []\n})\nexport class DividerModule {\n  @Input() inset!: boolean;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "ExpansionModule",
+            "id": "component-ExpansionModule-2592a26e35a425f774ca752028dfbf0742114b3982e4669abdd063fe4841888100a666c55fe4674318919db28d3523eff1d4142a444057daab1056f1e25eae59",
+            "file": "src/stories/components/expansion/expansion.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-expansion",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<sb-header title=\"Chips\" matLink=\"chips\" />\n   <mat-accordion>\n     <mat-expansion-panel hideToggle>\n       <mat-expansion-panel-header>\n         <mat-panel-title> Lorem Ipsum </mat-panel-title>\n         <mat-panel-description> Lorem Ipsum </mat-panel-description>\n       </mat-expansion-panel-header>\n       <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n     </mat-expansion-panel>\n\n     <mat-expansion-panel>\n       <mat-expansion-panel-header>\n         <mat-panel-title> Lorem Ipsum </mat-panel-title>\n         <mat-panel-description> Lorem Ipsum</mat-panel-description>\n       </mat-expansion-panel-header>\n       <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n     </mat-expansion-panel>\n\n     <mat-expansion-panel>\n       <mat-expansion-panel-header>\n         <mat-panel-title> Lorem Ipsum </mat-panel-title>\n         <mat-panel-description> Lorem Ipsum</mat-panel-description>\n       </mat-expansion-panel-header>\n       <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n     </mat-expansion-panel>\n   </mat-accordion>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "hideToggle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "SBHeaderModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatExpansionModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatExpansionModule } from '@angular/material/expansion';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-expansion',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatExpansionModule],\n  template: ` <sb-header title=\"Chips\" matLink=\"chips\" />\n\n    <mat-accordion>\n      <mat-expansion-panel hideToggle>\n        <mat-expansion-panel-header>\n          <mat-panel-title> Lorem Ipsum </mat-panel-title>\n          <mat-panel-description> Lorem Ipsum </mat-panel-description>\n        </mat-expansion-panel-header>\n        <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel>\n        <mat-expansion-panel-header>\n          <mat-panel-title> Lorem Ipsum </mat-panel-title>\n          <mat-panel-description> Lorem Ipsum</mat-panel-description>\n        </mat-expansion-panel-header>\n        <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n      </mat-expansion-panel>\n\n      <mat-expansion-panel>\n        <mat-expansion-panel-header>\n          <mat-panel-title> Lorem Ipsum </mat-panel-title>\n          <mat-panel-description> Lorem Ipsum</mat-panel-description>\n        </mat-expansion-panel-header>\n        <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\n      </mat-expansion-panel>\n    </mat-accordion>`,\n  styles: []\n})\nexport class ExpansionModule {\n  @Input() hideToggle!: boolean;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
             "name": "SBHeaderModule",
             "id": "component-SBHeaderModule-751bb1d9d26d17199c24a2c2489118a80f7c2c5c383512acb8f6db7c12cce93885ef651b9ffc3100f2e51b6f37b5e610ff13656626e94fec5b8d0768d7a8eb4c",
             "file": "src/stories/assets/sb-header/sb-header.component.ts",
@@ -1145,6 +1261,16 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<BottomSheetModule>",
+                "defaultValue": "{\r\n  hasBackdrop: true\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1155,11 +1281,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<BottomSheetModule>",
-                "defaultValue": "{\r\n  hasBackdrop: true\r\n}"
+                "type": "Partial<ChipsModule>",
+                "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: false,\r\n  selectable: false,\r\n  highlighted: false\r\n}"
             },
             {
                 "name": "args",
@@ -1175,11 +1301,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ChipsModule>",
-                "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: false,\r\n  selectable: false,\r\n  highlighted: false\r\n}"
+                "type": "Partial<DividerModule>",
+                "defaultValue": "{\r\n  inset: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ExpansionModule>",
+                "defaultValue": "{\r\n  hideToggle: false\r\n}"
             },
             {
                 "name": "args",
@@ -1225,6 +1361,16 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<BottomSheetModule>",
+                "defaultValue": "{\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\r\n  openBottomSheet: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1235,11 +1381,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<BottomSheetModule>",
-                "defaultValue": "{\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\r\n  openBottomSheet: { table: { disable: true } }\r\n}"
+                "type": "ArgTypes<ChipsModule>",
+                "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -1255,11 +1401,21 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ChipsModule>",
-                "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
+                "type": "ArgTypes<DividerModule>",
+                "defaultValue": "{\r\n  inset: { control: { type: 'boolean' }, name: 'Inset' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ExpansionModule>",
+                "defaultValue": "{\r\n  hideToggle: { control: { type: 'boolean' }, name: 'Hide toggle' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -1352,6 +1508,26 @@
                 "defaultValue": "{ args }"
             },
             {
+                "name": "Divider",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args\r\n}"
+            },
+            {
+                "name": "Expansion",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args\r\n}"
+            },
+            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1375,6 +1551,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BottomSheetModule>",
+                "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1385,11 +1571,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<BottomSheetModule>",
-                "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "type": "Meta<ChipsModule>",
+                "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1405,11 +1591,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ChipsModule>",
-                "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                "type": "Meta<DividerModule>",
+                "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ExpansionModule>",
+                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1480,6 +1676,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<BottomSheetModule>",
+                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonModule>",
                 "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
@@ -1491,8 +1698,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BottomSheetModule>",
-                "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                "rawtype": "StoryObj<ChipsModule>",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1513,8 +1720,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ChipsModule>",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "rawtype": "StoryObj<DividerModule>",
+                "file": "src/stories/components/divider/divider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ExpansionModule>",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1629,6 +1847,48 @@
                     "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
+            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<BottomSheetModule>",
+                    "defaultValue": "{\r\n  hasBackdrop: true\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<BottomSheetModule>",
+                    "defaultValue": "{\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\r\n  openBottomSheet: { table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "BottomSheet",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BottomSheetModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
             "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "args",
@@ -1671,32 +1931,32 @@
                     "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+            "src/stories/components/chips/chips.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "file": "src/stories/components/chips/chips.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<BottomSheetModule>",
-                    "defaultValue": "{\r\n  hasBackdrop: true\r\n}"
+                    "type": "Partial<ChipsModule>",
+                    "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: false,\r\n  selectable: false,\r\n  highlighted: false\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "file": "src/stories/components/chips/chips.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<BottomSheetModule>",
-                    "defaultValue": "{\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },\r\n  openBottomSheet: { table: { disable: true } }\r\n}"
+                    "type": "ArgTypes<ChipsModule>",
+                    "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
                 },
                 {
-                    "name": "BottomSheet",
+                    "name": "Chips",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "file": "src/stories/components/chips/chips.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1706,11 +1966,11 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "file": "src/stories/components/chips/chips.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<BottomSheetModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                    "type": "Meta<ChipsModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/card/card.stories.ts": [
@@ -1755,32 +2015,32 @@
                     "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/chips/chips.stories.ts": [
+            "src/stories/components/divider/divider.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<ChipsModule>",
-                    "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: false,\r\n  selectable: false,\r\n  highlighted: false\r\n}"
+                    "type": "Partial<DividerModule>",
+                    "defaultValue": "{\r\n  inset: false\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<ChipsModule>",
-                    "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
+                    "type": "ArgTypes<DividerModule>",
+                    "defaultValue": "{\r\n  inset: { control: { type: 'boolean' }, name: 'Inset' }\r\n}"
                 },
                 {
-                    "name": "Chips",
+                    "name": "Divider",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1790,11 +2050,53 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ChipsModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                    "type": "Meta<DividerModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ExpansionModule>",
+                    "defaultValue": "{\r\n  hideToggle: false\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ExpansionModule>",
+                    "defaultValue": "{\r\n  hideToggle: { control: { type: 'boolean' }, name: 'Hide toggle' }\r\n}"
+                },
+                {
+                    "name": "Expansion",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ExpansionModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/theme/colors/colors.stories.ts": [
@@ -1923,6 +2225,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BottomSheetModule>",
+                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "Story",
@@ -1936,13 +2251,13 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
+            "src/stories/components/chips/chips.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<BottomSheetModule>",
-                    "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
+                    "rawtype": "StoryObj<ChipsModule>",
+                    "file": "src/stories/components/chips/chips.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1962,13 +2277,26 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/chips/chips.stories.ts": [
+            "src/stories/components/divider/divider.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ChipsModule>",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "rawtype": "StoryObj<DividerModule>",
+                    "file": "src/stories/components/divider/divider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ExpansionModule>",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2344,6 +2672,104 @@
             },
             {
                 "filePath": "src/stories/components/chips/chips.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/divider/divider.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DividerModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/divider/divider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/divider/divider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/divider/divider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Divider",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/divider/divider.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/expansion/expansion.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ExpansionModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/expansion/expansion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/expansion/expansion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/expansion/expansion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Expansion",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/expansion/expansion.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
