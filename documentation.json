@@ -52,7 +52,7 @@
         },
         {
             "name": "AutocompleteModule",
-            "id": "component-AutocompleteModule-3f0517d52718286936e18e96cb3a930fedbe7ecd43eb22fec8ef0d0eef86ed7a94049c6fdffa4827543fe80616a171ec27b43d39d5756a21287cadfd6d6fdff4",
+            "id": "component-AutocompleteModule-66341ae741fcc0595a9f290dc3e702c503d18bd6d8ccd11a7f3a77dd70ed6a5b1d65c43c5b196e4cb81b4671191a2d5a0508b23eafb8900afe39c119d9a785ba",
             "file": "src/stories/components/autocomplete/autocomplete.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -116,9 +116,6 @@
                     "line": 43,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "modifierKind": [
-                        121
-                    ],
                     "jsdoctags": [
                         {
                             "name": "value",
@@ -176,7 +173,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { FormControl, ReactiveFormsModule } from '@angular/forms';\nimport { MatAutocompleteModule } from '@angular/material/autocomplete';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { Observable, map, startWith } from 'rxjs';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-autocomplete',\n  standalone: true,\n  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, SBHeaderModule],\n  template: `\n    <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n    <form class=\"mx-4\">\n      <mat-form-field>\n        <mat-label>Number</mat-label>\n        <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\" />\n        <mat-autocomplete autoActiveFirstOption #auto=\"matAutocomplete\">\n          <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n            {{ option }}\n          </mat-option>\n        </mat-autocomplete>\n      </mat-form-field>\n    </form>\n  `,\n  styles: []\n})\nexport class AutocompleteModule {\n  myControl = new FormControl('');\n  options: string[] = ['Option one', 'Option two', 'Option three'];\n  filteredOptions!: Observable<string[]>;\n\n  ngOnInit() {\n    this.filteredOptions = this.myControl.valueChanges.pipe(\n      startWith(''),\n      map(value => this._filter(value || ''))\n    );\n  }\n\n  private _filter(value: string): string[] {\n    const filterValue = value.toLowerCase();\n    return this.options.filter(option => option.toLowerCase().includes(filterValue));\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { FormControl, ReactiveFormsModule } from '@angular/forms';\nimport { MatAutocompleteModule } from '@angular/material/autocomplete';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatInputModule } from '@angular/material/input';\nimport { Observable, map, startWith } from 'rxjs';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-autocomplete',\n  standalone: true,\n  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, SBHeaderModule],\n  template: `\n    <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n    <form class=\"mx-4\">\n      <mat-form-field>\n        <mat-label>Number</mat-label>\n        <input type=\"text\" placeholder=\"Pick one\" aria-label=\"Number\" matInput [formControl]=\"myControl\" [matAutocomplete]=\"auto\" />\n        <mat-autocomplete autoActiveFirstOption #auto=\"matAutocomplete\">\n          <mat-option *ngFor=\"let option of filteredOptions | async\" [value]=\"option\">\n            {{ option }}\n          </mat-option>\n        </mat-autocomplete>\n      </mat-form-field>\n    </form>\n  `,\n  styles: []\n})\nexport class AutocompleteModule {\n  myControl = new FormControl('');\n  options: string[] = ['Option one', 'Option two', 'Option three'];\n  filteredOptions!: Observable<string[]>;\n\n  ngOnInit() {\n    this.filteredOptions = this.myControl.valueChanges.pipe(\n      startWith(''),\n      map(value => this._filter(value || ''))\n    );\n  }\n\n  _filter(value: string): string[] {\n    const filterValue = value.toLowerCase();\n    return this.options.filter(option => option.toLowerCase().includes(filterValue));\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -557,7 +554,7 @@
         },
         {
             "name": "CardModule",
-            "id": "component-CardModule-b00f18d1023cf060824da35f181a6adc5ced6a5d4cd84327c7e681e44035991510ff4df3d0ad0ae3ba5c7860b6fa2c6f48051114f7d5ff6fb6230fa5e6217497",
+            "id": "component-CardModule-3a9303f49ea5c919c75647085bdbfed4440b31ff01bcd44ab7bd16d2cfe1dfb9d387a4e43e4b81de08912b41916d0fce6ed1af05250b71b9acbe277036def75a",
             "file": "src/stories/components/card/card.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -567,11 +564,100 @@
             "selector": "app-card",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n<mat-card class=\"mx-4\">\n  <mat-card-header>\n    <mat-card-title>title</mat-card-title>\n    <mat-card-subtitle>subtitle</mat-card-subtitle>\n  </mat-card-header>\n  <mat-card-content>\n    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quos nostrum veritatis assumenda corrupti sequi ut molestiae\n    nesciunt, quo, eius accusamus dolor illo esse quaerat culpa vel accusantium dolore aspernatur?\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button>Ok</button>\n  </mat-card-actions>\n</mat-card>\n",
+            "template": "<sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n<mat-card class=\"mx-4\" style=\"width:400px\" [appearance]=\"appearance\">\n  <mat-card-header *ngIf=\"title || subtitle\">\n    <mat-card-title-group>\n      <img *ngIf=\"avatar\" mat-card-avatar src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n      <mat-card-title *ngIf=\"title\">title</mat-card-title>\n      <mat-card-subtitle *ngIf=\"subtitle\">subtitle</mat-card-subtitle>\n\n      <ng-container *ngIf=\"media\" [ngSwitch]=\"mediaSize\">\n        <img *ngSwitchCase=\"'xl'\" mat-card-xl-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n        <img *ngSwitchCase=\"'lg'\" mat-card-lg-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n        <img *ngSwitchCase=\"'md'\" mat-card-md-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n        <img *ngSwitchCase=\"'sm'\" mat-card-sm-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n      </ng-container>\n    </mat-card-title-group>\n  </mat-card-header>\n\n  <img *ngIf=\"image\" mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n\n  <!-- Empty content for bottom spacing if display is just title || subtitle -->\n  <mat-card-content></mat-card-content>\n\n  <mat-card-content *ngIf=\"content\">\n    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quos nostrum veritatis assumenda corrupti sequi ut molestiae\n    nesciunt, quo, eius accusamus dolor illo esse quaerat culpa vel accusantium dolore aspernatur?\n  </mat-card-content>\n\n  <mat-card-actions *ngIf=\"actions\" [align]=\"align\">\n    <button mat-button>[Lorem Ipsum]</button>\n    <button mat-button>[Lorem Ipsum]</button>\n  </mat-card-actions>\n\n  <mat-card-footer *ngIf=\"footer\">\n    <mat-progress-bar mode=\"indeterminate\" />\n  </mat-card-footer>\n</mat-card>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "actions",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 58,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "align",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 64,
+                    "type": "\"start\" | \"end\"",
+                    "decorators": []
+                },
+                {
+                    "name": "appearance",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 54,
+                    "type": "\"outlined\" | \"raised\"",
+                    "decorators": []
+                },
+                {
+                    "name": "avatar",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 59,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "content",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 57,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "footer",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 63,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "image",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 62,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "media",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 60,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "mediaSize",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 61,
+                    "type": "\"xl\" | \"lg\" | \"md\" | \"sm\"",
+                    "decorators": []
+                },
+                {
+                    "name": "subtitle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 56,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 55,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -596,12 +682,16 @@
                 {
                     "name": "MatButtonModule",
                     "type": "module"
+                },
+                {
+                    "name": "MatProgressBarModule",
+                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { MatCardModule } from '@angular/material/card';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatButtonModule } from '@angular/material/button';\n\n@Component({\n  selector: 'app-card',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatCardModule, MatButtonModule],\n  template: `\n    <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n    <mat-card class=\"mx-4\">\n      <mat-card-header>\n        <mat-card-title>title</mat-card-title>\n        <mat-card-subtitle>subtitle</mat-card-subtitle>\n      </mat-card-header>\n      <mat-card-content>\n        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quos nostrum veritatis assumenda corrupti sequi ut molestiae\n        nesciunt, quo, eius accusamus dolor illo esse quaerat culpa vel accusantium dolore aspernatur?\n      </mat-card-content>\n      <mat-card-actions>\n        <button mat-button>Ok</button>\n      </mat-card-actions>\n    </mat-card>\n  `,\n  styles: []\n})\nexport class CardModule {}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatCardModule } from '@angular/material/card';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatProgressBarModule } from '@angular/material/progress-bar';\n\n@Component({\n  selector: 'app-card',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatCardModule, MatButtonModule, MatProgressBarModule],\n  template: `\n    <sb-header title=\"Autocomplete\" matLink=\"autocomplete\" />\n\n    <mat-card class=\"mx-4\" style=\"width:400px\" [appearance]=\"appearance\">\n      <mat-card-header *ngIf=\"title || subtitle\">\n        <mat-card-title-group>\n          <img *ngIf=\"avatar\" mat-card-avatar src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n          <mat-card-title *ngIf=\"title\">title</mat-card-title>\n          <mat-card-subtitle *ngIf=\"subtitle\">subtitle</mat-card-subtitle>\n\n          <ng-container *ngIf=\"media\" [ngSwitch]=\"mediaSize\">\n            <img *ngSwitchCase=\"'xl'\" mat-card-xl-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n            <img *ngSwitchCase=\"'lg'\" mat-card-lg-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n            <img *ngSwitchCase=\"'md'\" mat-card-md-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n            <img *ngSwitchCase=\"'sm'\" mat-card-sm-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n          </ng-container>\n        </mat-card-title-group>\n      </mat-card-header>\n\n      <img *ngIf=\"image\" mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" />\n\n      <!-- Empty content for bottom spacing if display is just title || subtitle -->\n      <mat-card-content></mat-card-content>\n\n      <mat-card-content *ngIf=\"content\">\n        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quos nostrum veritatis assumenda corrupti sequi ut molestiae\n        nesciunt, quo, eius accusamus dolor illo esse quaerat culpa vel accusantium dolore aspernatur?\n      </mat-card-content>\n\n      <mat-card-actions *ngIf=\"actions\" [align]=\"align\">\n        <button mat-button>[Lorem Ipsum]</button>\n        <button mat-button>[Lorem Ipsum]</button>\n      </mat-card-actions>\n\n      <mat-card-footer *ngIf=\"footer\">\n        <mat-progress-bar mode=\"indeterminate\" />\n      </mat-card-footer>\n    </mat-card>\n  `,\n  styles: []\n})\nexport class CardModule {\n  @Input() appearance!: 'outlined' | 'raised';\n  @Input() title!: boolean;\n  @Input() subtitle!: boolean;\n  @Input() content!: boolean;\n  @Input() actions!: boolean;\n  @Input() avatar!: boolean;\n  @Input() media!: boolean;\n  @Input() mediaSize!: 'xl' | 'lg' | 'md' | 'sm';\n  @Input() image!: boolean;\n  @Input() footer!: boolean;\n  @Input() align!: 'start' | 'end';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -1035,11 +1125,31 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AutocompleteModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<BadgeModule>",
                 "defaultValue": "{\r\n  label: '0',\r\n  color: 'primary',\r\n  size: 'medium',\r\n  position: 'above after',\r\n  disabled: false,\r\n  overlap: false,\r\n  hidden: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ButtonModule>",
+                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
             },
             {
                 "name": "args",
@@ -1055,11 +1165,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ButtonModule>",
-                "defaultValue": "{\r\n  label: 'Button',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+                "type": "Partial<CardModule>",
+                "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
             },
             {
                 "name": "args",
@@ -1095,11 +1205,31 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<AutocompleteModule>",
+                "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<BadgeModule>",
                 "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  size: {\r\n    options: ['small', 'medium', 'large'],\r\n    control: { type: 'radio' },\r\n    name: 'Size'\r\n  },\r\n  position: {\r\n    options: ['above after', 'above before', 'below before', 'below after', 'before', 'after', 'above', 'below'],\r\n    control: { type: 'select' },\r\n    name: 'Position'\r\n  },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  overlap: { control: { type: 'boolean' }, name: 'Overlay' },\r\n  hidden: { control: { type: 'boolean' }, name: 'Hidden' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ButtonModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -1115,11 +1245,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ButtonModule>",
-                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
+                "type": "ArgTypes<CardModule>",
+                "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -1199,7 +1329,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  /* args */\r\n}"
+                "defaultValue": "{\r\n  args\r\n}"
             },
             {
                 "name": "Chips",
@@ -1229,7 +1359,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AutocompleteModule>",
-                "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
+                "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1240,6 +1370,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<BadgeModule>",
                 "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonModule>",
+                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1259,17 +1399,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<CardModule>",
-                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonModule>",
-                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -1350,6 +1480,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonModule>",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<BottomSheetModule>",
                 "file": "src/stories/components/bottom-sheet/bottom-sheet.stories.ts",
                 "deprecated": false,
@@ -1363,17 +1504,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<CardModule>",
                 "file": "src/stories/components/card/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonModule>",
-                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1415,6 +1545,48 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/components/autocomplete/autocomplete.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AutocompleteModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<AutocompleteModule>",
+                    "defaultValue": "{\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "Autocomplete",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  /* args */\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AutocompleteModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -1455,6 +1627,48 @@
                     "deprecationMessage": "",
                     "type": "Meta<BadgeModule>",
                     "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ButtonModule>",
+                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ButtonModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
+                },
+                {
+                    "name": "Button",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
@@ -1499,46 +1713,46 @@
                     "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/button/button.stories.ts": [
+            "src/stories/components/card/card.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<ButtonModule>",
-                    "defaultValue": "{\r\n  label: 'Button',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+                    "type": "Partial<CardModule>",
+                    "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<ButtonModule>",
-                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
+                    "type": "ArgTypes<CardModule>",
+                    "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
                 },
                 {
-                    "name": "Button",
+                    "name": "Card",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{ args }"
+                    "defaultValue": "{\r\n  args\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ButtonModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                    "type": "Meta<CardModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/chips/chips.stories.ts": [
@@ -1667,50 +1881,6 @@
                     "defaultValue": "{ args }"
                 }
             ],
-            "src/stories/components/autocomplete/autocomplete.stories.ts": [
-                {
-                    "name": "Autocomplete",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  /* args */\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AutocompleteModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
-                }
-            ],
-            "src/stories/components/card/card.stories.ts": [
-                {
-                    "name": "Card",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  /* args */\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } }\r\n  /* argTypes */\r\n}"
-                }
-            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -1753,6 +1923,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonModule>",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
                 {
                     "name": "Story",
@@ -1773,19 +1956,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<CardModule>",
                     "file": "src/stories/components/card/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonModule>",
-                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1886,6 +2056,26 @@
                 "name": "AutocompleteModule",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/autocomplete/autocomplete.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -2069,6 +2259,26 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "CardModule",
+                "coveragePercent": 0,
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "args",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/card/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "argTypes",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
