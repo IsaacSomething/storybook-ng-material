@@ -8,7 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
   selector: 'app-slider',
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatTabsModule],
-  template: ` <sb-header title="Menu" matLink="menu" /> `,
+  template: ` <sb-header title="Slider" matLink="slider" /> `,
   styles: []
 })
 export class SliderModule {}

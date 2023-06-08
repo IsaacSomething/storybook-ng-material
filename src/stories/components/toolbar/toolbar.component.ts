@@ -9,7 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatToolbarModule],
   template: `
-    <sb-header title="Menu" matLink="menu" />
+    <sb-header title="Toolbar" matLink="components/toolbar/api" />
     <mat-toolbar>
       <span>FirstRow</span>
     </mat-toolbar>

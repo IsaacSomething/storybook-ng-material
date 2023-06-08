@@ -14,7 +14,7 @@ const argTypes: ArgTypes<AutocompleteModule> = {
 const args: Partial<AutocompleteModule> = {};
 
 const meta: Meta<AutocompleteModule> = {
-  title: 'Components/Autocomplete',
+  title: 'Forms/Autocomplete',
   component: AutocompleteModule,
   decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],
   parameters: { options: { showPanel: true } },

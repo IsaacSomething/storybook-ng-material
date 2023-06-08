@@ -9,7 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatTabsModule],
   template: `
-    <sb-header title="Menu" matLink="menu" />
+    <sb-header title="Tabs" matLink="components/tabs/api" />
 
     <mat-tab-group [color]="color" [animationDuration]="duration">
       <mat-tab label="First">

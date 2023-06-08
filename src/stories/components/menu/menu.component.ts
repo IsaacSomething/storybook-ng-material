@@ -9,7 +9,7 @@ import { MatMenuModule } from '@angular/material/menu';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatMenuModule, MatButtonModule],
   template: `
-    <sb-header title="Menu" matLink="menu" />
+    <sb-header title="Menu" matLink="components/menu/api" />
 
     <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">[Menu]</button>
     <mat-menu #menu="matMenu" [yPosition]="yPosition" [xPosition]="xPosition" [hasBackdrop]="hasBackdrop" [overlapTrigger]="overlapTrigger">

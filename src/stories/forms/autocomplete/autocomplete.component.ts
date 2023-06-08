@@ -12,7 +12,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   standalone: true,
   imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, SBHeaderModule],
   template: `
-    <sb-header title="Autocomplete" matLink="autocomplete" />
+    <sb-header title="Autocomplete" matLink="components/autocomplete/api" />
 
     <form class="mx-4">
       <mat-form-field>

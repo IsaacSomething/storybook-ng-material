@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatChipsModule, MatButtonModule, MatIconModule],
   template: `
-    <sb-header title="Chips" matLink="chips" />
+    <sb-header title="Chips" matLink="components/chips/api" />
 
     <mat-chip-listbox class="mx-4" [hideSingleSelectionIndicator]="hideSingle" [multiple]="multiple" [selectable]="selectable">
       <mat-chip-option>Default</mat-chip-option>

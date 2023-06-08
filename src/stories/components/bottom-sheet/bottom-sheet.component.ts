@@ -9,7 +9,7 @@ import { SBHeaderModule } from 'src/stories/assets/sb-header';
   imports: [MatBottomSheetModule, MatButtonModule, SBHeaderModule],
   styles: [],
   template: `
-    <sb-header title="Bottom sheet" matLink="bottom-sheet" />
+    <sb-header title="Bottom sheet" matLink="components/bottom-sheet/api" />
     <button class="mx-4" mat-stroked-button (click)="openBottomSheet()">[Open bottom sheet]</button>
   `
 })

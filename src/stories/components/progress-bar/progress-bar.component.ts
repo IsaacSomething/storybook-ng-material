@@ -9,7 +9,7 @@ import { ThemePalette } from '@angular/material/core';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatProgressBarModule],
   template: `
-    <sb-header title="Menu" matLink="menu" />
+    <sb-header title="Progress Bar" matLink="components/progress-bar/api" />
 
     <mat-progress-bar mode="determinate" [value]="value"> </mat-progress-bar>
   `,

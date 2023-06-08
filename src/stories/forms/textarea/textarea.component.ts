@@ -8,7 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
   selector: 'app-textarea',
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatTabsModule],
-  template: ` <sb-header title="Menu" matLink="menu" /> `,
+  template: ` <sb-header title="Textarea" matLink="textarea" /> `,
   styles: []
 })
 export class TextareaModule {}

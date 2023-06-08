@@ -8,17 +8,10 @@ import { SBHeaderModule } from '../../assets/sb-header';
   selector: 'app-badge',
   standalone: true,
   imports: [CommonModule, MatBadgeModule, MatButtonModule, SBHeaderModule],
-  styles: [
-    `
-      .container {
-        display: flex;
-        padding: 3rem;
-      }
-    `
-  ],
   template: `
-    <sb-header title="Badge" matLink="badge" />
-    <div class="container">
+    <sb-header title="Badge" matLink="components/badge/api" />
+
+    <div class="p-12">
       <button
         mat-raised-button
         [matBadgeHidden]="hidden"

@@ -10,7 +10,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   selector: 'app-checkbox',
   standalone: true,
   imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, SBHeaderModule],
-  template: ` <sb-header title="Autocomplete" matLink="autocomplete" /> `,
+  template: ` <sb-header title="Checkbox" matLink="components/checkbox/api" /> `,
   styles: []
 })
 export class CheckboxModule {}

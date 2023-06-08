@@ -17,7 +17,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
     `
   ],
   template: `
-    <sb-header title="Button" matLink="button" />
+    <sb-header title="Button" matLink="components/button/api" />
     <div [ngSwitch]="type" class="mx-4">
       <button *ngSwitchDefault mat-button [color]="color" [disabled]="disabled">{{ label }}</button>
       <button *ngSwitchCase="'raised'" mat-raised-button [color]="color" [disabled]="disabled">

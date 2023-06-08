@@ -40,9 +40,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   template: `
     <div class="container">
       <h2>{{ title }}</h2>
-      <a *ngIf="matLink" href="https://material.angular.io/components/{{ matLink }}/api" target="_blank">
-        Angular material documentation
-      </a>
+      <a *ngIf="matLink" href="https://material.angular.io/{{ matLink }}" target="_blank"> Angular material documentation </a>
 
       <small *ngIf="clipboard">CLICK TO COPY VALUE</small>
       <mat-divider></mat-divider>

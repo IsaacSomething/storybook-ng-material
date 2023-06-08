@@ -10,7 +10,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatCardModule, MatButtonModule, MatProgressBarModule],
   template: `
-    <sb-header title="Autocomplete" matLink="autocomplete" />
+    <sb-header title="Card" matLink="components/card/api" />
 
     <mat-card class="mx-4" style="width:400px" [appearance]="appearance">
       <mat-card-header *ngIf="title || subtitle">

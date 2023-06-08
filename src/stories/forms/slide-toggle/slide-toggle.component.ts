@@ -6,7 +6,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   selector: 'app-slide-toggle',
   standalone: true,
   imports: [CommonModule, SBHeaderModule],
-  template: ` <sb-header title="Menu" matLink="menu" /> `,
+  template: ` <sb-header title="Slide Toggle" matLink="slide-toggle" /> `,
   styles: []
 })
 export class SlideToggleModule {}

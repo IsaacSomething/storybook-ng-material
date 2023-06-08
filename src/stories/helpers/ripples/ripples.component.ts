@@ -9,7 +9,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatCardModule, MatRippleModule],
   template: `
-    <sb-header title="Menu" matLink="menu" />
+    <sb-header title="Ripples" matLink="components/ripple/overview" />
     <mat-card
       matRipple
       [matRippleCentered]="centered"

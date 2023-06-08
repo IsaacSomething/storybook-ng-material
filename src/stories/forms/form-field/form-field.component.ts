@@ -10,7 +10,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   selector: 'app-form-field',
   standalone: true,
   imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, SBHeaderModule],
-  template: ` <sb-header title="Autocomplete" matLink="autocomplete" /> `,
+  template: ` <sb-header title="Form Field" matLink="form-field" /> `,
   styles: []
 })
 export class FormFieldModule {}

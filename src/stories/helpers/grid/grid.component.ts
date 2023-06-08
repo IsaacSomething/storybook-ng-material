@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { SBHeaderModule } from '../../assets/sb-header';
 
 @Component({
-  selector: 'app-select',
+  selector: 'app-grid',
   standalone: true,
   imports: [CommonModule, SBHeaderModule],
-  template: ` <sb-header title="Select" matLink="components/select/api" /> `,
+  template: ` <sb-header title="Grid" matLink="components/grid-list/overview" /> `,
   styles: []
 })
-export class SelectModule {}
+export class GridModule {}

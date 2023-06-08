@@ -9,7 +9,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatDividerModule, MatListModule],
   template: `
-    <sb-header title="Divider" matLink="divider" />
+    <sb-header title="Divider" matLink="components/divider/api" />
 
     <mat-list>
       <mat-list-item>[Item 1]</mat-list-item>

@@ -10,7 +10,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   selector: 'app-radio-button',
   standalone: true,
   imports: [CommonModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, ReactiveFormsModule, SBHeaderModule],
-  template: ` <sb-header title="Autocomplete" matLink="autocomplete" /> `,
+  template: ` <sb-header title="Radio Button" matLink="components/radio/api" /> `,
   styles: []
 })
 export class RadioButtonModule {}

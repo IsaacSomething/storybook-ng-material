@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-expansion',
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatExpansionModule, MatButtonModule],
-  template: ` <sb-header title="Expansion Panel" matLink="expansion" />
+  template: ` <sb-header title="Expansion Panel" matLink="components/expansion/api" />
 
     <mat-accordion [multi]="multi" [displayMode]="displayMode">
       <mat-expansion-panel #panel1 (opened)="opened(panel1)" (closed)="closed(panel1)">

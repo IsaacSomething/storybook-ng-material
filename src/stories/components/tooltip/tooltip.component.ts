@@ -9,7 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   standalone: true,
   imports: [CommonModule, SBHeaderModule, MatTooltipModule],
   template: `
-    <sb-header title="Menu" matLink="menu" />
+    <sb-header title="Tooltip" matLink="components/tooltip/api" />
   `,
   styles: []
 })
