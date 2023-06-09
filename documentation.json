@@ -1142,7 +1142,7 @@
         },
         {
             "name": "DatePickerModule",
-            "id": "component-DatePickerModule-5dafbb1a95fd2e6edc2d535678e75a57e202f4f04df916a676348e0180f7be3f01eee5efec7999597175aee755cde408fdd5e536f36a97a0efe952d4fcc0a297",
+            "id": "component-DatePickerModule-a0aab96e30d75de2c98708c00b2dd471b7f5edb3a96b632b6af069ab3c40ded912fa8ca9a66ef0ed9a5e7b6e4d5cb84899ae2db165f1a632c54d6adaa37c4841",
             "file": "src/stories/forms/date-picker/date-picker.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1152,11 +1152,76 @@
             "selector": "app-date-picker",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Date picker\" matLink=\"date-picker\" />",
+            "template": "<sb-header title=\"Date picker\" matLink=\"date-picker\" />\n\n<div class=\"mx-4\" *ngIf=\"inline; else default\">\n  <mat-calendar class=\"h-auto w-80\"></mat-calendar>\n</div>\n\n<ng-template #default>\n  <div class=\"mt-96 mx-5 ml-10\">\n    <mat-form-field>\n      <mat-label>Choose a date</mat-label>\n      <input matInput [matDatepicker]=\"picker\" />\n      <mat-hint>MM/DD/YYYY</mat-hint>\n      <mat-datepicker-toggle matIconSuffix [for]=\"picker\"></mat-datepicker-toggle>\n      <mat-datepicker\n        #picker\n        [disabled]=\"disabled\"\n        [color]=\"color\"\n        [opened]=\"open\"\n        [touchUi]=\"touchUi\"\n        [xPosition]=\"xPosition\"\n        [yPosition]=\"yPosition\"\n        [startView]=\"startView\"\n      ></mat-datepicker>\n    </mat-form-field>\n  </div>\n</ng-template>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 47,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "inline",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 46,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "open",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "startView",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 48,
+                    "type": "\"month\" | \"year\" | \"multi-year\"",
+                    "decorators": []
+                },
+                {
+                    "name": "touchUi",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 49,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "xPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 50,
+                    "type": "DatepickerDropdownPositionX",
+                    "decorators": []
+                },
+                {
+                    "name": "yPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 51,
+                    "type": "DatepickerDropdownPositionY",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -1173,12 +1238,28 @@
                 {
                     "name": "SBHeaderModule",
                     "type": "module"
+                },
+                {
+                    "name": "MatDatepickerModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatInputModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatFormFieldModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatNativeDateModule",
+                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\n\n@Component({\n  selector: 'app-date-picker',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule],\n  template: ` <sb-header title=\"Date picker\" matLink=\"date-picker\" /> `,\n  styles: []\n})\nexport class DatePickerModule {}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { DatepickerDropdownPositionX, DatepickerDropdownPositionY, MatDatepickerModule } from '@angular/material/datepicker';\nimport { MatInputModule } from '@angular/material/input';\nimport { MatFormFieldModule } from '@angular/material/form-field';\nimport { MatNativeDateModule, ThemePalette } from '@angular/material/core';\n\n@Component({\n  selector: 'app-date-picker',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatDatepickerModule, MatInputModule, MatFormFieldModule, MatNativeDateModule],\n  template: `\n    <sb-header title=\"Date picker\" matLink=\"date-picker\" />\n\n    <div class=\"mx-4\" *ngIf=\"inline; else default\">\n      <mat-calendar class=\"h-auto w-80\"></mat-calendar>\n    </div>\n\n    <ng-template #default>\n      <div class=\"mt-96 mx-5 ml-10\">\n        <mat-form-field>\n          <mat-label>Choose a date</mat-label>\n          <input matInput [matDatepicker]=\"picker\" />\n          <mat-hint>MM/DD/YYYY</mat-hint>\n          <mat-datepicker-toggle matIconSuffix [for]=\"picker\"></mat-datepicker-toggle>\n          <mat-datepicker\n            #picker\n            [disabled]=\"disabled\"\n            [color]=\"color\"\n            [opened]=\"open\"\n            [touchUi]=\"touchUi\"\n            [xPosition]=\"xPosition\"\n            [yPosition]=\"yPosition\"\n            [startView]=\"startView\"\n          ></mat-datepicker>\n        </mat-form-field>\n      </div>\n    </ng-template>\n  `,\n  styles: []\n})\nexport class DatePickerModule {\n  @Input() color: ThemePalette;\n  @Input() open!: boolean;\n  @Input() inline!: boolean;\n  @Input() disabled!: boolean;\n  @Input() startView!: 'month' | 'year' | 'multi-year';\n  @Input() touchUi!: boolean;\n  @Input() xPosition!: DatepickerDropdownPositionX;\n  @Input() yPosition!: DatepickerDropdownPositionY;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -1753,7 +1834,7 @@
         },
         {
             "name": "ProgressBarModule",
-            "id": "component-ProgressBarModule-f421d2f4cc26ddc41c35e30cb75d01a68e981ada6f086df58d26edd45763fc93fbaf47584b8e294f5698241ad9850e52a7f028b3d42baa1b5f518d92ef2a9021",
+            "id": "component-ProgressBarModule-406cc0999afa3ccdb01e93503da4756165cc555343f4144fdc84cceea001fba409f78800c5e1c1ab74e954a0af7f3a52d585b78bdad9e67c2ce8d92253de0baf",
             "file": "src/stories/components/progress-bar/progress-bar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1763,7 +1844,7 @@
             "selector": "app-progress-bar",
             "styleUrls": [],
             "styles": [],
-            "template": "    <sb-header title=\"Progress Bar\" matLink=\"components/progress-bar/api\" />\n<!--\n    <div class=\"mx-5\">\n      <mat-progress-bar [value]=\"34\"> </mat-progress-bar>\n    </div> -->\n\n    <mat-progress-bar mode=\"determinate\" value=\"40\"></mat-progress-bar>\n",
+            "template": "    <sb-header title=\"Progress Bar\" matLink=\"components/progress-bar/api\" />\n<!--\n    <div class=\"mx-5\">\n      <mat-progress-bar [value]=\"34\"> </mat-progress-bar>\n    </div> -->\n\n    <mat-progress-bar value=\"40\"></mat-progress-bar>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -1793,7 +1874,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatProgressBarModule } from '@angular/material/progress-bar';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\n\n@Component({\n  selector: 'app-progress-bar',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatProgressBarModule],\n  template: `\n    <sb-header title=\"Progress Bar\" matLink=\"components/progress-bar/api\" />\n<!-- \n    <div class=\"mx-5\">\n      <mat-progress-bar [value]=\"34\"> </mat-progress-bar>\n    </div> -->\n\n    <mat-progress-bar mode=\"determinate\" value=\"40\"></mat-progress-bar>\n  `\n})\nexport class ProgressBarModule {\n /*  @Input() value!: number; \n  @Input() color!: ThemePalette | 'default';\n  @Input() mode!: 'determinate' | 'indeterminate' | 'buffer' | 'query'; */\n}\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input } from '@angular/core';\nimport { MatProgressBarModule } from '@angular/material/progress-bar';\nimport { SBHeaderModule } from '../../assets/sb-header';\nimport { ThemePalette } from '@angular/material/core';\n\n@Component({\n  selector: 'app-progress-bar',\n  standalone: true,\n  imports: [CommonModule, SBHeaderModule, MatProgressBarModule],\n  template: `\n    <sb-header title=\"Progress Bar\" matLink=\"components/progress-bar/api\" />\n<!-- \n    <div class=\"mx-5\">\n      <mat-progress-bar [value]=\"34\"> </mat-progress-bar>\n    </div> -->\n\n    <mat-progress-bar value=\"40\"></mat-progress-bar>\n  `\n})\nexport class ProgressBarModule {\n /*  @Input() value!: number; \n  @Input() color!: ThemePalette | 'default';\n  @Input() mode!: 'determinate' | 'indeterminate' | 'buffer' | 'query'; */\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -3104,96 +3185,6 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<CheckboxModule>",
-                "defaultValue": "{\n  stacked: false,\n  indeterminate: false,\n  color: 'default',\n  labelPosition: 'after'\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<AutocompleteModule>",
-                "defaultValue": "{\n  autoActiveFirstOption: false\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/form-field/form-field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<FormFieldModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<DatePickerModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<RadioButtonModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/select/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<SelectModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<SlideToggleModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/slider/slider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<SliderModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/textarea/textarea.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<TextareaModule>",
-                "defaultValue": "{\n  minRows: 1,\n  maxRows: 5,\n  autoResize: true\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3214,16 +3205,6 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ButtonModule>",
-                "defaultValue": "{\n  label: '[Button]',\n  disabled: false,\n  color: 'default',\n  type: 'default'\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3239,6 +3220,16 @@
                 "deprecationMessage": "",
                 "type": "Partial<ChipsModule>",
                 "defaultValue": "{\n  color: 'default',\n  hideSingle: false,\n  multiple: true,\n  selectable: true,\n  highlighted: false\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ButtonModule>",
+                "defaultValue": "{\n  label: '[Button]',\n  disabled: false,\n  color: 'default',\n  type: 'default'\n}"
             },
             {
                 "name": "args",
@@ -3374,6 +3365,96 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AutocompleteModule>",
+                "defaultValue": "{\n  autoActiveFirstOption: false\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<CheckboxModule>",
+                "defaultValue": "{\n  stacked: false,\n  indeterminate: false,\n  color: 'default',\n  labelPosition: 'after'\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<FormFieldModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<DatePickerModule>",
+                "defaultValue": "{\n  color: 'primary',\n  open: false,\n  startView: 'month',\n  touchUi: false,\n  disabled: false,\n  inline: false,\n  xPosition: 'start',\n  yPosition: 'below'\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<RadioButtonModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/select/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<SelectModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<SlideToggleModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slider/slider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<SliderModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/textarea/textarea.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TextareaModule>",
+                "defaultValue": "{\n  minRows: 1,\n  maxRows: 5,\n  autoResize: true\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/helpers/elevation/elevation.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3404,96 +3485,6 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<CheckboxModule>",
-                "defaultValue": "{\n  stacked: { control: { type: 'boolean' }, name: 'Stacked' },\n  indeterminate: { control: { type: 'boolean' }, name: 'Stacked' },\n  labelPosition: {\n    options: ['after', 'before'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<AutocompleteModule>",
-                "defaultValue": "{\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\n  _filter: { table: { disable: true } },\n  ngOnInit: { table: { disable: true } },\n  options: { table: { disable: true } },\n  myControl: { table: { disable: true } },\n  filteredOptions: { table: { disable: true } }\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/form-field/form-field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<FormFieldModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<DatePickerModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<RadioButtonModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/select/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<SelectModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<SlideToggleModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/slider/slider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<SliderModule>",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/textarea/textarea.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<TextareaModule>",
-                "defaultValue": "{\n  minRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Min rows' },\n  maxRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Max rows' },\n  autoResize: { control: { type: 'boolean' }, name: 'Auto resize' }\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3514,16 +3505,6 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ButtonModule>",
-                "defaultValue": "{\n  label: { control: { type: 'text' }, name: 'Label' },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  type: {\n    options: ['default', 'flat', 'stroked', 'raised'],\n    control: { type: 'radio' },\n    name: 'Button type'\n  }\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3539,6 +3520,16 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<ChipsModule>",
                 "defaultValue": "{\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ButtonModule>",
+                "defaultValue": "{\n  label: { control: { type: 'text' }, name: 'Label' },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  type: {\n    options: ['default', 'flat', 'stroked', 'raised'],\n    control: { type: 'radio' },\n    name: 'Button type'\n  }\n}"
             },
             {
                 "name": "argTypes",
@@ -3674,11 +3665,91 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ElevationModule>",
-                "defaultValue": "{\n  elevation: { control: { type: 'range', max: 24, min: 0 }, name: 'Elevation' }\n}"
+                "type": "ArgTypes<AutocompleteModule>",
+                "defaultValue": "{\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\n  _filter: { table: { disable: true } },\n  ngOnInit: { table: { disable: true } },\n  options: { table: { disable: true } },\n  myControl: { table: { disable: true } },\n  filteredOptions: { table: { disable: true } }\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<CheckboxModule>",
+                "defaultValue": "{\n  stacked: { control: { type: 'boolean' }, name: 'Stacked' },\n  indeterminate: { control: { type: 'boolean' }, name: 'Stacked' },\n  labelPosition: {\n    options: ['after', 'before'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<FormFieldModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<DatePickerModule>",
+                "defaultValue": "{\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\n  startView: { options: ['month', 'year', 'multi-year'], control: { type: 'radio' }, name: 'Start View' },\n  open: { control: { type: 'boolean' }, name: 'Open' },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  inline: { control: { type: 'boolean' }, name: 'Inline' },\n  touchUi: { control: { type: 'boolean' }, name: 'Responsive' },\n  xPosition: { options: ['start', 'end'], control: { type: 'radio' }, name: 'X Position' },\n  yPosition: { options: ['above', 'below'], control: { type: 'radio' }, name: 'Y Position' }\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<RadioButtonModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/select/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<SelectModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<SlideToggleModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slider/slider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<SliderModule>",
+                "defaultValue": "{}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/textarea/textarea.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<TextareaModule>",
+                "defaultValue": "{\n  minRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Min rows' },\n  maxRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Max rows' },\n  autoResize: { control: { type: 'boolean' }, name: 'Auto resize' }\n}"
             },
             {
                 "name": "argTypes",
@@ -3689,6 +3760,16 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<ClipModule>",
                 "defaultValue": "{\n  text: { table: { disable: true } },\n  textValue: { table: { disable: true } },\n  textCopy: { table: { disable: true } },\n  copied: { table: { disable: true } }\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ElevationModule>",
+                "defaultValue": "{\n  elevation: { control: { type: 'range', max: 24, min: 0 }, name: 'Elevation' }\n}"
             },
             {
                 "name": "argTypes",
@@ -3808,7 +3889,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  /* args */\n}"
+                "defaultValue": "{ args }"
             },
             {
                 "name": "Divider",
@@ -3884,96 +3965,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CheckboxModule>",
-                "defaultValue": "{\n  title: 'forms/Checkbox',\n  component: CheckboxModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AutocompleteModule>",
-                "defaultValue": "{\n  title: 'Forms/Autocomplete',\n  component: AutocompleteModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/form-field/form-field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<FormFieldModule>",
-                "defaultValue": "{\n  title: 'Forms/Form Field',\n  component: FormFieldModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DatePickerModule>",
-                "defaultValue": "{\n  title: 'Forms/Date Picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<RadioButtonModule>",
-                "defaultValue": "{\n  title: 'Forms/Radio Button',\n  component: RadioButtonModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/select/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<SelectModule>",
-                "defaultValue": "{\n  title: 'Forms/Select',\n  component: SelectModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<SlideToggleModule>",
-                "defaultValue": "{\n  title: 'Forms/Slide Toggle',\n  component: SlideToggleModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/slider/slider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<SliderModule>",
-                "defaultValue": "{\n  title: 'Forms/Slider',\n  component: SliderModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/textarea/textarea.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TextareaModule>",
-                "defaultValue": "{\n  title: 'Forms/Textarea',\n  component: TextareaModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3994,16 +3985,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonModule>",
-                "defaultValue": "{\n  title: 'Components/Button',\n  component: ButtonModule,\n  parameters: {\n    options: { showPanel: true }\n  },\n  argTypes\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4019,6 +4000,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<ChipsModule>",
                 "defaultValue": "{\n  title: 'Components/Chips',\n  component: ChipsModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonModule>",
+                "defaultValue": "{\n  title: 'Components/Button',\n  component: ButtonModule,\n  parameters: {\n    options: { showPanel: true }\n  },\n  argTypes\n}"
             },
             {
                 "name": "meta",
@@ -4154,11 +4145,91 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ElevationModule>",
-                "defaultValue": "{\n  title: 'Helpers/Elevation',\n  component: ElevationModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                "type": "Meta<AutocompleteModule>",
+                "defaultValue": "{\n  title: 'Forms/Autocomplete',\n  component: AutocompleteModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CheckboxModule>",
+                "defaultValue": "{\n  title: 'forms/Checkbox',\n  component: CheckboxModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<FormFieldModule>",
+                "defaultValue": "{\n  title: 'Forms/Form Field',\n  component: FormFieldModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DatePickerModule>",
+                "defaultValue": "{\n  title: 'Forms/Date Picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RadioButtonModule>",
+                "defaultValue": "{\n  title: 'Forms/Radio Button',\n  component: RadioButtonModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/select/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SelectModule>",
+                "defaultValue": "{\n  title: 'Forms/Select',\n  component: SelectModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SlideToggleModule>",
+                "defaultValue": "{\n  title: 'Forms/Slide Toggle',\n  component: SlideToggleModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/slider/slider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SliderModule>",
+                "defaultValue": "{\n  title: 'Forms/Slider',\n  component: SliderModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/forms/textarea/textarea.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TextareaModule>",
+                "defaultValue": "{\n  title: 'Forms/Textarea',\n  component: TextareaModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
             },
             {
                 "name": "meta",
@@ -4169,6 +4240,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<ClipModule>",
                 "defaultValue": "{\n  title: 'Helpers/Clipboard',\n  component: ClipModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ElevationModule>",
+                "defaultValue": "{\n  title: 'Helpers/Elevation',\n  component: ElevationModule,\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
             },
             {
                 "name": "meta",
@@ -4357,105 +4438,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CheckboxModule>",
-                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<AutocompleteModule>",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<FormFieldModule>",
-                "file": "src/stories/forms/form-field/form-field.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<DatePickerModule>",
-                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<RadioButtonModule>",
-                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<SelectModule>",
-                "file": "src/stories/forms/select/select.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<SlideToggleModule>",
-                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<SliderModule>",
-                "file": "src/stories/forms/slider/slider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<TextareaModule>",
-                "file": "src/stories/forms/textarea/textarea.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<BadgeModule>",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
@@ -4478,17 +4460,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonModule>",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<CardModule>",
                 "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
@@ -4502,6 +4473,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ChipsModule>",
                 "file": "src/stories/components/chips/chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonModule>",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4654,8 +4636,96 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ElevationModule>",
-                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "rawtype": "StoryObj<AutocompleteModule>",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CheckboxModule>",
+                "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<FormFieldModule>",
+                "file": "src/stories/forms/form-field/form-field.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<DatePickerModule>",
+                "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<RadioButtonModule>",
+                "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SelectModule>",
+                "file": "src/stories/forms/select/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SlideToggleModule>",
+                "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SliderModule>",
+                "file": "src/stories/forms/slider/slider.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TextareaModule>",
+                "file": "src/stories/forms/textarea/textarea.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4667,6 +4737,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ClipModule>",
                 "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ElevationModule>",
+                "file": "src/stories/helpers/elevation/elevation.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4697,384 +4778,6 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "src/stories/forms/checkbox/checkbox.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<CheckboxModule>",
-                    "defaultValue": "{\n  stacked: false,\n  indeterminate: false,\n  color: 'default',\n  labelPosition: 'after'\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<CheckboxModule>",
-                    "defaultValue": "{\n  stacked: { control: { type: 'boolean' }, name: 'Stacked' },\n  indeterminate: { control: { type: 'boolean' }, name: 'Stacked' },\n  labelPosition: {\n    options: ['after', 'before'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
-                },
-                {
-                    "name": "Checkbox",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CheckboxModule>",
-                    "defaultValue": "{\n  title: 'forms/Checkbox',\n  component: CheckboxModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                }
-            ],
-            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AutocompleteModule>",
-                    "defaultValue": "{\n  autoActiveFirstOption: false\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<AutocompleteModule>",
-                    "defaultValue": "{\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\n  _filter: { table: { disable: true } },\n  ngOnInit: { table: { disable: true } },\n  options: { table: { disable: true } },\n  myControl: { table: { disable: true } },\n  filteredOptions: { table: { disable: true } }\n}"
-                },
-                {
-                    "name": "Autocomplete",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AutocompleteModule>",
-                    "defaultValue": "{\n  title: 'Forms/Autocomplete',\n  component: AutocompleteModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                }
-            ],
-            "src/stories/forms/form-field/form-field.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<FormFieldModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<FormFieldModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "FormField",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  /* args */\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<FormFieldModule>",
-                    "defaultValue": "{\n  title: 'Forms/Form Field',\n  component: FormFieldModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                }
-            ],
-            "src/stories/forms/date-picker/date-picker.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<DatePickerModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<DatePickerModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "DatePicker",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  /* args */\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DatePickerModule>",
-                    "defaultValue": "{\n  title: 'Forms/Date Picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
-                }
-            ],
-            "src/stories/forms/radio-button/radio-button.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<RadioButtonModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<RadioButtonModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<RadioButtonModule>",
-                    "defaultValue": "{\n  title: 'Forms/Radio Button',\n  component: RadioButtonModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                },
-                {
-                    "name": "RadioButton",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  /* args */\n}"
-                }
-            ],
-            "src/stories/forms/select/select.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/select/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<SelectModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/select/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<SelectModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/select/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<SelectModule>",
-                    "defaultValue": "{\n  title: 'Forms/Select',\n  component: SelectModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
-                },
-                {
-                    "name": "Select",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/select/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  /* args */\n}"
-                }
-            ],
-            "src/stories/forms/slide-toggle/slide-toggle.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<SlideToggleModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<SlideToggleModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<SlideToggleModule>",
-                    "defaultValue": "{\n  title: 'Forms/Slide Toggle',\n  component: SlideToggleModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
-                },
-                {
-                    "name": "SlideToggle",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  /* args */\n}"
-                }
-            ],
-            "src/stories/forms/slider/slider.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slider/slider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<SliderModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slider/slider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<SliderModule>",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slider/slider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<SliderModule>",
-                    "defaultValue": "{\n  title: 'Forms/Slider',\n  component: SliderModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
-                },
-                {
-                    "name": "Slider",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/slider/slider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  /* args */\n}"
-                }
-            ],
-            "src/stories/forms/textarea/textarea.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/textarea/textarea.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<TextareaModule>",
-                    "defaultValue": "{\n  minRows: 1,\n  maxRows: 5,\n  autoResize: true\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/textarea/textarea.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<TextareaModule>",
-                    "defaultValue": "{\n  minRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Min rows' },\n  maxRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Max rows' },\n  autoResize: { control: { type: 'boolean' }, name: 'Auto resize' }\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/textarea/textarea.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TextareaModule>",
-                    "defaultValue": "{\n  title: 'Forms/Textarea',\n  component: TextareaModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
-                },
-                {
-                    "name": "Textarea",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/textarea/textarea.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  /* args */\n}"
-                }
-            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -5159,48 +4862,6 @@
                     "defaultValue": "{\n  title: 'Components/Bottom Sheet',\n  component: BottomSheetModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
                 }
             ],
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ButtonModule>",
-                    "defaultValue": "{\n  label: '[Button]',\n  disabled: false,\n  color: 'default',\n  type: 'default'\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ButtonModule>",
-                    "defaultValue": "{\n  label: { control: { type: 'text' }, name: 'Label' },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  type: {\n    options: ['default', 'flat', 'stroked', 'raised'],\n    control: { type: 'radio' },\n    name: 'Button type'\n  }\n}"
-                },
-                {
-                    "name": "Button",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonModule>",
-                    "defaultValue": "{\n  title: 'Components/Button',\n  component: ButtonModule,\n  parameters: {\n    options: { showPanel: true }\n  },\n  argTypes\n}"
-                }
-            ],
             "src/stories/components/card/card.stories.ts": [
                 {
                     "name": "args",
@@ -5283,6 +4944,48 @@
                     "deprecationMessage": "",
                     "type": "Meta<ChipsModule>",
                     "defaultValue": "{\n  title: 'Components/Chips',\n  component: ChipsModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
+                }
+            ],
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ButtonModule>",
+                    "defaultValue": "{\n  label: '[Button]',\n  disabled: false,\n  color: 'default',\n  type: 'default'\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ButtonModule>",
+                    "defaultValue": "{\n  label: { control: { type: 'text' }, name: 'Label' },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  type: {\n    options: ['default', 'flat', 'stroked', 'raised'],\n    control: { type: 'radio' },\n    name: 'Button type'\n  }\n}"
+                },
+                {
+                    "name": "Button",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonModule>",
+                    "defaultValue": "{\n  title: 'Components/Button',\n  component: ButtonModule,\n  parameters: {\n    options: { showPanel: true }\n  },\n  argTypes\n}"
                 }
             ],
             "src/stories/components/divider/divider.stories.ts": [
@@ -5831,6 +5534,384 @@
                     "defaultValue": "{ args }"
                 }
             ],
+            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AutocompleteModule>",
+                    "defaultValue": "{\n  autoActiveFirstOption: false\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<AutocompleteModule>",
+                    "defaultValue": "{\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\n  _filter: { table: { disable: true } },\n  ngOnInit: { table: { disable: true } },\n  options: { table: { disable: true } },\n  myControl: { table: { disable: true } },\n  filteredOptions: { table: { disable: true } }\n}"
+                },
+                {
+                    "name": "Autocomplete",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AutocompleteModule>",
+                    "defaultValue": "{\n  title: 'Forms/Autocomplete',\n  component: AutocompleteModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                }
+            ],
+            "src/stories/forms/checkbox/checkbox.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<CheckboxModule>",
+                    "defaultValue": "{\n  stacked: false,\n  indeterminate: false,\n  color: 'default',\n  labelPosition: 'after'\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<CheckboxModule>",
+                    "defaultValue": "{\n  stacked: { control: { type: 'boolean' }, name: 'Stacked' },\n  indeterminate: { control: { type: 'boolean' }, name: 'Stacked' },\n  labelPosition: {\n    options: ['after', 'before'],\n    control: { type: 'radio' },\n    name: 'Color'\n  },\n  color: {\n    options: ['default', 'primary', 'accent', 'warn'],\n    control: { type: 'radio' },\n    name: 'Color'\n  }\n}"
+                },
+                {
+                    "name": "Checkbox",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CheckboxModule>",
+                    "defaultValue": "{\n  title: 'forms/Checkbox',\n  component: CheckboxModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                }
+            ],
+            "src/stories/forms/form-field/form-field.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<FormFieldModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<FormFieldModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "FormField",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  /* args */\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<FormFieldModule>",
+                    "defaultValue": "{\n  title: 'Forms/Form Field',\n  component: FormFieldModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                }
+            ],
+            "src/stories/forms/date-picker/date-picker.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<DatePickerModule>",
+                    "defaultValue": "{\n  color: 'primary',\n  open: false,\n  startView: 'month',\n  touchUi: false,\n  disabled: false,\n  inline: false,\n  xPosition: 'start',\n  yPosition: 'below'\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<DatePickerModule>",
+                    "defaultValue": "{\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\n  startView: { options: ['month', 'year', 'multi-year'], control: { type: 'radio' }, name: 'Start View' },\n  open: { control: { type: 'boolean' }, name: 'Open' },\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\n  inline: { control: { type: 'boolean' }, name: 'Inline' },\n  touchUi: { control: { type: 'boolean' }, name: 'Responsive' },\n  xPosition: { options: ['start', 'end'], control: { type: 'radio' }, name: 'X Position' },\n  yPosition: { options: ['above', 'below'], control: { type: 'radio' }, name: 'Y Position' }\n}"
+                },
+                {
+                    "name": "DatePicker",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DatePickerModule>",
+                    "defaultValue": "{\n  title: 'Forms/Date Picker',\n  component: DatePickerModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
+                }
+            ],
+            "src/stories/forms/radio-button/radio-button.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<RadioButtonModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<RadioButtonModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RadioButtonModule>",
+                    "defaultValue": "{\n  title: 'Forms/Radio Button',\n  component: RadioButtonModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                },
+                {
+                    "name": "RadioButton",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  /* args */\n}"
+                }
+            ],
+            "src/stories/forms/select/select.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/select/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<SelectModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/select/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<SelectModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/select/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SelectModule>",
+                    "defaultValue": "{\n  title: 'Forms/Select',\n  component: SelectModule,\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  parameters: { options: { showPanel: true } },\n  argTypes\n}"
+                },
+                {
+                    "name": "Select",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/select/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  /* args */\n}"
+                }
+            ],
+            "src/stories/forms/slide-toggle/slide-toggle.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<SlideToggleModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<SlideToggleModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SlideToggleModule>",
+                    "defaultValue": "{\n  title: 'Forms/Slide Toggle',\n  component: SlideToggleModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
+                },
+                {
+                    "name": "SlideToggle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  /* args */\n}"
+                }
+            ],
+            "src/stories/forms/slider/slider.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slider/slider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<SliderModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slider/slider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<SliderModule>",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slider/slider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SliderModule>",
+                    "defaultValue": "{\n  title: 'Forms/Slider',\n  component: SliderModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\n  /* argTypes */\n}"
+                },
+                {
+                    "name": "Slider",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/slider/slider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  /* args */\n}"
+                }
+            ],
+            "src/stories/forms/textarea/textarea.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/textarea/textarea.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TextareaModule>",
+                    "defaultValue": "{\n  minRows: 1,\n  maxRows: 5,\n  autoResize: true\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/textarea/textarea.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<TextareaModule>",
+                    "defaultValue": "{\n  minRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Min rows' },\n  maxRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Max rows' },\n  autoResize: { control: { type: 'boolean' }, name: 'Auto resize' }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/textarea/textarea.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TextareaModule>",
+                    "defaultValue": "{\n  title: 'Forms/Textarea',\n  component: TextareaModule,\n  parameters: { options: { showPanel: true } },\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\n  argTypes\n}"
+                },
+                {
+                    "name": "Textarea",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/textarea/textarea.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  /* args */\n}"
+                }
+            ],
             "src/stories/helpers/elevation/elevation.stories.ts": [
                 {
                     "name": "args",
@@ -6017,123 +6098,6 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "src/stories/forms/checkbox/checkbox.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CheckboxModule>",
-                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AutocompleteModule>",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/form-field/form-field.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<FormFieldModule>",
-                    "file": "src/stories/forms/form-field/form-field.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/date-picker/date-picker.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DatePickerModule>",
-                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/radio-button/radio-button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<RadioButtonModule>",
-                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/select/select.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<SelectModule>",
-                    "file": "src/stories/forms/select/select.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/slide-toggle/slide-toggle.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<SlideToggleModule>",
-                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/slider/slider.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<SliderModule>",
-                    "file": "src/stories/forms/slider/slider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/textarea/textarea.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TextareaModule>",
-                    "file": "src/stories/forms/textarea/textarea.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -6160,19 +6124,6 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonModule>",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/card/card.stories.ts": [
                 {
                     "name": "Story",
@@ -6193,6 +6144,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ChipsModule>",
                     "file": "src/stories/components/chips/chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonModule>",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6368,13 +6332,117 @@
                     "kind": 180
                 }
             ],
-            "src/stories/helpers/elevation/elevation.stories.ts": [
+            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ElevationModule>",
-                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                    "rawtype": "StoryObj<AutocompleteModule>",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/checkbox/checkbox.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CheckboxModule>",
+                    "file": "src/stories/forms/checkbox/checkbox.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/form-field/form-field.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<FormFieldModule>",
+                    "file": "src/stories/forms/form-field/form-field.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/date-picker/date-picker.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DatePickerModule>",
+                    "file": "src/stories/forms/date-picker/date-picker.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/radio-button/radio-button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RadioButtonModule>",
+                    "file": "src/stories/forms/radio-button/radio-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/select/select.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SelectModule>",
+                    "file": "src/stories/forms/select/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/slide-toggle/slide-toggle.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SlideToggleModule>",
+                    "file": "src/stories/forms/slide-toggle/slide-toggle.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/slider/slider.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SliderModule>",
+                    "file": "src/stories/forms/slider/slider.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/forms/textarea/textarea.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TextareaModule>",
+                    "file": "src/stories/forms/textarea/textarea.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6388,6 +6456,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ClipModule>",
                     "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/helpers/elevation/elevation.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ElevationModule>",
+                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -7384,7 +7465,7 @@
                 "linktype": "component",
                 "name": "DatePickerModule",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
