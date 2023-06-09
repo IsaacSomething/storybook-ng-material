@@ -1,36 +1,38 @@
-import { ArgTypes, Meta, StoryObj, applicationConfig } from '@storybook/angular';
-import { ProgressBarModule } from './progress-bar.component';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ArgTypes, Meta, StoryObj, applicationConfig } from '@storybook/angular';
+import { ProgressBarModule } from './progress-bar.component';
 
-/* const argTypes: ArgTypes<ProgressBarModule> = {
-  yPosition: {
-    options: ['above', 'below'],
+const argTypes: ArgTypes<ProgressBarModule> = {
+  /* value: { control: { type: 'range', min: 0, max: 100 }, name: 'Value' },
+  buffer: { control: { type: 'range', min: 0, max: 100 }, name: 'Buffer' },
+  color: {
+    options: ['default', 'primary', 'accent', 'warn'],
     control: { type: 'radio' },
-    name: 'Y position'
+    name: 'Color'
   },
-  xPosition: {
-    options: ['before', 'after'],
+  mode: {
+    options: ['determinate', 'indeterminate', 'buffer', 'query'],
     control: { type: 'radio' },
-    name: 'X position'
-  },
-  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },
-  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }
-}; */
+    name: 'Mode'
+  } */
+};
 
-const args: Partial<ProgressBarModule> = {};
+const args: Partial<ProgressBarModule> = {
+  /*  value: 50,
+  buffer: 75,
+  color: 'default',
+  mode: 'determinate' */
+};
 
 const meta: Meta<ProgressBarModule> = {
   title: 'Components/Progress Bar',
   component: ProgressBarModule,
   parameters: { options: { showPanel: true } },
   decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]
-  /* argTypes */
+  /*  argTypes */
 };
 
 export default meta;
+export const ProgressBar: Story = { args };
 type Story = StoryObj<ProgressBarModule>;
-
-export const ProgressBar: Story = {
-  /* args */
-};

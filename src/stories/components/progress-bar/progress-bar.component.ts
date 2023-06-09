@@ -10,14 +10,16 @@ import { ThemePalette } from '@angular/material/core';
   imports: [CommonModule, SBHeaderModule, MatProgressBarModule],
   template: `
     <sb-header title="Progress Bar" matLink="components/progress-bar/api" />
+<!-- 
+    <div class="mx-5">
+      <mat-progress-bar [value]="34"> </mat-progress-bar>
+    </div> -->
 
-    <mat-progress-bar mode="determinate" [value]="value"> </mat-progress-bar>
-  `,
-  styles: []
+    <mat-progress-bar value="40"></mat-progress-bar>
+  `
 })
 export class ProgressBarModule {
-  @Input() value!: number;
-  @Input() buffer!: number;
-  @Input() color!: ThemePalette;
-  @Input() mode!: 'determinate' | 'indeterminate' | 'buffer' | 'query';
+ /*  @Input() value!: number; 
+  @Input() color!: ThemePalette | 'default';
+  @Input() mode!: 'determinate' | 'indeterminate' | 'buffer' | 'query'; */
 }
