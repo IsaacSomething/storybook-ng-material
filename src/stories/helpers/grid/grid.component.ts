@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { SBHeaderModule } from '../../assets/sb-header';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 export interface Tile {
   color: string;

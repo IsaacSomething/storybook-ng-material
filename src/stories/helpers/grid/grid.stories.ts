@@ -16,7 +16,7 @@ const argTypes: ArgTypes<GridModule> = {
 };
 
 const args: Partial<GridModule> = {
-  cols: 4,
+  cols: 5,
   colOne: 2,
   rowOne: 1,
   colTwo: 1,

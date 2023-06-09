@@ -4,23 +4,19 @@ import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const argTypes: ArgTypes<RipplesModule> = {
-  color: {
-    options: ['primary', 'accent', 'warn'],
-    control: { type: 'radio' },
-    name: 'Color'
-  },
-  centered: { control: { type: 'boolean' }, name: 'Disabled' },
+  centered: { control: { type: 'boolean' }, name: 'Centered' },
   disabled: { control: { type: 'boolean' }, name: 'Disabled' },
-  unbounded: { control: { type: 'boolean' }, name: 'Disabled' },
-  radius: { control: { type: 'number' }, name: 'Radius' }
+  unbounded: { control: { type: 'boolean' }, name: 'Unbounded' },
+  color: { control: { type: 'boolean' }, name: 'Color (rgba)' },
+  radius: { control: { type: 'range', max: 400, min: 0 }, name: 'Radius' }
 };
 
 const args: Partial<RipplesModule> = {
   centered: false,
   disabled: false,
-  radius: undefined,
   unbounded: false,
-  color: 'default'
+  color: false,
+  radius: 0
 };
 
 const meta: Meta<RipplesModule> = {
@@ -31,9 +27,6 @@ const meta: Meta<RipplesModule> = {
   argTypes
 };
 
-export default meta;
 type Story = StoryObj<RipplesModule>;
-
-export const Ripples: Story = {
-  args
-};
+export default meta;
+export const Ripples: Story = { args };

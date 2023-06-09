@@ -1,20 +1,12 @@
-import { ArgTypes, Meta, StoryObj } from '@storybook/angular';
-import { ClipboardModule } from './clipboard.component';
+import { Meta, StoryObj } from '@storybook/angular';
+import { ClipModule } from './clipboard.component';
 
-const argTypes: ArgTypes<ClipboardModule> = {};
-
-const args: Partial<ClipboardModule> = {};
-
-const meta: Meta<ClipboardModule> = {
+const meta: Meta<ClipModule> = {
   title: 'Helpers/Clipboard',
-  component: ClipboardModule,
-  parameters: { options: { showPanel: true } },
-  argTypes
+  component: ClipModule,
+  parameters: { options: { showPanel: true } }
 };
 
+type Story = StoryObj<ClipModule>;
 export default meta;
-type Story = StoryObj<ClipboardModule>;
-
-export const Clipboard: Story = {
-  args
-};
+export const Clipboard: Story = {};
