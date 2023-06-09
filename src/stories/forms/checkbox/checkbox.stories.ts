@@ -3,9 +3,27 @@ import { CheckboxModule } from './checkbox.component';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const argTypes: ArgTypes<CheckboxModule> = {};
+const argTypes: ArgTypes<CheckboxModule> = {
+  stacked: { control: { type: 'boolean' }, name: 'Stacked' },
+  indeterminate: { control: { type: 'boolean' }, name: 'Stacked' },
+  labelPosition: {
+    options: ['after', 'before'],
+    control: { type: 'radio' },
+    name: 'Color'
+  },
+  color: {
+    options: ['default', 'primary', 'accent', 'warn'],
+    control: { type: 'radio' },
+    name: 'Color'
+  }
+};
 
-const args: Partial<CheckboxModule> = {};
+const args: Partial<CheckboxModule> = {
+  stacked: false,
+  indeterminate: false,
+  color: 'default',
+  labelPosition: 'after'
+};
 
 const meta: Meta<CheckboxModule> = {
   title: 'forms/Checkbox',
@@ -15,9 +33,6 @@ const meta: Meta<CheckboxModule> = {
   argTypes
 };
 
-export default meta;
 type Story = StoryObj<CheckboxModule>;
-
-export const Checkbox: Story = {
-  /* args */
-};
+export default meta;
+export const Checkbox: Story = { args };

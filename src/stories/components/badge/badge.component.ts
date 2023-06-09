@@ -11,7 +11,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   template: `
     <sb-header title="Badge" matLink="components/badge/api" />
 
-    <div class="p-12">
+    <div class="mx-4">
       <button
         mat-raised-button
         [matBadgeHidden]="hidden"

@@ -26,7 +26,9 @@ const args: Partial<ButtonModule> = {
 const meta: Meta<ButtonModule> = {
   title: 'Components/Button',
   component: ButtonModule,
-  parameters: { options: { showPanel: true } },
+  parameters: {
+    options: { showPanel: true }
+  },
   argTypes
 };
 

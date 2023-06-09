@@ -28,5 +28,5 @@ import { SBHeaderModule } from '../../assets/sb-header';
 export class TooltipModule {
   @Input() disabled!: boolean;
   @Input() hideDelay!: number;
-  @Input() position!: 'left' | 'right' | 'above' | 'below';
+  @Input() position!: 'left' | 'right' | 'above' | 'below' | 'before' | 'after';
 }

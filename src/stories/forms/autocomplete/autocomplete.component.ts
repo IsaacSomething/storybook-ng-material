@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,7 +18,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
       <mat-form-field>
         <mat-label>Number</mat-label>
         <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" />
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-autocomplete [autoActiveFirstOption]="autoActiveFirstOption" #auto="matAutocomplete">
           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
             {{ option }}
           </mat-option>
@@ -29,6 +29,7 @@ import { SBHeaderModule } from '../../assets/sb-header';
   styles: []
 })
 export class AutocompleteModule {
+  @Input() autoActiveFirstOption!: boolean;
   myControl = new FormControl('');
   options: string[] = ['Option one', 'Option two', 'Option three'];
   filteredOptions!: Observable<string[]>;
