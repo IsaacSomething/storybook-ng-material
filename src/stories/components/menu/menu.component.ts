@@ -11,36 +11,44 @@ import { MatMenuModule } from '@angular/material/menu';
   template: `
     <sb-header title="Menu" matLink="components/menu/api" />
 
-    <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">[Menu]</button>
-    <mat-menu #menu="matMenu" [yPosition]="yPosition" [xPosition]="xPosition" [hasBackdrop]="hasBackdrop" [overlapTrigger]="overlapTrigger">
-      <button mat-menu-item>Level 1a</button>
-      <button mat-menu-item>Level 2b</button>
-      <button mat-menu-item [matMenuTriggerFor]="level2">Multi level</button>
-    </mat-menu>
+    <div class="mx-5">
+      <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">[Menu]</button>
+      <mat-menu
+        #menu="matMenu"
+        [yPosition]="yPosition"
+        [xPosition]="xPosition"
+        [hasBackdrop]="hasBackdrop"
+        [overlapTrigger]="overlapTrigger"
+      >
+        <button mat-menu-item>Level 1a</button>
+        <button mat-menu-item>Level 2b</button>
+        <button mat-menu-item [matMenuTriggerFor]="level2">Multi level</button>
+      </mat-menu>
 
-    <mat-menu
-      #level2="matMenu"
-      [yPosition]="yPosition"
-      [xPosition]="xPosition"
-      [hasBackdrop]="hasBackdrop"
-      [overlapTrigger]="overlapTrigger"
-    >
-      <button mat-menu-item>Level 2a</button>
-      <button mat-menu-item>Level 2b</button>
-      <button mat-menu-item [matMenuTriggerFor]="level3">Level 2c</button>
-    </mat-menu>
+      <mat-menu
+        #level2="matMenu"
+        [yPosition]="yPosition"
+        [xPosition]="xPosition"
+        [hasBackdrop]="hasBackdrop"
+        [overlapTrigger]="overlapTrigger"
+      >
+        <button mat-menu-item>Level 2a</button>
+        <button mat-menu-item>Level 2b</button>
+        <button mat-menu-item [matMenuTriggerFor]="level3">Level 2c</button>
+      </mat-menu>
 
-    <mat-menu
-      #level3="matMenu"
-      [yPosition]="yPosition"
-      [xPosition]="xPosition"
-      [hasBackdrop]="hasBackdrop"
-      [overlapTrigger]="overlapTrigger"
-    >
-      <button mat-menu-item>Level 3a</button>
-      <button mat-menu-item>Level 3b</button>
-      <button mat-menu-item>Level 3c</button>
-    </mat-menu>
+      <mat-menu
+        #level3="matMenu"
+        [yPosition]="yPosition"
+        [xPosition]="xPosition"
+        [hasBackdrop]="hasBackdrop"
+        [overlapTrigger]="overlapTrigger"
+      >
+        <button mat-menu-item>Level 3a</button>
+        <button mat-menu-item>Level 3b</button>
+        <button mat-menu-item>Level 3c</button>
+      </mat-menu>
+    </div>
   `,
   styles: []
 })
