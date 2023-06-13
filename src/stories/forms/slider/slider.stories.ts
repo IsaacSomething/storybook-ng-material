@@ -3,21 +3,26 @@ import { SliderModule } from './slider.component';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const argTypes: ArgTypes<SliderModule> = {};
+const argTypes: ArgTypes<SliderModule> = {
+  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },
+  discrete: { control: { type: 'boolean' }, name: 'Discrete' },
+  showTickMarks: { control: { type: 'boolean' }, name: 'Show tick marks' }
+};
 
-const args: Partial<SliderModule> = {};
+const args: Partial<SliderModule> = {
+  color: 'primary',
+  discrete: false,
+  showTickMarks: false
+};
 
 const meta: Meta<SliderModule> = {
   title: 'Forms/Slider',
   component: SliderModule,
   parameters: { options: { showPanel: true } },
-  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]
-  /* argTypes */
+  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],
+  argTypes
 };
 
-export default meta;
 type Story = StoryObj<SliderModule>;
-
-export const Slider: Story = {
-  /* args */
-};
+export default meta;
+export const Slider: Story = { args };

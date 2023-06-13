@@ -3,9 +3,19 @@ import { RadioButtonModule } from './radio-button.component';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-const argTypes: ArgTypes<RadioButtonModule> = {};
+const argTypes: ArgTypes<RadioButtonModule> = {
+  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },
+  disabled: { control: { type: 'boolean' }, name: 'Disabled' },
+  stacked: { control: { type: 'boolean' }, name: 'Stacked' },
+  labelPosition: { options: ['after', 'before'], control: { type: 'radio' }, name: 'Label position' }
+};
 
-const args: Partial<RadioButtonModule> = {};
+const args: Partial<RadioButtonModule> = {
+  color: 'primary',
+  disabled: false,
+  stacked: false,
+  labelPosition: 'after'
+};
 
 const meta: Meta<RadioButtonModule> = {
   title: 'Forms/Radio Button',

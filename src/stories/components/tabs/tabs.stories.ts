@@ -28,7 +28,7 @@ const args: Partial<TabsModule> = {
   duration: 100,
   align: true,
   fitInkBarToContent: true,
-  headerPosition: 'below'
+  headerPosition: 'above'
 };
 
 const meta: Meta<TabsModule> = {
