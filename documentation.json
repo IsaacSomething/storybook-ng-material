@@ -2315,7 +2315,7 @@
         },
         {
             "name": "SelectModule",
-            "id": "component-SelectModule-b9bd49054472cc5e2630ecd7237c014251c6c5242ec8368511cb54d16888a6e4f75a7bbc6004f11cb2d35fb9ccd1bd2cbe5bf2518a1f891d6746a7c6ee81fea3",
+            "id": "component-SelectModule-c0f71acecda4aeff6eb046be0f2e377c995c4af5ff3b0ba4f9f4ff1ccef05e04cefead6259b13dd1dfc88b998bfe2bf65454c2e9d2e8af1b7d0c981feed28dc0",
             "file": "src/stories/forms/select/select.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2325,7 +2325,7 @@
             "selector": "app-select",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Select\" matLink=\"components/select/api\" />\n\n<mat-form-field>\n  <mat-label>{{ label }}</mat-label>\n  <select>\n    <option *ngFor=\"let item of items; let idx = index\" [value]=\"idx\">{{ item }}</option>\n  </select>\n</mat-form-field>\n",
+            "template": "<sb-header title=\"Select\" matLink=\"components/select/api\" />\n\n<div class=\"mx-4\">\n  <mat-form-field *ngIf=\"!multiple; else multi\">\n    <mat-label>{{ label }}</mat-label>\n    <mat-select>\n      <mat-option *ngIf=\"withReset\">None</mat-option>\n      <mat-option *ngFor=\"let item of items\" [value]=\"item\">\n        {{ item }}\n      </mat-option>\n    </mat-select>\n  </mat-form-field>\n\n  <ng-template #multi>\n    <mat-form-field>\n      <mat-label>{{ label }}</mat-label>\n      <mat-select multiple [disabled]=\"disabled\">\n        <mat-option *ngIf=\"withReset\">None</mat-option>\n\n        <mat-option *ngFor=\"let item of items\" [value]=\"item\">\n          {{ item }}\n        </mat-option>\n      </mat-select>\n    </mat-form-field>\n  </ng-template>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -2334,16 +2334,40 @@
                     "name": "color",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 44,
                     "type": "ThemePalette",
+                    "decorators": []
+                },
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 46,
+                    "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 43,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "multiple",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "withReset",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 47,
+                    "type": "boolean",
                     "decorators": []
                 }
             ],
@@ -2357,7 +2381,7 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 27
+                    "line": 48
                 }
             ],
             "methodsClass": [],
@@ -2369,6 +2393,13 @@
             "imports": [
                 {
                     "name": "NgFor"
+                },
+                {
+                    "name": "NgIf"
+                },
+                {
+                    "name": "JsonPipe",
+                    "type": "pipe"
                 },
                 {
                     "name": "SBHeaderModule",
@@ -2390,7 +2421,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgFor } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { ThemePalette } from '@angular/material/core';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatSelectModule } from '@angular/material/select';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\n\r\n@Component({\r\n  selector: 'app-select',\r\n  standalone: true,\r\n  imports: [NgFor, SBHeaderModule, MatSelectModule, MatFormFieldModule, MatInputModule],\r\n  template: `\r\n    <sb-header title=\"Select\" matLink=\"components/select/api\" />\r\n\r\n    <mat-form-field>\r\n      <mat-label>{{ label }}</mat-label>\r\n      <select>\r\n        <option *ngFor=\"let item of items; let idx = index\" [value]=\"idx\">{{ item }}</option>\r\n      </select>\r\n    </mat-form-field>\r\n  `\r\n})\r\nexport class SelectModule {\r\n  @Input() label!: string;\r\n  @Input() color!: ThemePalette;\r\n  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];\r\n}\r\n",
+            "sourceCode": "import { JsonPipe, NgFor, NgIf } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { ThemePalette } from '@angular/material/core';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatSelectModule } from '@angular/material/select';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\n\r\n@Component({\r\n  selector: 'app-select',\r\n  standalone: true,\r\n  imports: [NgFor, NgIf, JsonPipe, SBHeaderModule, MatSelectModule, MatFormFieldModule, MatInputModule],\r\n  template: `\r\n    <sb-header title=\"Select\" matLink=\"components/select/api\" />\r\n\r\n    <div class=\"mx-4\">\r\n      <mat-form-field *ngIf=\"!multiple; else multi\">\r\n        <mat-label>{{ label }}</mat-label>\r\n        <mat-select>\r\n          <mat-option *ngIf=\"withReset\">None</mat-option>\r\n          <mat-option *ngFor=\"let item of items\" [value]=\"item\">\r\n            {{ item }}\r\n          </mat-option>\r\n        </mat-select>\r\n      </mat-form-field>\r\n\r\n      <ng-template #multi>\r\n        <mat-form-field>\r\n          <mat-label>{{ label }}</mat-label>\r\n          <mat-select multiple [disabled]=\"disabled\">\r\n            <mat-option *ngIf=\"withReset\">None</mat-option>\r\n\r\n            <mat-option *ngFor=\"let item of items\" [value]=\"item\">\r\n              {{ item }}\r\n            </mat-option>\r\n          </mat-select>\r\n        </mat-form-field>\r\n      </ng-template>\r\n    </div>\r\n  `\r\n})\r\nexport class SelectModule {\r\n  @Input() label!: string;\r\n  @Input() color!: ThemePalette;\r\n  @Input() multiple!: boolean;\r\n  @Input() disabled!: boolean;\r\n  @Input() withReset!: boolean;\r\n  items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -2473,7 +2504,7 @@
         },
         {
             "name": "SliderModule",
-            "id": "component-SliderModule-47b4f006af1eeaaecac9e9906016e6d143fc5d590b8c7b4ac79306ba906880219c61c92f306084eebb43f34aa97ffff0e72a0e1e4b1ac2507506cb7df64e5dd2",
+            "id": "component-SliderModule-89defad3179ceb145d8608060667ff6be057ff50cf968e2f68e42907fefc6a51f49ec75b25cf1e7d2407a1fc86d09af6fa21357c8618cdd6cc1339c4edd562cd",
             "file": "src/stories/forms/slider/slider.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2483,11 +2514,36 @@
             "selector": "app-slider",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Slider\" matLink=\"slider\" />",
+            "template": "<sb-header title=\"Slider\" matLink=\"slider\" />\n\n<div class=\"mx-4\">\n  <mat-slider class=\"w-96\" [color]=\"color\" [discrete]=\"discrete\" [showTickMarks]=\"showTickMarks\">\n    <input matSliderThumb />\n  </mat-slider>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "discrete",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "showTickMarks",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -2506,21 +2562,21 @@
                     "type": "module"
                 },
                 {
-                    "name": "MatTabsModule",
+                    "name": "MatSliderModule",
                     "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\nimport { ThemePalette } from '@angular/material/core';\r\nimport { MatTabsModule } from '@angular/material/tabs';\r\n\r\n@Component({\r\n  selector: 'app-slider',\r\n  standalone: true,\r\n  imports: [CommonModule, SBHeaderModule, MatTabsModule],\r\n  template: ` <sb-header title=\"Slider\" matLink=\"slider\" /> `,\r\n  styles: []\r\n})\r\nexport class SliderModule {}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\nimport { MatSliderModule } from '@angular/material/slider';\r\n\r\n@Component({\r\n  selector: 'app-slider',\r\n  standalone: true,\r\n  imports: [CommonModule, SBHeaderModule, MatSliderModule],\r\n  template: `\r\n    <sb-header title=\"Slider\" matLink=\"slider\" />\r\n\r\n    <div class=\"mx-4\">\r\n      <mat-slider class=\"w-96\" [color]=\"color\" [discrete]=\"discrete\" [showTickMarks]=\"showTickMarks\">\r\n        <input matSliderThumb />\r\n      </mat-slider>\r\n    </div>\r\n  `,\r\n  styles: []\r\n})\r\nexport class SliderModule {\r\n  @Input() color!: string;\r\n  @Input() discrete!: boolean;\r\n  @Input() showTickMarks!: boolean;\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
         },
         {
             "name": "SlideToggleModule",
-            "id": "component-SlideToggleModule-277d6cbeb7a1132aa6d83fa5936045ae46be0446be4c811a2c2b18f50f63751c8e022018f958b0b8d5e273cbccae7eeee123241a844bfb0bf28b1661bdea2705",
+            "id": "component-SlideToggleModule-6ea217b94b77c99e5f52e87b57920e722ec1f2d787b05b7968bdffa38e6cb818abdb5f4f922bb9c7721e7d4f18e5883fde8242f5048bc5d50a0b61396ae60a7d",
             "file": "src/stories/forms/slide-toggle/slide-toggle.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2530,11 +2586,44 @@
             "selector": "app-slide-toggle",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Slide Toggle\" matLink=\"slide-toggle\" />",
+            "template": "<sb-header title=\"Slide Toggle\" matLink=\"slide-toggle\" />\n\n<div class=\"mx-4\">\n  <mat-slide-toggle [color]=\"color\" [labelPosition]=\"labelPosition\" [checked]=\"checked\">{{ label }}</mat-slide-toggle>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "checked",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "labelPosition",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "\"before\" | \"after\"",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -2551,12 +2640,16 @@
                 {
                     "name": "SBHeaderModule",
                     "type": "module"
+                },
+                {
+                    "name": "MatSlideToggleModule",
+                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component } from '@angular/core';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\n\r\n@Component({\r\n  selector: 'app-slide-toggle',\r\n  standalone: true,\r\n  imports: [CommonModule, SBHeaderModule],\r\n  template: ` <sb-header title=\"Slide Toggle\" matLink=\"slide-toggle\" /> `,\r\n  styles: []\r\n})\r\nexport class SlideToggleModule {}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\nimport { MatSlideToggleModule } from '@angular/material/slide-toggle';\r\n\r\n@Component({\r\n  selector: 'app-slide-toggle',\r\n  standalone: true,\r\n  imports: [CommonModule, SBHeaderModule, MatSlideToggleModule],\r\n  template: `\r\n    <sb-header title=\"Slide Toggle\" matLink=\"slide-toggle\" />\r\n\r\n    <div class=\"mx-4\">\r\n      <mat-slide-toggle [color]=\"color\" [labelPosition]=\"labelPosition\" [checked]=\"checked\">{{ label }}</mat-slide-toggle>\r\n    </div>\r\n  `,\r\n  styles: []\r\n})\r\nexport class SlideToggleModule {\r\n  @Input() label!: string;\r\n  @Input() checked!: boolean;\r\n  @Input() color!: string;\r\n  @Input() labelPosition!: 'before' | 'after';\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -3306,21 +3399,41 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "file": "src/stories/helpers/grid/grid.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<BadgeModule>",
-                "defaultValue": "{\r\n  label: '0',\r\n  color: 'primary',\r\n  size: 'medium',\r\n  position: 'above after',\r\n  disabled: false,\r\n  overlap: false,\r\n  hidden: false\r\n}"
+                "type": "Partial<GridModule>",
+                "defaultValue": "{\r\n  cols: 5,\r\n  colOne: 2,\r\n  rowOne: 1,\r\n  colTwo: 1,\r\n  rowTwo: 2,\r\n  colThree: 1,\r\n  rowThree: 1,\r\n  colFour: 2,\r\n  rowFour: 1\r\n}"
             },
             {
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/helpers/elevation/elevation.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ButtonModule>",
-                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+                "type": "Partial<ElevationModule>",
+                "defaultValue": "{\r\n  elevation: 12\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<RipplesModule>",
+                "defaultValue": "{\r\n  centered: false,\r\n  disabled: false,\r\n  unbounded: false,\r\n  color: false,\r\n  radius: 0\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<BadgeModule>",
+                "defaultValue": "{\r\n  label: '0',\r\n  color: 'primary',\r\n  size: 'medium',\r\n  position: 'above after',\r\n  disabled: false,\r\n  overlap: false,\r\n  hidden: false\r\n}"
             },
             {
                 "name": "args",
@@ -3336,11 +3449,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<CardModule>",
-                "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
+                "type": "Partial<ButtonModule>",
+                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
             },
             {
                 "name": "args",
@@ -3351,6 +3464,16 @@
                 "deprecationMessage": "",
                 "type": "Partial<ChipsModule>",
                 "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: true,\r\n  selectable: true,\r\n  highlighted: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<CardModule>",
+                "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
             },
             {
                 "name": "args",
@@ -3376,21 +3499,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/menu/menu.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<MenuModule>",
-                "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<ProgressBarModule>",
                 "defaultValue": "{\r\n  /*  value: 50,\r\n  buffer: 75,\r\n  color: 'default',\r\n  mode: 'determinate' */\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<MenuModule>",
+                "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
             },
             {
                 "name": "args",
@@ -3416,21 +3539,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<SnackbarModule>",
-                "defaultValue": "{\r\n  label: 'Lorem ipsum dolor.',\r\n  xPosition: 'center',\r\n  yPosition: 'bottom',\r\n  duration: 5000,\r\n  hasAction: false\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<TableModule>",
                 "defaultValue": "{\r\n  hasStyles: false,\r\n  clear: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<SnackbarModule>",
+                "defaultValue": "{\r\n  label: 'Lorem ipsum dolor.',\r\n  xPosition: 'center',\r\n  yPosition: 'bottom',\r\n  duration: 5000,\r\n  hasAction: false\r\n}"
             },
             {
                 "name": "args",
@@ -3520,7 +3643,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<SelectModule>",
-                "defaultValue": "{\r\n  label: '[Label]',\r\n  color: 'primary'\r\n}"
+                "defaultValue": "{\r\n  label: '[Label]',\r\n  color: 'primary',\r\n  multiple: false,\r\n  disabled: false,\r\n  withReset: false\r\n}"
             },
             {
                 "name": "args",
@@ -3530,7 +3653,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<SlideToggleModule>",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  label: '[Label]',\r\n  checked: false,\r\n  color: 'primary',\r\n  labelPosition: 'after'\r\n}"
             },
             {
                 "name": "args",
@@ -3540,7 +3663,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<SliderModule>",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  color: 'primary',\r\n  discrete: false,\r\n  showTickMarks: false\r\n}"
             },
             {
                 "name": "args",
@@ -3551,36 +3674,6 @@
                 "deprecationMessage": "",
                 "type": "Partial<TextareaModule>",
                 "defaultValue": "{\r\n  minRows: 1,\r\n  maxRows: 5,\r\n  autoResize: true\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ElevationModule>",
-                "defaultValue": "{\r\n  elevation: 12\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/grid/grid.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<GridModule>",
-                "defaultValue": "{\r\n  cols: 5,\r\n  colOne: 2,\r\n  rowOne: 1,\r\n  colTwo: 1,\r\n  rowTwo: 2,\r\n  colThree: 1,\r\n  rowThree: 1,\r\n  colFour: 2,\r\n  rowFour: 1\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<RipplesModule>",
-                "defaultValue": "{\r\n  centered: false,\r\n  disabled: false,\r\n  unbounded: false,\r\n  color: false,\r\n  radius: 0\r\n}"
             },
             {
                 "name": "args",
@@ -3606,21 +3699,51 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<BadgeModule>",
-                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  size: {\r\n    options: ['small', 'medium', 'large'],\r\n    control: { type: 'radio' },\r\n    name: 'Size'\r\n  },\r\n  position: {\r\n    options: ['above after', 'above before', 'below before', 'below after', 'before', 'after', 'above', 'below'],\r\n    control: { type: 'select' },\r\n    name: 'Position'\r\n  },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  overlap: { control: { type: 'boolean' }, name: 'Overlay' },\r\n  hidden: { control: { type: 'boolean' }, name: 'Hidden' }\r\n}"
+                "type": "ArgTypes<ClipModule>",
+                "defaultValue": "{\r\n  text: { table: { disable: true } },\r\n  textValue: { table: { disable: true } },\r\n  textCopy: { table: { disable: true } },\r\n  copied: { table: { disable: true } }\r\n}"
             },
             {
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/helpers/grid/grid.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ButtonModule>",
-                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
+                "type": "ArgTypes<GridModule>",
+                "defaultValue": "{\r\n  tiles: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  cols: { control: { type: 'range', max: 5, min: 1 }, name: 'Columns' },\r\n  colOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 1' },\r\n  rowOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 1' },\r\n  colTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 2' },\r\n  rowTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 2' },\r\n  colThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 3' },\r\n  rowThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 3' },\r\n  colFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 4' },\r\n  rowFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 4' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ElevationModule>",
+                "defaultValue": "{\r\n  elevation: { control: { type: 'range', max: 24, min: 0 }, name: 'Elevation' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<RipplesModule>",
+                "defaultValue": "{\r\n  centered: { control: { type: 'boolean' }, name: 'Centered' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  unbounded: { control: { type: 'boolean' }, name: 'Unbounded' },\r\n  color: { control: { type: 'boolean' }, name: 'Color (rgba)' },\r\n  radius: { control: { type: 'range', max: 400, min: 0 }, name: 'Radius' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<BadgeModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  color: {\r\n    options: ['primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  size: {\r\n    options: ['small', 'medium', 'large'],\r\n    control: { type: 'radio' },\r\n    name: 'Size'\r\n  },\r\n  position: {\r\n    options: ['above after', 'above before', 'below before', 'below after', 'before', 'after', 'above', 'below'],\r\n    control: { type: 'select' },\r\n    name: 'Position'\r\n  },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  overlap: { control: { type: 'boolean' }, name: 'Overlay' },\r\n  hidden: { control: { type: 'boolean' }, name: 'Hidden' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3636,11 +3759,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<CardModule>",
-                "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
+                "type": "ArgTypes<ButtonModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3651,6 +3774,16 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<ChipsModule>",
                 "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<CardModule>",
+                "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3676,21 +3809,21 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/menu/menu.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<MenuModule>",
-                "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<ProgressBarModule>",
                 "defaultValue": "{\r\n  /* value: { control: { type: 'range', min: 0, max: 100 }, name: 'Value' },\r\n  buffer: { control: { type: 'range', min: 0, max: 100 }, name: 'Buffer' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate', 'buffer', 'query'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  } */\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<MenuModule>",
+                "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3716,21 +3849,21 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<SnackbarModule>",
-                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  hasAction: { control: { type: 'boolean' }, name: 'Has action' },\r\n  duration: { control: { type: 'range', step: 1000, min: 1000, max: 10000 }, name: 'Duration' },\r\n  xPosition: {\r\n    options: ['start', 'center', 'end', 'left', 'right'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  yPosition: {\r\n    options: ['top', 'bottom'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  openSnackbar: { table: { disable: true } }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<TableModule>",
                 "defaultValue": "{\r\n  hasStyles: { control: { type: 'boolean' }, name: 'Has styles' },\r\n  clear: { control: { type: 'boolean' }, name: 'Clear data' },\r\n  displayedColumns: { table: { disable: true } },\r\n  dataSource: { table: { disable: true } },\r\n  ngAfterViewInit: { table: { disable: true } },\r\n  sort: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<SnackbarModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  hasAction: { control: { type: 'boolean' }, name: 'Has action' },\r\n  duration: { control: { type: 'range', step: 1000, min: 1000, max: 10000 }, name: 'Duration' },\r\n  xPosition: {\r\n    options: ['start', 'center', 'end', 'left', 'right'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  yPosition: {\r\n    options: ['top', 'bottom'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  openSnackbar: { table: { disable: true } }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3820,7 +3953,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<SelectModule>",
-                "defaultValue": "{\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  items: { table: { disable: true } }\r\n}"
+                "defaultValue": "{\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Multiple' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  withReset: { control: { type: 'boolean' }, name: 'With reset' },\r\n  items: { table: { disable: true } }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3830,7 +3963,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<SlideToggleModule>",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  checked: { control: { type: 'boolean' }, name: 'Checked' },\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  labelPosition: { options: ['after', 'before'], control: { type: 'radio' }, name: 'Label position' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3840,7 +3973,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<SliderModule>",
-                "defaultValue": "{}"
+                "defaultValue": "{\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  discrete: { control: { type: 'boolean' }, name: 'Discrete' },\r\n  showTickMarks: { control: { type: 'boolean' }, name: 'Show tick marks' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3851,46 +3984,6 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<TextareaModule>",
                 "defaultValue": "{\r\n  minRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Min rows' },\r\n  maxRows: { control: { type: 'range', max: '20', min: 1 }, name: 'Max rows' },\r\n  autoResize: { control: { type: 'boolean' }, name: 'Auto resize' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ClipModule>",
-                "defaultValue": "{\r\n  text: { table: { disable: true } },\r\n  textValue: { table: { disable: true } },\r\n  textCopy: { table: { disable: true } },\r\n  copied: { table: { disable: true } }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ElevationModule>",
-                "defaultValue": "{\r\n  elevation: { control: { type: 'range', max: 24, min: 0 }, name: 'Elevation' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/grid/grid.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<GridModule>",
-                "defaultValue": "{\r\n  tiles: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  cols: { control: { type: 'range', max: 5, min: 1 }, name: 'Columns' },\r\n  colOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 1' },\r\n  rowOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 1' },\r\n  colTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 2' },\r\n  rowTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 2' },\r\n  colThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 3' },\r\n  rowThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 3' },\r\n  colFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 4' },\r\n  rowFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 4' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<RipplesModule>",
-                "defaultValue": "{\r\n  centered: { control: { type: 'boolean' }, name: 'Centered' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  unbounded: { control: { type: 'boolean' }, name: 'Unbounded' },\r\n  color: { control: { type: 'boolean' }, name: 'Color (rgba)' },\r\n  radius: { control: { type: 'range', max: 400, min: 0 }, name: 'Radius' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -4086,21 +4179,51 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<BadgeModule>",
-                "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "type": "Meta<ClipModule>",
+                "defaultValue": "{\r\n  title: 'Helpers/Clipboard',\r\n  component: ClipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/helpers/grid/grid.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonModule>",
-                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
+                "type": "Meta<GridModule>",
+                "defaultValue": "{\r\n  title: 'Helpers/Grid',\r\n  component: GridModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ElevationModule>",
+                "defaultValue": "{\r\n  title: 'Helpers/Elevation',\r\n  component: ElevationModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<RipplesModule>",
+                "defaultValue": "{\r\n  title: 'Helpers/Ripples',\r\n  component: RipplesModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/badge/badge.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BadgeModule>",
+                "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4116,11 +4239,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/card/card.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<CardModule>",
-                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                "type": "Meta<ButtonModule>",
+                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4131,6 +4254,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<ChipsModule>",
                 "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/card/card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CardModule>",
+                "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4156,21 +4289,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/menu/menu.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<MenuModule>",
-                "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ProgressBarModule>",
                 "defaultValue": "{\r\n  title: 'Components/Progress Bar',\r\n  component: ProgressBarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /*  argTypes */\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MenuModule>",
+                "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4196,21 +4329,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<SnackbarModule>",
-                "defaultValue": "{\r\n  title: 'Components/Snackbar',\r\n  component: SnackbarModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TableModule>",
                 "defaultValue": "{\r\n  title: 'Components/Table',\r\n  component: TableModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SnackbarModule>",
+                "defaultValue": "{\r\n  title: 'Components/Snackbar',\r\n  component: SnackbarModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4310,7 +4443,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SlideToggleModule>",
-                "defaultValue": "{\r\n  title: 'Forms/Slide Toggle',\r\n  component: SlideToggleModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                "defaultValue": "{\r\n  title: 'Forms/Slide Toggle',\r\n  component: SlideToggleModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4320,7 +4453,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SliderModule>",
-                "defaultValue": "{\r\n  title: 'Forms/Slider',\r\n  component: SliderModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                "defaultValue": "{\r\n  title: 'Forms/Slider',\r\n  component: SliderModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4331,46 +4464,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<TextareaModule>",
                 "defaultValue": "{\r\n  title: 'Forms/Textarea',\r\n  component: TextareaModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ClipModule>",
-                "defaultValue": "{\r\n  title: 'Helpers/Clipboard',\r\n  component: ClipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ElevationModule>",
-                "defaultValue": "{\r\n  title: 'Helpers/Elevation',\r\n  component: ElevationModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/grid/grid.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<GridModule>",
-                "defaultValue": "{\r\n  title: 'Helpers/Grid',\r\n  component: GridModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<RipplesModule>",
-                "defaultValue": "{\r\n  title: 'Helpers/Ripples',\r\n  component: RipplesModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4470,7 +4563,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  /* args */\r\n}"
+                "defaultValue": "{ args }"
             },
             {
                 "name": "SlideToggle",
@@ -4480,7 +4573,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  /* args */\r\n}"
+                "defaultValue": "{ args }"
             },
             {
                 "name": "Snackbar",
@@ -4559,8 +4652,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BadgeModule>",
-                "file": "src/stories/components/badge/badge.stories.ts",
+                "rawtype": "StoryObj<ClipModule>",
+                "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4570,8 +4663,41 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonModule>",
-                "file": "src/stories/components/button/button.stories.ts",
+                "rawtype": "StoryObj<GridModule>",
+                "file": "src/stories/helpers/grid/grid.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ElevationModule>",
+                "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<RipplesModule>",
+                "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BadgeModule>",
+                "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4592,8 +4718,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<CardModule>",
-                "file": "src/stories/components/card/card.stories.ts",
+                "rawtype": "StoryObj<ButtonModule>",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4605,6 +4731,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ChipsModule>",
                 "file": "src/stories/components/chips/chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<CardModule>",
+                "file": "src/stories/components/card/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4636,8 +4773,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<MenuModule>",
-                "file": "src/stories/components/menu/menu.stories.ts",
+                "rawtype": "StoryObj<ProgressBarModule>",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4647,8 +4784,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ProgressBarModule>",
-                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "rawtype": "StoryObj<MenuModule>",
+                "file": "src/stories/components/menu/menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4680,8 +4817,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<SnackbarModule>",
-                "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                "rawtype": "StoryObj<TableModule>",
+                "file": "src/stories/components/table/table.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4691,8 +4828,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TableModule>",
-                "file": "src/stories/components/table/table.stories.ts",
+                "rawtype": "StoryObj<SnackbarModule>",
+                "file": "src/stories/components/snackbar/snackbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4834,50 +4971,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ClipModule>",
-                "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ElevationModule>",
-                "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<GridModule>",
-                "file": "src/stories/helpers/grid/grid.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<RipplesModule>",
-                "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<ColorsModule>",
                 "file": "src/stories/theme/colors/colors.stories.ts",
                 "deprecated": false,
@@ -4899,6 +4992,132 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/helpers/grid/grid.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/grid/grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<GridModule>",
+                    "defaultValue": "{\r\n  cols: 5,\r\n  colOne: 2,\r\n  rowOne: 1,\r\n  colTwo: 1,\r\n  rowTwo: 2,\r\n  colThree: 1,\r\n  rowThree: 1,\r\n  colFour: 2,\r\n  rowFour: 1\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/grid/grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<GridModule>",
+                    "defaultValue": "{\r\n  tiles: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  cols: { control: { type: 'range', max: 5, min: 1 }, name: 'Columns' },\r\n  colOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 1' },\r\n  rowOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 1' },\r\n  colTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 2' },\r\n  rowTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 2' },\r\n  colThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 3' },\r\n  rowThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 3' },\r\n  colFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 4' },\r\n  rowFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 4' }\r\n}"
+                },
+                {
+                    "name": "Grid",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/grid/grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/grid/grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<GridModule>",
+                    "defaultValue": "{\r\n  title: 'Helpers/Grid',\r\n  component: GridModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/helpers/elevation/elevation.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ElevationModule>",
+                    "defaultValue": "{\r\n  elevation: 12\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ElevationModule>",
+                    "defaultValue": "{\r\n  elevation: { control: { type: 'range', max: 24, min: 0 }, name: 'Elevation' }\r\n}"
+                },
+                {
+                    "name": "Elevation",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ElevationModule>",
+                    "defaultValue": "{\r\n  title: 'Helpers/Elevation',\r\n  component: ElevationModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/helpers/ripples/ripples.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<RipplesModule>",
+                    "defaultValue": "{\r\n  centered: false,\r\n  disabled: false,\r\n  unbounded: false,\r\n  color: false,\r\n  radius: 0\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<RipplesModule>",
+                    "defaultValue": "{\r\n  centered: { control: { type: 'boolean' }, name: 'Centered' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  unbounded: { control: { type: 'boolean' }, name: 'Unbounded' },\r\n  color: { control: { type: 'boolean' }, name: 'Color (rgba)' },\r\n  radius: { control: { type: 'range', max: 400, min: 0 }, name: 'Radius' }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<RipplesModule>",
+                    "defaultValue": "{\r\n  title: 'Helpers/Ripples',\r\n  component: RipplesModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                },
+                {
+                    "name": "Ripples",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                }
+            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -4939,48 +5158,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<BadgeModule>",
                     "defaultValue": "{\r\n  title: 'Components/Badge',\r\n  component: BadgeModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ButtonModule>",
-                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ButtonModule>",
-                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
-                },
-                {
-                    "name": "Button",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/bottom-sheet/bottom-sheet.stories.ts": [
@@ -5025,46 +5202,46 @@
                     "defaultValue": "{\r\n  title: 'Components/Bottom Sheet',\r\n  component: BottomSheetModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/card/card.stories.ts": [
+            "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<CardModule>",
-                    "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
+                    "type": "Partial<ButtonModule>",
+                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<CardModule>",
-                    "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
+                    "type": "ArgTypes<ButtonModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
                 },
                 {
-                    "name": "Card",
+                    "name": "Button",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
+                    "defaultValue": "{ args }"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/card/card.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<CardModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                    "type": "Meta<ButtonModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/chips/chips.stories.ts": [
@@ -5107,6 +5284,48 @@
                     "deprecationMessage": "",
                     "type": "Meta<ChipsModule>",
                     "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/card/card.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<CardModule>",
+                    "defaultValue": "{\r\n  title: true,\r\n  subtitle: true,\r\n  content: true,\r\n  actions: true,\r\n  footer: true,\r\n  avatar: true,\r\n  image: true,\r\n  media: true,\r\n  mediaSize: 'md',\r\n  align: 'start',\r\n  appearance: 'outlined'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<CardModule>",
+                    "defaultValue": "{\r\n  title: { control: { type: 'boolean' }, name: 'Has title' },\r\n  subtitle: { control: { type: 'boolean' }, name: 'Has subtitle' },\r\n  content: { control: { type: 'boolean' }, name: 'Has content' },\r\n  actions: { control: { type: 'boolean' }, name: 'Has actions' },\r\n  footer: { control: { type: 'boolean' }, name: 'Has footer' },\r\n  avatar: { control: { type: 'boolean' }, name: 'Has avatar' },\r\n  image: { control: { type: 'boolean' }, name: 'Has image' },\r\n  media: { control: { type: 'boolean' }, name: 'Has media' },\r\n  mediaSize: {\r\n    options: ['xl', 'lg', 'md', 'sm'],\r\n    control: { type: 'radio' },\r\n    name: 'Media size'\r\n  },\r\n  align: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Align actions'\r\n  },\r\n  appearance: {\r\n    options: ['outlined', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Appearance'\r\n  }\r\n}"
+                },
+                {
+                    "name": "Card",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/card/card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/divider/divider.stories.ts": [
@@ -5193,48 +5412,6 @@
                     "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/menu/menu.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<MenuModule>",
-                    "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<MenuModule>",
-                    "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
-                },
-                {
-                    "name": "Menu",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<MenuModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-                }
-            ],
             "src/stories/components/progress-bar/progress-bar.stories.ts": [
                 {
                     "name": "args",
@@ -5275,6 +5452,48 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{ args }"
+                }
+            ],
+            "src/stories/components/menu/menu.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<MenuModule>",
+                    "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<MenuModule>",
+                    "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
+                },
+                {
+                    "name": "Menu",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<MenuModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
@@ -5361,48 +5580,6 @@
                     "defaultValue": "{\r\n  args\r\n}"
                 }
             ],
-            "src/stories/components/snackbar/snackbar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<SnackbarModule>",
-                    "defaultValue": "{\r\n  label: 'Lorem ipsum dolor.',\r\n  xPosition: 'center',\r\n  yPosition: 'bottom',\r\n  duration: 5000,\r\n  hasAction: false\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<SnackbarModule>",
-                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  hasAction: { control: { type: 'boolean' }, name: 'Has action' },\r\n  duration: { control: { type: 'range', step: 1000, min: 1000, max: 10000 }, name: 'Duration' },\r\n  xPosition: {\r\n    options: ['start', 'center', 'end', 'left', 'right'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  yPosition: {\r\n    options: ['top', 'bottom'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  openSnackbar: { table: { disable: true } }\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<SnackbarModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Snackbar',\r\n  component: SnackbarModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                },
-                {
-                    "name": "Snackbar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                }
-            ],
             "src/stories/components/table/table.stories.ts": [
                 {
                     "name": "args",
@@ -5439,6 +5616,48 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                }
+            ],
+            "src/stories/components/snackbar/snackbar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<SnackbarModule>",
+                    "defaultValue": "{\r\n  label: 'Lorem ipsum dolor.',\r\n  xPosition: 'center',\r\n  yPosition: 'bottom',\r\n  duration: 5000,\r\n  hasAction: false\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<SnackbarModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  hasAction: { control: { type: 'boolean' }, name: 'Has action' },\r\n  duration: { control: { type: 'range', step: 1000, min: 1000, max: 10000 }, name: 'Duration' },\r\n  xPosition: {\r\n    options: ['start', 'center', 'end', 'left', 'right'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  yPosition: {\r\n    options: ['top', 'bottom'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  openSnackbar: { table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SnackbarModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Snackbar',\r\n  component: SnackbarModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                },
+                {
+                    "name": "Snackbar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -5790,7 +6009,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Partial<SelectModule>",
-                    "defaultValue": "{\r\n  label: '[Label]',\r\n  color: 'primary'\r\n}"
+                    "defaultValue": "{\r\n  label: '[Label]',\r\n  color: 'primary',\r\n  multiple: false,\r\n  disabled: false,\r\n  withReset: false\r\n}"
                 },
                 {
                     "name": "argTypes",
@@ -5800,7 +6019,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ArgTypes<SelectModule>",
-                    "defaultValue": "{\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  items: { table: { disable: true } }\r\n}"
+                    "defaultValue": "{\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Multiple' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  withReset: { control: { type: 'boolean' }, name: 'With reset' },\r\n  items: { table: { disable: true } }\r\n}"
                 },
                 {
                     "name": "meta",
@@ -5832,7 +6051,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Partial<SlideToggleModule>",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n  label: '[Label]',\r\n  checked: false,\r\n  color: 'primary',\r\n  labelPosition: 'after'\r\n}"
                 },
                 {
                     "name": "argTypes",
@@ -5842,7 +6061,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ArgTypes<SlideToggleModule>",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  checked: { control: { type: 'boolean' }, name: 'Checked' },\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  labelPosition: { options: ['after', 'before'], control: { type: 'radio' }, name: 'Label position' }\r\n}"
                 },
                 {
                     "name": "meta",
@@ -5852,7 +6071,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<SlideToggleModule>",
-                    "defaultValue": "{\r\n  title: 'Forms/Slide Toggle',\r\n  component: SlideToggleModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                    "defaultValue": "{\r\n  title: 'Forms/Slide Toggle',\r\n  component: SlideToggleModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 },
                 {
                     "name": "SlideToggle",
@@ -5862,7 +6081,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  /* args */\r\n}"
+                    "defaultValue": "{ args }"
                 }
             ],
             "src/stories/forms/slider/slider.stories.ts": [
@@ -5874,7 +6093,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Partial<SliderModule>",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n  color: 'primary',\r\n  discrete: false,\r\n  showTickMarks: false\r\n}"
                 },
                 {
                     "name": "argTypes",
@@ -5884,7 +6103,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ArgTypes<SliderModule>",
-                    "defaultValue": "{}"
+                    "defaultValue": "{\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  discrete: { control: { type: 'boolean' }, name: 'Discrete' },\r\n  showTickMarks: { control: { type: 'boolean' }, name: 'Show tick marks' }\r\n}"
                 },
                 {
                     "name": "meta",
@@ -5894,7 +6113,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<SliderModule>",
-                    "defaultValue": "{\r\n  title: 'Forms/Slider',\r\n  component: SliderModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /* argTypes */\r\n}"
+                    "defaultValue": "{\r\n  title: 'Forms/Slider',\r\n  component: SliderModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 },
                 {
                     "name": "Slider",
@@ -5904,7 +6123,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  /* args */\r\n}"
+                    "defaultValue": "{ args }"
                 }
             ],
             "src/stories/forms/textarea/textarea.stories.ts": [
@@ -5947,132 +6166,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  /* args */\r\n}"
-                }
-            ],
-            "src/stories/helpers/elevation/elevation.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ElevationModule>",
-                    "defaultValue": "{\r\n  elevation: 12\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ElevationModule>",
-                    "defaultValue": "{\r\n  elevation: { control: { type: 'range', max: 24, min: 0 }, name: 'Elevation' }\r\n}"
-                },
-                {
-                    "name": "Elevation",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ElevationModule>",
-                    "defaultValue": "{\r\n  title: 'Helpers/Elevation',\r\n  component: ElevationModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/helpers/grid/grid.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/grid/grid.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<GridModule>",
-                    "defaultValue": "{\r\n  cols: 5,\r\n  colOne: 2,\r\n  rowOne: 1,\r\n  colTwo: 1,\r\n  rowTwo: 2,\r\n  colThree: 1,\r\n  rowThree: 1,\r\n  colFour: 2,\r\n  rowFour: 1\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/grid/grid.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<GridModule>",
-                    "defaultValue": "{\r\n  tiles: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  cols: { control: { type: 'range', max: 5, min: 1 }, name: 'Columns' },\r\n  colOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 1' },\r\n  rowOne: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 1' },\r\n  colTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 2' },\r\n  rowTwo: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 2' },\r\n  colThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 3' },\r\n  rowThree: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 3' },\r\n  colFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Column 4' },\r\n  rowFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 4' }\r\n}"
-                },
-                {
-                    "name": "Grid",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/grid/grid.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/grid/grid.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<GridModule>",
-                    "defaultValue": "{\r\n  title: 'Helpers/Grid',\r\n  component: GridModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/helpers/ripples/ripples.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<RipplesModule>",
-                    "defaultValue": "{\r\n  centered: false,\r\n  disabled: false,\r\n  unbounded: false,\r\n  color: false,\r\n  radius: 0\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<RipplesModule>",
-                    "defaultValue": "{\r\n  centered: { control: { type: 'boolean' }, name: 'Centered' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  unbounded: { control: { type: 'boolean' }, name: 'Unbounded' },\r\n  color: { control: { type: 'boolean' }, name: 'Color (rgba)' },\r\n  radius: { control: { type: 'range', max: 400, min: 0 }, name: 'Radius' }\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<RipplesModule>",
-                    "defaultValue": "{\r\n  title: 'Helpers/Ripples',\r\n  component: RipplesModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-                },
-                {
-                    "name": "Ripples",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
                 }
             ],
             "src/stories/theme/colors/colors.stories.ts": [
@@ -6219,6 +6312,58 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "src/stories/helpers/clipboard/clipboard.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ClipModule>",
+                    "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/helpers/grid/grid.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<GridModule>",
+                    "file": "src/stories/helpers/grid/grid.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/helpers/elevation/elevation.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ElevationModule>",
+                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/helpers/ripples/ripples.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<RipplesModule>",
+                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -6226,19 +6371,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<BadgeModule>",
                     "file": "src/stories/components/badge/badge.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonModule>",
-                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6258,13 +6390,13 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/card/card.stories.ts": [
+            "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<CardModule>",
-                    "file": "src/stories/components/card/card.stories.ts",
+                    "rawtype": "StoryObj<ButtonModule>",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6278,6 +6410,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ChipsModule>",
                     "file": "src/stories/components/chips/chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/card/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<CardModule>",
+                    "file": "src/stories/components/card/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6310,19 +6455,6 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/menu/menu.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MenuModule>",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/progress-bar/progress-bar.stories.ts": [
                 {
                     "name": "Story",
@@ -6330,6 +6462,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ProgressBarModule>",
                     "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/menu/menu.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MenuModule>",
+                    "file": "src/stories/components/menu/menu.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6362,19 +6507,6 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/snackbar/snackbar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<SnackbarModule>",
-                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/table/table.stories.ts": [
                 {
                     "name": "Story",
@@ -6382,6 +6514,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TableModule>",
                     "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/snackbar/snackbar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SnackbarModule>",
+                    "file": "src/stories/components/snackbar/snackbar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6538,58 +6683,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TextareaModule>",
                     "file": "src/stories/forms/textarea/textarea.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/helpers/clipboard/clipboard.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ClipModule>",
-                    "file": "src/stories/helpers/clipboard/clipboard.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/helpers/elevation/elevation.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ElevationModule>",
-                    "file": "src/stories/helpers/elevation/elevation.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/helpers/grid/grid.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<GridModule>",
-                    "file": "src/stories/helpers/grid/grid.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/helpers/ripples/ripples.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<RipplesModule>",
-                    "file": "src/stories/helpers/ripples/ripples.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -7733,7 +7826,7 @@
                 "linktype": "component",
                 "name": "SelectModule",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -7782,7 +7875,7 @@
                 "linktype": "component",
                 "name": "SlideToggleModule",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -7831,7 +7924,7 @@
                 "linktype": "component",
                 "name": "SliderModule",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
