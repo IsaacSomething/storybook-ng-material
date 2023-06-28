@@ -12,7 +12,11 @@ import { MatButtonModule } from '@angular/material/button';
     <sb-header title="Sidenav" matLink="components/sidenav/api" />
 
     <mat-sidenav-container class="h-[400px] m-4" [hasBackdrop]="hasBackdrop">
-      <mat-sidenav #sidenav [mode]="mode" [position]="position" opened class="p-4">Sidenav content</mat-sidenav>
+      <mat-sidenav #sidenav [mode]="mode" [position]="position" opened class="p-4">
+        <p>Sidenav content</p>
+        <button mat-raised-button class="ml-2" (click)="sidenav.toggle()">Close</button>
+      </mat-sidenav>
+
       <mat-sidenav-content class="p-4">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta itaque necessitatibus impedit labore aut! Iure labore nihil optio
