@@ -3399,6 +3399,16 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ButtonModule>",
+                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3439,21 +3449,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ButtonModule>",
-                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ExpansionModule>",
-                "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                "type": "Partial<DividerModule>",
+                "defaultValue": "{\r\n  inset: false\r\n}"
             },
             {
                 "name": "args",
@@ -3479,31 +3479,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/divider/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<DividerModule>",
-                "defaultValue": "{\r\n  inset: false\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ProgressSpinnerModule>",
-                "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/sidenav/sidenav.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<SidenavModule>",
                 "defaultValue": "{\r\n  position: 'start',\r\n  mode: 'over',\r\n  hasBackdrop: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ExpansionModule>",
+                "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
             },
             {
                 "name": "args",
@@ -3519,11 +3509,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<TabsModule>",
-                "defaultValue": "{\r\n  color: 'primary',\r\n  backgroundColor: 'primary',\r\n  stretch: true,\r\n  duration: 100,\r\n  align: true,\r\n  fitInkBarToContent: true,\r\n  headerPosition: 'above'\r\n}"
+                "type": "Partial<ProgressSpinnerModule>",
+                "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
             },
             {
                 "name": "args",
@@ -3534,6 +3524,16 @@
                 "deprecationMessage": "",
                 "type": "Partial<TableModule>",
                 "defaultValue": "{\r\n  hasStyles: false,\r\n  clear: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TabsModule>",
+                "defaultValue": "{\r\n  color: 'primary',\r\n  backgroundColor: 'primary',\r\n  stretch: true,\r\n  duration: 100,\r\n  align: true,\r\n  fitInkBarToContent: true,\r\n  headerPosition: 'above'\r\n}"
             },
             {
                 "name": "args",
@@ -3559,6 +3559,16 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<AutocompleteModule>",
+                "defaultValue": "{\r\n  autoActiveFirstOption: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/forms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3574,16 +3584,6 @@
                 "deprecationMessage": "",
                 "type": "Partial<DatePickerModule>",
                 "defaultValue": "{\r\n  color: 'primary',\r\n  open: false,\r\n  startView: 'month',\r\n  touchUi: false,\r\n  disabled: false,\r\n  inline: false,\r\n  xPosition: 'start',\r\n  yPosition: 'below'\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<AutocompleteModule>",
-                "defaultValue": "{\r\n  autoActiveFirstOption: false\r\n}"
             },
             {
                 "name": "args",
@@ -3699,6 +3699,16 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ButtonModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3739,21 +3749,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ButtonModule>",
-                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ExpansionModule>",
-                "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
+                "type": "ArgTypes<DividerModule>",
+                "defaultValue": "{\r\n  inset: { control: { type: 'boolean' }, name: 'Inset' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3779,31 +3779,21 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/divider/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<DividerModule>",
-                "defaultValue": "{\r\n  inset: { control: { type: 'boolean' }, name: 'Inset' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ProgressSpinnerModule>",
-                "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/sidenav/sidenav.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<SidenavModule>",
                 "defaultValue": "{\r\n  position: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Position'\r\n  },\r\n  mode: {\r\n    options: ['over', 'push', 'side'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ExpansionModule>",
+                "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3819,11 +3809,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<TabsModule>",
-                "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  backgroundColor: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Background color'\r\n  },\r\n  stretch: { control: { type: 'boolean' }, name: 'Stretch' },\r\n  duration: { control: { type: 'range', step: 100, max: 1000 }, name: 'Animation duration' },\r\n  align: { control: { type: 'boolean' }, name: 'Align' },\r\n  fitInkBarToContent: { control: { type: 'boolean' }, name: 'Fit ink bar to content' },\r\n  headerPosition: { control: { type: 'select', options: ['below', 'above'] }, name: 'Header position' }\r\n}"
+                "type": "ArgTypes<ProgressSpinnerModule>",
+                "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3834,6 +3824,16 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<TableModule>",
                 "defaultValue": "{\r\n  hasStyles: { control: { type: 'boolean' }, name: 'Has styles' },\r\n  clear: { control: { type: 'boolean' }, name: 'Clear data' },\r\n  displayedColumns: { table: { disable: true } },\r\n  dataSource: { table: { disable: true } },\r\n  ngAfterViewInit: { table: { disable: true } },\r\n  sort: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<TabsModule>",
+                "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  backgroundColor: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Background color'\r\n  },\r\n  stretch: { control: { type: 'boolean' }, name: 'Stretch' },\r\n  duration: { control: { type: 'range', step: 100, max: 1000 }, name: 'Animation duration' },\r\n  align: { control: { type: 'boolean' }, name: 'Align' },\r\n  fitInkBarToContent: { control: { type: 'boolean' }, name: 'Fit ink bar to content' },\r\n  headerPosition: { control: { type: 'select', options: ['below', 'above'] }, name: 'Header position' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3859,6 +3859,16 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<AutocompleteModule>",
+                "defaultValue": "{\r\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/forms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3874,16 +3884,6 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<DatePickerModule>",
                 "defaultValue": "{\r\n  color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },\r\n  startView: { options: ['month', 'year', 'multi-year'], control: { type: 'radio' }, name: 'Start View' },\r\n  open: { control: { type: 'boolean' }, name: 'Open' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  inline: { control: { type: 'boolean' }, name: 'Inline' },\r\n  touchUi: { control: { type: 'boolean' }, name: 'Responsive' },\r\n  xPosition: { options: ['start', 'end'], control: { type: 'radio' }, name: 'X Position' },\r\n  yPosition: { options: ['above', 'below'], control: { type: 'radio' }, name: 'Y Position' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<AutocompleteModule>",
-                "defaultValue": "{\r\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -4179,6 +4179,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ButtonModule>",
+                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4219,21 +4229,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
+                "file": "src/stories/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonModule>",
-                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ExpansionModule>",
-                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                "type": "Meta<DividerModule>",
+                "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4259,31 +4259,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/divider/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DividerModule>",
-                "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ProgressSpinnerModule>",
-                "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/sidenav/sidenav.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SidenavModule>",
                 "defaultValue": "{\r\n  title: 'Components/Sidenav',\r\n  component: SidenavModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ExpansionModule>",
+                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4299,11 +4289,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<TabsModule>",
-                "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                "type": "Meta<ProgressSpinnerModule>",
+                "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4314,6 +4304,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<TableModule>",
                 "defaultValue": "{\r\n  title: 'Components/Table',\r\n  component: TableModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TabsModule>",
+                "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4339,6 +4339,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AutocompleteModule>",
+                "defaultValue": "{\r\n  title: 'Forms/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/forms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4354,16 +4364,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<DatePickerModule>",
                 "defaultValue": "{\r\n  title: 'Forms/Date Picker',\r\n  component: DatePickerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AutocompleteModule>",
-                "defaultValue": "{\r\n  title: 'Forms/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4652,6 +4652,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ButtonModule>",
+                "file": "src/stories/components/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<BadgeModule>",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
@@ -4696,19 +4707,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonModule>",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ExpansionModule>",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "rawtype": "StoryObj<DividerModule>",
+                "file": "src/stories/components/divider/divider.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4740,30 +4740,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DividerModule>",
-                "file": "src/stories/components/divider/divider.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ProgressSpinnerModule>",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<SidenavModule>",
                 "file": "src/stories/components/sidenav/sidenav.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ExpansionModule>",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4784,8 +4773,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TabsModule>",
-                "file": "src/stories/components/tabs/tabs.stories.ts",
+                "rawtype": "StoryObj<ProgressSpinnerModule>",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4797,6 +4786,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<TableModule>",
                 "file": "src/stories/components/table/table.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<TabsModule>",
+                "file": "src/stories/components/tabs/tabs.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4828,6 +4828,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<AutocompleteModule>",
+                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<CheckboxModule>",
                 "file": "src/stories/forms/checkbox/checkbox.stories.ts",
                 "deprecated": false,
@@ -4841,17 +4852,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<DatePickerModule>",
                 "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<AutocompleteModule>",
-                "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4992,6 +4992,48 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ButtonModule>",
+                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ButtonModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
+                },
+                {
+                    "name": "Button",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
+                }
+            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -5160,74 +5202,32 @@
                     "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/button/button.stories.ts": [
+            "src/stories/components/divider/divider.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<ButtonModule>",
-                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
+                    "type": "Partial<DividerModule>",
+                    "defaultValue": "{\r\n  inset: false\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<ButtonModule>",
-                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
+                    "type": "ArgTypes<DividerModule>",
+                    "defaultValue": "{\r\n  inset: { control: { type: 'boolean' }, name: 'Inset' }\r\n}"
                 },
                 {
-                    "name": "Button",
+                    "name": "Divider",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/components/expansion/expansion.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ExpansionModule>",
-                    "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ExpansionModule>",
-                    "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
-                },
-                {
-                    "name": "Expansion",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -5237,11 +5237,11 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ExpansionModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                    "type": "Meta<DividerModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/menu/menu.stories.ts": [
@@ -5328,90 +5328,6 @@
                     "defaultValue": "{ args }"
                 }
             ],
-            "src/stories/components/divider/divider.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<DividerModule>",
-                    "defaultValue": "{\r\n  inset: false\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<DividerModule>",
-                    "defaultValue": "{\r\n  inset: { control: { type: 'boolean' }, name: 'Inset' }\r\n}"
-                },
-                {
-                    "name": "Divider",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DividerModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ProgressSpinnerModule>",
-                    "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ProgressSpinnerModule>",
-                    "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ProgressSpinnerModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-                },
-                {
-                    "name": "ProgressSpinner",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
-                }
-            ],
             "src/stories/components/sidenav/sidenav.stories.ts": [
                 {
                     "name": "args",
@@ -5452,6 +5368,48 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args\r\n}"
+                }
+            ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ExpansionModule>",
+                    "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ExpansionModule>",
+                    "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "Expansion",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ExpansionModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/snackbar/snackbar.stories.ts": [
@@ -5496,46 +5454,46 @@
                     "defaultValue": "{ args }"
                 }
             ],
-            "src/stories/components/tabs/tabs.stories.ts": [
+            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<TabsModule>",
-                    "defaultValue": "{\r\n  color: 'primary',\r\n  backgroundColor: 'primary',\r\n  stretch: true,\r\n  duration: 100,\r\n  align: true,\r\n  fitInkBarToContent: true,\r\n  headerPosition: 'above'\r\n}"
+                    "type": "Partial<ProgressSpinnerModule>",
+                    "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<TabsModule>",
-                    "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  backgroundColor: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Background color'\r\n  },\r\n  stretch: { control: { type: 'boolean' }, name: 'Stretch' },\r\n  duration: { control: { type: 'range', step: 100, max: 1000 }, name: 'Animation duration' },\r\n  align: { control: { type: 'boolean' }, name: 'Align' },\r\n  fitInkBarToContent: { control: { type: 'boolean' }, name: 'Fit ink bar to content' },\r\n  headerPosition: { control: { type: 'select', options: ['below', 'above'] }, name: 'Header position' }\r\n}"
+                    "type": "ArgTypes<ProgressSpinnerModule>",
+                    "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<TabsModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                    "type": "Meta<ProgressSpinnerModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 },
                 {
-                    "name": "Tabs",
+                    "name": "ProgressSpinner",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{ args }"
+                    "defaultValue": "{\r\n  args\r\n}"
                 }
             ],
             "src/stories/components/table/table.stories.ts": [
@@ -5574,6 +5532,48 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                }
+            ],
+            "src/stories/components/tabs/tabs.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TabsModule>",
+                    "defaultValue": "{\r\n  color: 'primary',\r\n  backgroundColor: 'primary',\r\n  stretch: true,\r\n  duration: 100,\r\n  align: true,\r\n  fitInkBarToContent: true,\r\n  headerPosition: 'above'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<TabsModule>",
+                    "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  backgroundColor: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Background color'\r\n  },\r\n  stretch: { control: { type: 'boolean' }, name: 'Stretch' },\r\n  duration: { control: { type: 'range', step: 100, max: 1000 }, name: 'Animation duration' },\r\n  align: { control: { type: 'boolean' }, name: 'Align' },\r\n  fitInkBarToContent: { control: { type: 'boolean' }, name: 'Fit ink bar to content' },\r\n  headerPosition: { control: { type: 'select', options: ['below', 'above'] }, name: 'Header position' }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TabsModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Tabs',\r\n  component: TabsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                },
+                {
+                    "name": "Tabs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -5664,6 +5664,48 @@
                     "defaultValue": "{\r\n  args\r\n}"
                 }
             ],
+            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<AutocompleteModule>",
+                    "defaultValue": "{\r\n  autoActiveFirstOption: false\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<AutocompleteModule>",
+                    "defaultValue": "{\r\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "Autocomplete",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AutocompleteModule>",
+                    "defaultValue": "{\r\n  title: 'Forms/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
+                }
+            ],
             "src/stories/forms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "args",
@@ -5746,48 +5788,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<DatePickerModule>",
                     "defaultValue": "{\r\n  title: 'Forms/Date Picker',\r\n  component: DatePickerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<AutocompleteModule>",
-                    "defaultValue": "{\r\n  autoActiveFirstOption: false\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<AutocompleteModule>",
-                    "defaultValue": "{\r\n  autoActiveFirstOption: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  _filter: { table: { disable: true } },\r\n  ngOnInit: { table: { disable: true } },\r\n  options: { table: { disable: true } },\r\n  myControl: { table: { disable: true } },\r\n  filteredOptions: { table: { disable: true } }\r\n}"
-                },
-                {
-                    "name": "Autocomplete",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AutocompleteModule>",
-                    "defaultValue": "{\r\n  title: 'Forms/Autocomplete',\r\n  component: AutocompleteModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/forms/form-field/form-field.stories.ts": [
@@ -6312,6 +6312,19 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "src/stories/components/button/button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ButtonModule>",
+                    "file": "src/stories/components/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -6364,26 +6377,13 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/button/button.stories.ts": [
+            "src/stories/components/divider/divider.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonModule>",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/expansion/expansion.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ExpansionModule>",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "rawtype": "StoryObj<DividerModule>",
+                    "file": "src/stories/components/divider/divider.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6416,32 +6416,6 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/divider/divider.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DividerModule>",
-                    "file": "src/stories/components/divider/divider.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ProgressSpinnerModule>",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/sidenav/sidenav.stories.ts": [
                 {
                     "name": "Story",
@@ -6449,6 +6423,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SidenavModule>",
                     "file": "src/stories/components/sidenav/sidenav.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ExpansionModule>",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6468,13 +6455,13 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/tabs/tabs.stories.ts": [
+            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<TabsModule>",
-                    "file": "src/stories/components/tabs/tabs.stories.ts",
+                    "rawtype": "StoryObj<ProgressSpinnerModule>",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6488,6 +6475,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TableModule>",
                     "file": "src/stories/components/table/table.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/tabs/tabs.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TabsModule>",
+                    "file": "src/stories/components/tabs/tabs.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6520,6 +6520,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AutocompleteModule>",
+                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/forms/checkbox/checkbox.stories.ts": [
                 {
                     "name": "Story",
@@ -6540,19 +6553,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<DatePickerModule>",
                     "file": "src/stories/forms/date-picker/date-picker.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/forms/autocomplete/autocomplete.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AutocompleteModule>",
-                    "file": "src/stories/forms/autocomplete/autocomplete.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
