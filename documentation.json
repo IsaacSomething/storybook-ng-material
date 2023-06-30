@@ -2428,7 +2428,7 @@
         },
         {
             "name": "SidenavModule",
-            "id": "component-SidenavModule-30e2f27d27a292e992ddca5dfa53c5f9360e086fe164558edc498c51e2051c9ac76294dd8da15a9a62195ab4e01b9ab7efd0490577d758b2f87e156faf056b33",
+            "id": "component-SidenavModule-181d5f9cbaeb93a4a83057256b166f647b8e372f31787982e14c2caa825c100d7095a9f859e9c0778f83bf5507726181a75b1f4df040efb9b6fe50594e8c2092",
             "file": "src/stories/components/sidenav/sidenav.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2438,7 +2438,7 @@
             "selector": "app-sidenav",
             "styleUrls": [],
             "styles": [],
-            "template": "<sb-header title=\"Sidenav\" matLink=\"components/sidenav/api\" />\n\n<mat-sidenav-container class=\"h-[400px] m-4\" [hasBackdrop]=\"hasBackdrop\">\n  <mat-sidenav #sidenav [mode]=\"mode\" [position]=\"position\" opened class=\"p-4\">Sidenav content</mat-sidenav>\n  <mat-sidenav-content class=\"p-4\">\n    <p>\n      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta itaque necessitatibus impedit labore aut! Iure labore nihil optio\n      facilis minus aliquid pariatur saepe nesciunt nemo perspiciatis. Nam, beatae consequatur! Est.\n    </p>\n    <button mat-raised-button (click)=\"sidenav.toggle()\">Toggle</button>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n",
+            "template": "<sb-header title=\"Sidenav\" matLink=\"components/sidenav/api\" />\n\n<mat-sidenav-container class=\"h-[400px] m-4\" [hasBackdrop]=\"hasBackdrop\">\n  <mat-sidenav #sidenav [mode]=\"mode\" [position]=\"position\" opened class=\"p-4\">\n    <p>Sidenav content</p>\n    <button mat-raised-button class=\"ml-2\" (click)=\"sidenav.toggle()\">Close</button>\n  </mat-sidenav>\n\n  <mat-sidenav-content class=\"p-4\">\n    <p>\n      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta itaque necessitatibus impedit labore aut! Iure labore nihil optio\n      facilis minus aliquid pariatur saepe nesciunt nemo perspiciatis. Nam, beatae consequatur! Est.\n    </p>\n    <button mat-raised-button (click)=\"sidenav.toggle()\">Toggle</button>\n  </mat-sidenav-content>\n</mat-sidenav-container>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -2447,7 +2447,7 @@
                     "name": "hasBackdrop",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 30,
+                    "line": 34,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -2455,7 +2455,7 @@
                     "name": "mode",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 33,
                     "type": "\"over\" | \"push\" | \"side\"",
                     "decorators": []
                 },
@@ -2463,7 +2463,7 @@
                     "name": "position",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
+                    "line": 32,
                     "type": "\"start\" | \"end\"",
                     "decorators": []
                 }
@@ -2497,7 +2497,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\nimport { MatSidenavModule } from '@angular/material/sidenav';\r\nimport { MatButtonModule } from '@angular/material/button';\r\n\r\n@Component({\r\n  selector: 'app-sidenav',\r\n  standalone: true,\r\n  imports: [CommonModule, SBHeaderModule, MatSidenavModule, MatButtonModule],\r\n  template: `\r\n    <sb-header title=\"Sidenav\" matLink=\"components/sidenav/api\" />\r\n\r\n    <mat-sidenav-container class=\"h-[400px] m-4\" [hasBackdrop]=\"hasBackdrop\">\r\n      <mat-sidenav #sidenav [mode]=\"mode\" [position]=\"position\" opened class=\"p-4\">Sidenav content</mat-sidenav>\r\n      <mat-sidenav-content class=\"p-4\">\r\n        <p>\r\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta itaque necessitatibus impedit labore aut! Iure labore nihil optio\r\n          facilis minus aliquid pariatur saepe nesciunt nemo perspiciatis. Nam, beatae consequatur! Est.\r\n        </p>\r\n        <button mat-raised-button (click)=\"sidenav.toggle()\">Toggle</button>\r\n      </mat-sidenav-content>\r\n    </mat-sidenav-container>\r\n  `,\r\n  styles: []\r\n})\r\nexport class SidenavModule {\r\n  @Input() position!: 'start' | 'end';\r\n  @Input() mode!: 'over' | 'push' | 'side';\r\n  @Input() hasBackdrop!: boolean;\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { SBHeaderModule } from '../../assets/sb-header';\r\nimport { MatSidenavModule } from '@angular/material/sidenav';\r\nimport { MatButtonModule } from '@angular/material/button';\r\n\r\n@Component({\r\n  selector: 'app-sidenav',\r\n  standalone: true,\r\n  imports: [CommonModule, SBHeaderModule, MatSidenavModule, MatButtonModule],\r\n  template: `\r\n    <sb-header title=\"Sidenav\" matLink=\"components/sidenav/api\" />\r\n\r\n    <mat-sidenav-container class=\"h-[400px] m-4\" [hasBackdrop]=\"hasBackdrop\">\r\n      <mat-sidenav #sidenav [mode]=\"mode\" [position]=\"position\" opened class=\"p-4\">\r\n        <p>Sidenav content</p>\r\n        <button mat-raised-button class=\"ml-2\" (click)=\"sidenav.toggle()\">Close</button>\r\n      </mat-sidenav>\r\n\r\n      <mat-sidenav-content class=\"p-4\">\r\n        <p>\r\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta itaque necessitatibus impedit labore aut! Iure labore nihil optio\r\n          facilis minus aliquid pariatur saepe nesciunt nemo perspiciatis. Nam, beatae consequatur! Est.\r\n        </p>\r\n        <button mat-raised-button (click)=\"sidenav.toggle()\">Toggle</button>\r\n      </mat-sidenav-content>\r\n    </mat-sidenav-container>\r\n  `,\r\n  styles: []\r\n})\r\nexport class SidenavModule {\r\n  @Input() position!: 'start' | 'end';\r\n  @Input() mode!: 'over' | 'push' | 'side';\r\n  @Input() hasBackdrop!: boolean;\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -3399,16 +3399,6 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ButtonModule>",
-                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3439,11 +3429,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ChipsModule>",
-                "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: true,\r\n  selectable: true,\r\n  highlighted: false\r\n}"
+                "type": "Partial<ButtonModule>",
+                "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
             },
             {
                 "name": "args",
@@ -3459,11 +3449,31 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ExpansionModule>",
+                "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/menu/menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<MenuModule>",
                 "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/chips/chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ChipsModule>",
+                "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: true,\r\n  selectable: true,\r\n  highlighted: false\r\n}"
             },
             {
                 "name": "args",
@@ -3489,11 +3499,11 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Partial<ExpansionModule>",
-                "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                "type": "Partial<ProgressSpinnerModule>",
+                "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
             },
             {
                 "name": "args",
@@ -3504,16 +3514,6 @@
                 "deprecationMessage": "",
                 "type": "Partial<SnackbarModule>",
                 "defaultValue": "{\r\n  label: 'Lorem ipsum dolor.',\r\n  xPosition: 'center',\r\n  yPosition: 'bottom',\r\n  duration: 5000,\r\n  hasAction: false\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ProgressSpinnerModule>",
-                "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
             },
             {
                 "name": "args",
@@ -3699,16 +3699,6 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ButtonModule>",
-                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3739,11 +3729,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ChipsModule>",
-                "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
+                "type": "ArgTypes<ButtonModule>",
+                "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3759,11 +3749,31 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ExpansionModule>",
+                "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/menu/menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<MenuModule>",
                 "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/chips/chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ChipsModule>",
+                "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3789,11 +3799,11 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ArgTypes<ExpansionModule>",
-                "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
+                "type": "ArgTypes<ProgressSpinnerModule>",
+                "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3804,16 +3814,6 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<SnackbarModule>",
                 "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  hasAction: { control: { type: 'boolean' }, name: 'Has action' },\r\n  duration: { control: { type: 'range', step: 1000, min: 1000, max: 10000 }, name: 'Duration' },\r\n  xPosition: {\r\n    options: ['start', 'center', 'end', 'left', 'right'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  yPosition: {\r\n    options: ['top', 'bottom'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  openSnackbar: { table: { disable: true } }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ProgressSpinnerModule>",
-                "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -4179,16 +4179,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ButtonModule>",
-                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4219,11 +4209,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ChipsModule>",
-                "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                "type": "Meta<ButtonModule>",
+                "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4239,11 +4229,31 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ExpansionModule>",
+                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/components/menu/menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<MenuModule>",
                 "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/chips/chips.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ChipsModule>",
+                "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4269,11 +4279,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ExpansionModule>",
-                "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                "type": "Meta<ProgressSpinnerModule>",
+                "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4284,16 +4294,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<SnackbarModule>",
                 "defaultValue": "{\r\n  title: 'Components/Snackbar',\r\n  component: SnackbarModule,\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ProgressSpinnerModule>",
-                "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4652,17 +4652,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonModule>",
-                "file": "src/stories/components/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<BadgeModule>",
                 "file": "src/stories/components/badge/badge.stories.ts",
                 "deprecated": false,
@@ -4696,8 +4685,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ChipsModule>",
-                "file": "src/stories/components/chips/chips.stories.ts",
+                "rawtype": "StoryObj<ButtonModule>",
+                "file": "src/stories/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4718,8 +4707,30 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ExpansionModule>",
+                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<MenuModule>",
                 "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ChipsModule>",
+                "file": "src/stories/components/chips/chips.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4751,8 +4762,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ExpansionModule>",
-                "file": "src/stories/components/expansion/expansion.stories.ts",
+                "rawtype": "StoryObj<ProgressSpinnerModule>",
+                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4764,17 +4775,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<SnackbarModule>",
                 "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ProgressSpinnerModule>",
-                "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4992,48 +4992,6 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ButtonModule>",
-                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ButtonModule>",
-                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
-                },
-                {
-                    "name": "Button",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
-                }
-            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "args",
@@ -5160,46 +5118,46 @@
                     "defaultValue": "{\r\n  title: 'Components/Card',\r\n  component: CardModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/chips/chips.stories.ts": [
+            "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<ChipsModule>",
-                    "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: true,\r\n  selectable: true,\r\n  highlighted: false\r\n}"
+                    "type": "Partial<ButtonModule>",
+                    "defaultValue": "{\r\n  label: '[Button]',\r\n  disabled: false,\r\n  color: 'default',\r\n  type: 'default'\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<ChipsModule>",
-                    "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
+                    "type": "ArgTypes<ButtonModule>",
+                    "defaultValue": "{\r\n  label: { control: { type: 'text' }, name: 'Label' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  type: {\r\n    options: ['default', 'flat', 'stroked', 'raised'],\r\n    control: { type: 'radio' },\r\n    name: 'Button type'\r\n  }\r\n}"
                 },
                 {
-                    "name": "Chips",
+                    "name": "Button",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
+                    "defaultValue": "{ args }"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ChipsModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                    "type": "Meta<ButtonModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonModule,\r\n  parameters: {\r\n    options: { showPanel: true }\r\n  },\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/divider/divider.stories.ts": [
@@ -5244,6 +5202,48 @@
                     "defaultValue": "{\r\n  title: 'Components/Divider',\r\n  component: DividerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  argTypes\r\n}"
                 }
             ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ExpansionModule>",
+                    "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ExpansionModule>",
+                    "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
+                },
+                {
+                    "name": "Expansion",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ExpansionModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                }
+            ],
             "src/stories/components/menu/menu.stories.ts": [
                 {
                     "name": "args",
@@ -5284,6 +5284,48 @@
                     "deprecationMessage": "",
                     "type": "Meta<MenuModule>",
                     "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/chips/chips.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ChipsModule>",
+                    "defaultValue": "{\r\n  color: 'default',\r\n  hideSingle: false,\r\n  multiple: true,\r\n  selectable: true,\r\n  highlighted: false\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ChipsModule>",
+                    "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  hideSingle: { control: { type: 'boolean' }, name: 'Hide Single Selection Indicator' },\r\n  multiple: { control: { type: 'boolean' }, name: 'Select Multiple' },\r\n  selectable: { control: { type: 'boolean' }, name: 'Selectable' },\r\n  highlighted: { control: { type: 'boolean' }, name: 'Highlighted' }\r\n}"
+                },
+                {
+                    "name": "Chips",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ChipsModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Chips',\r\n  component: ChipsModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
             "src/stories/components/progress-bar/progress-bar.stories.ts": [
@@ -5370,46 +5412,46 @@
                     "defaultValue": "{\r\n  args\r\n}"
                 }
             ],
-            "src/stories/components/expansion/expansion.stories.ts": [
+            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
                 {
                     "name": "args",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Partial<ExpansionModule>",
-                    "defaultValue": "{\r\n  toggle: true,\r\n  description: true,\r\n  disabled: false,\r\n  multi: false,\r\n  expanded: false,\r\n  displayMode: 'default',\r\n  togglePosition: 'before'\r\n}"
+                    "type": "Partial<ProgressSpinnerModule>",
+                    "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
                 },
                 {
                     "name": "argTypes",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ArgTypes<ExpansionModule>",
-                    "defaultValue": "{\r\n  toggle: { control: { type: 'boolean' }, name: 'Has toggle' },\r\n  description: { control: { type: 'boolean' }, name: 'Has description' },\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  multi: { control: { type: 'boolean' }, name: 'Open more than one panel' },\r\n  expanded: { control: { type: 'boolean' }, name: 'Expand' },\r\n  displayMode: {\r\n    options: ['default', 'flat'],\r\n    control: { type: 'radio' },\r\n    name: 'Display mode'\r\n  },\r\n  togglePosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'Toggle position'\r\n  },\r\n  opened: { action: 'opened', table: { disable: true } },\r\n  closed: { action: 'closed', table: { disable: true } }\r\n}"
-                },
-                {
-                    "name": "Expansion",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
+                    "type": "ArgTypes<ProgressSpinnerModule>",
+                    "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ExpansionModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                    "type": "Meta<ProgressSpinnerModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                },
+                {
+                    "name": "ProgressSpinner",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
                 }
             ],
             "src/stories/components/snackbar/snackbar.stories.ts": [
@@ -5452,48 +5494,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{ args }"
-                }
-            ],
-            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ProgressSpinnerModule>",
-                    "defaultValue": "{\r\n  value: 50,\r\n  diameter: 100,\r\n  strokeWidth: 10,\r\n  mode: 'determinate',\r\n  color: 'primary'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ProgressSpinnerModule>",
-                    "defaultValue": "{\r\n  value: { control: { type: 'range', max: '100', min: 10 }, name: 'Value' },\r\n  diameter: { control: { type: 'range', max: '400', min: 70 }, name: 'Diameter' },\r\n  strokeWidth: { control: { type: 'range', max: '20', min: 1 }, name: 'Stroke width' },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ProgressSpinnerModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Progress Spinner',\r\n  component: ProgressSpinnerModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-                },
-                {
-                    "name": "ProgressSpinner",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
                 }
             ],
             "src/stories/components/table/table.stories.ts": [
@@ -6312,19 +6312,6 @@
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "src/stories/components/button/button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonModule>",
-                    "file": "src/stories/components/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/badge/badge.stories.ts": [
                 {
                     "name": "Story",
@@ -6364,13 +6351,13 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/chips/chips.stories.ts": [
+            "src/stories/components/button/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ChipsModule>",
-                    "file": "src/stories/components/chips/chips.stories.ts",
+                    "rawtype": "StoryObj<ButtonModule>",
+                    "file": "src/stories/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6390,6 +6377,19 @@
                     "kind": 180
                 }
             ],
+            "src/stories/components/expansion/expansion.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ExpansionModule>",
+                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
             "src/stories/components/menu/menu.stories.ts": [
                 {
                     "name": "Story",
@@ -6397,6 +6397,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<MenuModule>",
                     "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/chips/chips.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ChipsModule>",
+                    "file": "src/stories/components/chips/chips.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6429,13 +6442,13 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/expansion/expansion.stories.ts": [
+            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ExpansionModule>",
-                    "file": "src/stories/components/expansion/expansion.stories.ts",
+                    "rawtype": "StoryObj<ProgressSpinnerModule>",
+                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6449,19 +6462,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SnackbarModule>",
                     "file": "src/stories/components/snackbar/snackbar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ProgressSpinnerModule>",
-                    "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
