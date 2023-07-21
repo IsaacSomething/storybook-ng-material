@@ -3469,26 +3469,6 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/menu/menu.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<MenuModule>",
-                "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<ProgressBarModule>",
-                "defaultValue": "{\r\n  /*  value: 50,\r\n  buffer: 75,\r\n  color: 'default',\r\n  mode: 'determinate' */\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3504,6 +3484,26 @@
                 "deprecationMessage": "",
                 "type": "Partial<SidenavModule>",
                 "defaultValue": "{\r\n  position: 'start',\r\n  mode: 'over',\r\n  hasBackdrop: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<MenuModule>",
+                "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<ProgressBarModule>",
+                "defaultValue": "{\r\n  /*  value: 50,\r\n  buffer: 75,\r\n  color: 'default',\r\n  mode: 'determinate' */\r\n}"
             },
             {
                 "name": "args",
@@ -3539,21 +3539,21 @@
                 "name": "args",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Partial<TooltipModule>",
-                "defaultValue": "{\r\n  disabled: false,\r\n  hideDelay: 0,\r\n  position: 'right'\r\n}"
-            },
-            {
-                "name": "args",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/toolbar/toolbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Partial<ToolbarModule>",
                 "defaultValue": "{\r\n  color: 'default'\r\n}"
+            },
+            {
+                "name": "args",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Partial<TooltipModule>",
+                "defaultValue": "{\r\n  disabled: false,\r\n  hideDelay: 0,\r\n  position: 'right'\r\n}"
             },
             {
                 "name": "args",
@@ -3769,26 +3769,6 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/menu/menu.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<MenuModule>",
-                "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<ProgressBarModule>",
-                "defaultValue": "{\r\n  /* value: { control: { type: 'range', min: 0, max: 100 }, name: 'Value' },\r\n  buffer: { control: { type: 'range', min: 0, max: 100 }, name: 'Buffer' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate', 'buffer', 'query'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  } */\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -3804,6 +3784,26 @@
                 "deprecationMessage": "",
                 "type": "ArgTypes<SidenavModule>",
                 "defaultValue": "{\r\n  position: {\r\n    options: ['start', 'end'],\r\n    control: { type: 'radio' },\r\n    name: 'Position'\r\n  },\r\n  mode: {\r\n    options: ['over', 'push', 'side'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<MenuModule>",
+                "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<ProgressBarModule>",
+                "defaultValue": "{\r\n  /* value: { control: { type: 'range', min: 0, max: 100 }, name: 'Value' },\r\n  buffer: { control: { type: 'range', min: 0, max: 100 }, name: 'Buffer' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate', 'buffer', 'query'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  } */\r\n}"
             },
             {
                 "name": "argTypes",
@@ -3839,21 +3839,21 @@
                 "name": "argTypes",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "ArgTypes<TooltipModule>",
-                "defaultValue": "{\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  hideDelay: { control: { type: 'range', step: 500, min: 0, max: 5000 }, name: 'Hide delay' },\r\n  position: { control: { type: 'select', options: ['left', 'right', 'above', 'below', 'before', 'after'] }, name: 'Position' }\r\n}"
-            },
-            {
-                "name": "argTypes",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/toolbar/toolbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<ToolbarModule>",
                 "defaultValue": "{\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  }\r\n}"
+            },
+            {
+                "name": "argTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<TooltipModule>",
+                "defaultValue": "{\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  hideDelay: { control: { type: 'range', step: 500, min: 0, max: 5000 }, name: 'Hide delay' },\r\n  position: { control: { type: 'select', options: ['left', 'right', 'above', 'below', 'before', 'after'] }, name: 'Position' }\r\n}"
             },
             {
                 "name": "argTypes",
@@ -4249,26 +4249,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/menu/menu.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<MenuModule>",
-                "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ProgressBarModule>",
-                "defaultValue": "{\r\n  title: 'Components/Progress Bar',\r\n  component: ProgressBarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /*  argTypes */\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -4284,6 +4264,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<SidenavModule>",
                 "defaultValue": "{\r\n  title: 'Components/Sidenav',\r\n  component: SidenavModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MenuModule>",
+                "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ProgressBarModule>",
+                "defaultValue": "{\r\n  title: 'Components/Progress Bar',\r\n  component: ProgressBarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /*  argTypes */\r\n}"
             },
             {
                 "name": "meta",
@@ -4319,21 +4319,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<TooltipModule>",
-                "defaultValue": "{\r\n  title: 'Components/Tooltip',\r\n  component: TooltipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/components/toolbar/toolbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ToolbarModule>",
                 "defaultValue": "{\r\n  title: 'Components/Toolbar',\r\n  component: ToolbarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<TooltipModule>",
+                "defaultValue": "{\r\n  title: 'Components/Tooltip',\r\n  component: TooltipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
             },
             {
                 "name": "meta",
@@ -4729,28 +4729,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<MenuModule>",
-                "file": "src/stories/components/menu/menu.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<ProgressBarModule>",
-                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 180
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<ProgressSpinnerModule>",
                 "file": "src/stories/components/progress-spinner/progress-spinner.stories.ts",
                 "deprecated": false,
@@ -4764,6 +4742,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<SidenavModule>",
                 "file": "src/stories/components/sidenav/sidenav.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MenuModule>",
+                "file": "src/stories/components/menu/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 180
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ProgressBarModule>",
+                "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4806,8 +4806,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<TooltipModule>",
-                "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                "rawtype": "StoryObj<ToolbarModule>",
+                "file": "src/stories/components/toolbar/toolbar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -4817,8 +4817,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ToolbarModule>",
-                "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                "rawtype": "StoryObj<TooltipModule>",
+                "file": "src/stories/components/tooltip/tooltip.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -5286,90 +5286,6 @@
                     "defaultValue": "{\r\n  title: 'Components/Expansion',\r\n  component: ExpansionModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
                 }
             ],
-            "src/stories/components/menu/menu.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<MenuModule>",
-                    "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<MenuModule>",
-                    "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
-                },
-                {
-                    "name": "Menu",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<MenuModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-                }
-            ],
-            "src/stories/components/progress-bar/progress-bar.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<ProgressBarModule>",
-                    "defaultValue": "{\r\n  /*  value: 50,\r\n  buffer: 75,\r\n  color: 'default',\r\n  mode: 'determinate' */\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<ProgressBarModule>",
-                    "defaultValue": "{\r\n  /* value: { control: { type: 'range', min: 0, max: 100 }, name: 'Value' },\r\n  buffer: { control: { type: 'range', min: 0, max: 100 }, name: 'Buffer' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate', 'buffer', 'query'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  } */\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ProgressBarModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Progress Bar',\r\n  component: ProgressBarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /*  argTypes */\r\n}"
-                },
-                {
-                    "name": "ProgressBar",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{ args }"
-                }
-            ],
             "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
                 {
                     "name": "args",
@@ -5452,6 +5368,90 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args\r\n}"
+                }
+            ],
+            "src/stories/components/menu/menu.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<MenuModule>",
+                    "defaultValue": "{\r\n  yPosition: 'below',\r\n  xPosition: 'after',\r\n  hasBackdrop: true,\r\n  overlapTrigger: false\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<MenuModule>",
+                    "defaultValue": "{\r\n  yPosition: {\r\n    options: ['above', 'below'],\r\n    control: { type: 'radio' },\r\n    name: 'Y position'\r\n  },\r\n  xPosition: {\r\n    options: ['before', 'after'],\r\n    control: { type: 'radio' },\r\n    name: 'X position'\r\n  },\r\n  hasBackdrop: { control: { type: 'boolean' }, name: 'Has backdrop' },\r\n  overlapTrigger: { control: { type: 'boolean' }, name: 'Overlap trigger' }\r\n}"
+                },
+                {
+                    "name": "Menu",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<MenuModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Menu',\r\n  component: MenuModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                }
+            ],
+            "src/stories/components/progress-bar/progress-bar.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<ProgressBarModule>",
+                    "defaultValue": "{\r\n  /*  value: 50,\r\n  buffer: 75,\r\n  color: 'default',\r\n  mode: 'determinate' */\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<ProgressBarModule>",
+                    "defaultValue": "{\r\n  /* value: { control: { type: 'range', min: 0, max: 100 }, name: 'Value' },\r\n  buffer: { control: { type: 'range', min: 0, max: 100 }, name: 'Buffer' },\r\n  color: {\r\n    options: ['default', 'primary', 'accent', 'warn'],\r\n    control: { type: 'radio' },\r\n    name: 'Color'\r\n  },\r\n  mode: {\r\n    options: ['determinate', 'indeterminate', 'buffer', 'query'],\r\n    control: { type: 'radio' },\r\n    name: 'Mode'\r\n  } */\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ProgressBarModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Progress Bar',\r\n  component: ProgressBarModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })]\r\n  /*  argTypes */\r\n}"
+                },
+                {
+                    "name": "ProgressBar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{ args }"
                 }
             ],
             "src/stories/components/snackbar/snackbar.stories.ts": [
@@ -5580,48 +5580,6 @@
                     "defaultValue": "{ args }"
                 }
             ],
-            "src/stories/components/tooltip/tooltip.stories.ts": [
-                {
-                    "name": "args",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Partial<TooltipModule>",
-                    "defaultValue": "{\r\n  disabled: false,\r\n  hideDelay: 0,\r\n  position: 'right'\r\n}"
-                },
-                {
-                    "name": "argTypes",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ArgTypes<TooltipModule>",
-                    "defaultValue": "{\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  hideDelay: { control: { type: 'range', step: 500, min: 0, max: 5000 }, name: 'Hide delay' },\r\n  position: { control: { type: 'select', options: ['left', 'right', 'above', 'below', 'before', 'after'] }, name: 'Position' }\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<TooltipModule>",
-                    "defaultValue": "{\r\n  title: 'Components/Tooltip',\r\n  component: TooltipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
-                },
-                {
-                    "name": "Tooltip",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args\r\n}"
-                }
-            ],
             "src/stories/components/toolbar/toolbar.stories.ts": [
                 {
                     "name": "args",
@@ -5658,6 +5616,48 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args\r\n}"
+                }
+            ],
+            "src/stories/components/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "args",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<TooltipModule>",
+                    "defaultValue": "{\r\n  disabled: false,\r\n  hideDelay: 0,\r\n  position: 'right'\r\n}"
+                },
+                {
+                    "name": "argTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<TooltipModule>",
+                    "defaultValue": "{\r\n  disabled: { control: { type: 'boolean' }, name: 'Disabled' },\r\n  hideDelay: { control: { type: 'range', step: 500, min: 0, max: 5000 }, name: 'Hide delay' },\r\n  position: { control: { type: 'select', options: ['left', 'right', 'above', 'below', 'before', 'after'] }, name: 'Position' }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<TooltipModule>",
+                    "defaultValue": "{\r\n  title: 'Components/Tooltip',\r\n  component: TooltipModule,\r\n  parameters: { options: { showPanel: true } },\r\n  decorators: [applicationConfig({ providers: [importProvidersFrom(BrowserAnimationsModule)] })],\r\n  argTypes\r\n}"
+                },
+                {
+                    "name": "Tooltip",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -6403,32 +6403,6 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/menu/menu.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<MenuModule>",
-                    "file": "src/stories/components/menu/menu.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
-            "src/stories/components/progress-bar/progress-bar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ProgressBarModule>",
-                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/progress-spinner/progress-spinner.stories.ts": [
                 {
                     "name": "Story",
@@ -6449,6 +6423,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SidenavModule>",
                     "file": "src/stories/components/sidenav/sidenav.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/menu/menu.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MenuModule>",
+                    "file": "src/stories/components/menu/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/progress-bar/progress-bar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ProgressBarModule>",
+                    "file": "src/stories/components/progress-bar/progress-bar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -6494,19 +6494,6 @@
                     "kind": 180
                 }
             ],
-            "src/stories/components/tooltip/tooltip.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<TooltipModule>",
-                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 180
-                }
-            ],
             "src/stories/components/toolbar/toolbar.stories.ts": [
                 {
                     "name": "Story",
@@ -6514,6 +6501,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ToolbarModule>",
                     "file": "src/stories/components/toolbar/toolbar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 180
+                }
+            ],
+            "src/stories/components/tooltip/tooltip.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TooltipModule>",
+                    "file": "src/stories/components/tooltip/tooltip.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
