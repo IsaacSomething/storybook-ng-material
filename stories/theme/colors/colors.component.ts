@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { SBHeaderModule } from '../../assets/sb-header';
+import { SBHeaderModule } from '../../shared/sb-header';
 import { MatRippleModule, ThemePalette } from '@angular/material/core';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 

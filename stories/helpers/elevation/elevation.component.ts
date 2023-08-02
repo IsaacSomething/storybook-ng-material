@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { SBHeaderModule } from '../../assets/sb-header';
+import { SBHeaderModule } from '../../shared/sb-header';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({

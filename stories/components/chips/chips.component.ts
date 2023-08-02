@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
-import { SBHeaderModule } from '../../assets/sb-header';
+import { SBHeaderModule } from '../../shared/sb-header';
 import { ThemePalette } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';

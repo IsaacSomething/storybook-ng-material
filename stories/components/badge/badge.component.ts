@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
-import { SBHeaderModule } from '../../assets/sb-header';
+import { SBHeaderModule } from '../../shared/sb-header';
 
 @Component({
   selector: 'app-badge',

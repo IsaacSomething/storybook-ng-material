@@ -24,11 +24,6 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
         padding-top: 16px;
       }
 
-      small {
-        padding-top: 12px;
-        display: block;
-      }
-
       mat-divider {
         margin-bottom: 16px;
       }
@@ -44,7 +39,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     <h2>{{ title }}</h2>
     <a *ngIf="matLink" href="https://material.angular.io/{{ matLink }}" target="_blank"> Angular material documentation </a>
 
-    <small *ngIf="clipboard">CLICK TO COPY VALUE</small>
+    <small class="pt-3 block" *ngIf="clipboard">CLICK TO COPY VALUE</small>
     <mat-divider></mat-divider>
   `
 })

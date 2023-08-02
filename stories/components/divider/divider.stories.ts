@@ -2,11 +2,13 @@ import { ArgTypes, Meta, StoryObj } from '@storybook/angular';
 import { DividerModule } from './divider.component';
 
 const argTypes: ArgTypes<DividerModule> = {
-  inset: { control: { type: 'boolean' }, name: 'Inset' }
+  inset: { control: { type: 'boolean' }, name: 'Inset' },
+  vertical: { control: { type: 'boolean' }, name: 'Vertical' }
 };
 
 const args: Partial<DividerModule> = {
-  inset: false
+  inset: false,
+  vertical: false
 };
 
 const meta: Meta<DividerModule> = {
@@ -18,7 +20,4 @@ const meta: Meta<DividerModule> = {
 
 export default meta;
 type Story = StoryObj<DividerModule>;
-
-export const Divider: Story = {
-  args
-};
+export const Divider: Story = { args };

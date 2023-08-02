@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { SBHeaderModule } from 'stories/assets/sb-header';
+import { SBHeaderModule } from 'stories/shared/sb-header';
 
 @Component({
   selector: 'app-snackbar',
