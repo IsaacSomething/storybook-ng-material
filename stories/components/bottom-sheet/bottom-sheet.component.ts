@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
-import { SBHeaderModule } from 'src/stories/assets/sb-header';
+import { SBHeaderModule } from 'stories/assets/sb-header';
 
 @Component({
   selector: 'app-bottom-sheet',
