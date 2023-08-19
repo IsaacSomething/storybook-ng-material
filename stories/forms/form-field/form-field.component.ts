@@ -1,15 +1,14 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { FloatLabelType, MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { SBHeaderModule } from '../../shared/sb-header';
-import { MatIconModule } from '@angular/material/icon';
-import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-form-field',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, SBHeaderModule, MatIconModule],
+  imports: [MatFormFieldModule, MatInputModule, SBHeaderModule, MatIconModule],
   template: `
     <sb-header title="Form Field" matLink="components/form-field/api" />
 
