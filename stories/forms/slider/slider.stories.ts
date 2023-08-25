@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const argTypes: ArgTypes<SliderModule> = {
   color: { options: ['primary', 'accent', 'warn'], control: { type: 'radio' }, name: 'Color' },
   discrete: { control: { type: 'boolean' }, name: 'Discrete' },
-  showTickMarks: { control: { type: 'boolean' }, name: 'Show tick marks' }
+  showTickMarks: { control: { type: 'boolean' }, name: 'Show tick marks' },
+  range: { control: { type: 'boolean' }, name: 'Show range slider' }
 };
 
 const args: Partial<SliderModule> = {

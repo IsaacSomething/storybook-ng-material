@@ -15,3 +15,5 @@ Clone repo and install dependencies.
 ```
 $: npm run start
 ```
+
+![demo](./src/assets/sb.png)
