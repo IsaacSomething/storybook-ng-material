@@ -33,6 +33,5 @@ const meta: Meta<DatePickerModule> = {
   argTypes
 };
 
-type Story = StoryObj<DatePickerModule>;
 export default meta;
-export const DatePicker: Story = { args };
+export const DatePicker: StoryObj<DatePickerModule> = { args };

@@ -31,6 +31,7 @@ export class BottomSheetModule {
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, voluptatem officiis? Est nulla asperiores nisi officia pariatur
       consectetur culpa molestiae porro blanditiis, quasi inventore ex praesentium ab voluptate in atque.
     </p>
+
     <button mat-stroked-button (click)="dismiss()">[Dismiss]</button>
   `
 })

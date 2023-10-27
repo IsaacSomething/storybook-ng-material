@@ -34,5 +34,4 @@ const meta: Meta<CheckboxModule> = {
 };
 
 export default meta;
-export const Checkbox: Story = { args };
-type Story = StoryObj<CheckboxModule>;
+export const Checkbox: StoryObj<CheckboxModule> = { args };

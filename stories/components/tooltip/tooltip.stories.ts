@@ -24,8 +24,4 @@ const meta: Meta<TooltipModule> = {
 };
 
 export default meta;
-type Story = StoryObj<TooltipModule>;
-
-export const Tooltip: Story = {
-  args
-};
+export const Tooltip: StoryObj<TooltipModule> = { args };

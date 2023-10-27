@@ -49,8 +49,4 @@ const meta: Meta<CardModule> = {
 };
 
 export default meta;
-type Story = StoryObj<CardModule>;
-
-export const Card: Story = {
-  args
-};
+export const Card: StoryObj<CardModule> = { args };

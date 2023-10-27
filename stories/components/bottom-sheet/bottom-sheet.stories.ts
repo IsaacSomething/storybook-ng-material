@@ -6,7 +6,7 @@ import { importProvidersFrom } from '@angular/core';
 
 const argTypes: ArgTypes<BottomSheetModule> = {
   hasBackdrop: { control: { type: 'boolean' }, name: 'Backdrop' },
-  openBottomSheet: { table: { disable: true } },
+  openBottomSheet: { table: { disable: true } }
 };
 
 const args: Partial<BottomSheetModule> = {
@@ -22,8 +22,4 @@ const meta: Meta<BottomSheetModule> = {
 };
 
 export default meta;
-type Story = StoryObj<BottomSheetModule>;
-
-export const BottomSheet: Story = {
-  args
-};
+export const BottomSheet: StoryObj<BottomSheetModule> = { args };

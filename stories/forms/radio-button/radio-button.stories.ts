@@ -26,8 +26,4 @@ const meta: Meta<RadioButtonModule> = {
 };
 
 export default meta;
-type Story = StoryObj<RadioButtonModule>;
-
-export const RadioButton: Story = {
-  /* args */
-};
+export const RadioButton: StoryObj<RadioButtonModule> = { args };

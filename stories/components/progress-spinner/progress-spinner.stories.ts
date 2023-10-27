@@ -36,8 +36,4 @@ const meta: Meta<ProgressSpinnerModule> = {
 };
 
 export default meta;
-type Story = StoryObj<ProgressSpinnerModule>;
-
-export const ProgressSpinner: Story = {
-  args
-};
+export const ProgressSpinner: StoryObj<ProgressSpinnerModule> = { args };

@@ -21,6 +21,4 @@ const meta: Meta<ColorsModule> = {
 };
 
 export default meta;
-type Story = StoryObj<ColorsModule>;
-
-export const Colors: Story = { args };
+export const Colors: StoryObj<ColorsModule> = { args };

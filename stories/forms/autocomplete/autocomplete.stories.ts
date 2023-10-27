@@ -25,5 +25,4 @@ const meta: Meta<AutocompleteModule> = {
 };
 
 export default meta;
-export const Autocomplete: Story = { args };
-type Story = StoryObj<AutocompleteModule>;
+export const Autocomplete: StoryObj<AutocompleteModule> = { args };

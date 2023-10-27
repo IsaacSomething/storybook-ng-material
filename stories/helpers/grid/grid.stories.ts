@@ -35,8 +35,4 @@ const meta: Meta<GridModule> = {
 };
 
 export default meta;
-type Story = StoryObj<GridModule>;
-
-export const Grid: Story = {
-  args
-};
+export const Grid: StoryObj<GridModule> = { args };

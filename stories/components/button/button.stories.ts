@@ -33,6 +33,4 @@ const meta: Meta<ButtonModule> = {
 };
 
 export default meta;
-type Story = StoryObj<ButtonModule>;
-
-export const Button: Story = { args };
+export const Button: StoryObj<ButtonModule> = { args };

@@ -25,6 +25,5 @@ const meta: Meta<TableModule> = {
   argTypes
 };
 
-type Story = StoryObj<TableModule>;
 export default meta;
-export const Table: Story = { args };
+export const Table: StoryObj<TableModule> = { args };

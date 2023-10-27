@@ -41,8 +41,4 @@ const meta: Meta<BadgeModule> = {
 };
 
 export default meta;
-type Story = StoryObj<BadgeModule>;
-
-export const Badge: Story = {
-  args
-};
+export const Badge: StoryObj<BadgeModule> = { args };

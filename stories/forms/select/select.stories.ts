@@ -28,6 +28,5 @@ const meta: Meta<SelectModule> = {
   argTypes
 };
 
-type Story = StoryObj<SelectModule>;
 export default meta;
-export const Select: Story = { args };
+export const Select: StoryObj<SelectModule> = { args };

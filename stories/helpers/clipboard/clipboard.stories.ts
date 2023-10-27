@@ -15,6 +15,5 @@ const meta: Meta<ClipModule> = {
   argTypes
 };
 
-type Story = StoryObj<ClipModule>;
 export default meta;
-export const Clipboard: Story = {};
+export const Clipboard: StoryObj<ClipModule> = {};

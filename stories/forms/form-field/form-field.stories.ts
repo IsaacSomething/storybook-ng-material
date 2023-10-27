@@ -31,6 +31,5 @@ const meta: Meta<FormFieldModule> = {
   argTypes
 };
 
-type Story = StoryObj<FormFieldModule>;
 export default meta;
-export const FormField: Story = { args };
+export const FormField: StoryObj<FormFieldModule> = { args };

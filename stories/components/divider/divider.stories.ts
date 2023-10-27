@@ -19,5 +19,4 @@ const meta: Meta<DividerModule> = {
 };
 
 export default meta;
-type Story = StoryObj<DividerModule>;
-export const Divider: Story = { args };
+export const Divider: StoryObj<DividerModule> = { args };

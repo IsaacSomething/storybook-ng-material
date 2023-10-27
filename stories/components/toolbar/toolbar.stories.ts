@@ -24,8 +24,4 @@ const meta: Meta<ToolbarModule> = {
 };
 
 export default meta;
-type Story = StoryObj<ToolbarModule>;
-
-export const Toolbar: Story = {
-  args
-};
+export const Toolbar: StoryObj<ToolbarModule> = { args };

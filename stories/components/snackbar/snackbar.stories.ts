@@ -37,6 +37,4 @@ const meta: Meta<SnackbarModule> = {
 };
 
 export default meta;
-type Story = StoryObj<SnackbarModule>;
-
-export const Snackbar: Story = { args };
+export const Snackbar: StoryObj<SnackbarModule> = { args };

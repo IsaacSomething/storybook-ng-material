@@ -31,5 +31,4 @@ const meta: Meta<ButtonToggleModule> = {
 };
 
 export default meta;
-type Story = StoryObj<ButtonToggleModule>;
-export const ButtonToggle: Story = { args };
+export const ButtonToggle: StoryObj<ButtonToggleModule> = { args };

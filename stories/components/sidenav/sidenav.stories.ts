@@ -32,8 +32,4 @@ const meta: Meta<SidenavModule> = {
 };
 
 export default meta;
-type Story = StoryObj<SidenavModule>;
-
-export const Sidenav: Story = {
-  args
-};
+export const Sidenav: StoryObj<SidenavModule> = { args };

@@ -24,6 +24,5 @@ const meta: Meta<SliderModule> = {
   argTypes
 };
 
-type Story = StoryObj<SliderModule>;
 export default meta;
-export const Slider: Story = { args };
+export const Slider: StoryObj<SliderModule> = { args };

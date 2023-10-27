@@ -32,5 +32,4 @@ const meta: Meta<ProgressBarModule> = {
 };
 
 export default meta;
-export const ProgressBar: Story = { args };
-type Story = StoryObj<ProgressBarModule>;
+export const ProgressBar: StoryObj<ProgressBarModule> = { args };

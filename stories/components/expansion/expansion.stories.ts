@@ -42,8 +42,4 @@ const meta: Meta<ExpansionModule> = {
 };
 
 export default meta;
-type Story = StoryObj<ExpansionModule>;
-
-export const Expansion: Story = {
-  args
-};
+export const Expansion: StoryObj<ExpansionModule> = { args };

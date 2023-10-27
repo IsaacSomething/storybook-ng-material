@@ -39,6 +39,5 @@ const meta: Meta<TabsModule> = {
   argTypes
 };
 
-type Story = StoryObj<TabsModule>;
 export default meta;
-export const Tabs: Story = { args };
+export const Tabs: StoryObj<TabsModule> = { args };

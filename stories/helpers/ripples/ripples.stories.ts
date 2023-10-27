@@ -27,6 +27,5 @@ const meta: Meta<RipplesModule> = {
   argTypes
 };
 
-type Story = StoryObj<RipplesModule>;
 export default meta;
-export const Ripples: Story = { args };
+export const Ripples: StoryObj<RipplesModule> = { args };

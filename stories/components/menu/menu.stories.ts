@@ -34,8 +34,4 @@ const meta: Meta<MenuModule> = {
 };
 
 export default meta;
-type Story = StoryObj<MenuModule>;
-
-export const Menu: Story = {
-  args
-};
+export const Menu: StoryObj<MenuModule> = { args };

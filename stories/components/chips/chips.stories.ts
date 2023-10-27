@@ -32,8 +32,4 @@ const meta: Meta<ChipsModule> = {
 };
 
 export default meta;
-type Story = StoryObj<ChipsModule>;
-
-export const Chips: Story = {
-  args
-};
+export const Chips: StoryObj<ChipsModule> = { args };

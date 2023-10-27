@@ -21,6 +21,4 @@ const meta: Meta<TypographyModule> = {
 };
 
 export default meta;
-type Story = StoryObj<TypographyModule>;
-
-export const Typography: Story = { args };
+export const Typography: StoryObj<TypographyModule> = { args };

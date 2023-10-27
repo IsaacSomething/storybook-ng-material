@@ -25,6 +25,5 @@ const meta: Meta<SlideToggleModule> = {
   argTypes
 };
 
-type Story = StoryObj<SlideToggleModule>;
 export default meta;
-export const SlideToggle: Story = { args };
+export const SlideToggle: StoryObj<SlideToggleModule> = { args };

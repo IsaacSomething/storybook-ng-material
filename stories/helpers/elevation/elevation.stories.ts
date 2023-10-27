@@ -16,6 +16,5 @@ const meta: Meta<ElevationModule> = {
   argTypes
 };
 
-type Story = StoryObj<ElevationModule>;
 export default meta;
-export const Elevation: Story = { args };
+export const Elevation: StoryObj<ElevationModule> = { args };

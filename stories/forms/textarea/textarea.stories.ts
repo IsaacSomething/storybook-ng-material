@@ -24,8 +24,4 @@ const meta: Meta<TextareaModule> = {
 };
 
 export default meta;
-type Story = StoryObj<TextareaModule>;
-
-export const Textarea: Story = {
-  /* args */
-};
+export const Textarea: StoryObj<TextareaModule> = { args };
