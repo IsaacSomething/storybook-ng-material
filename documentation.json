@@ -48,6 +48,7 @@
                 }
             ],
             "stylesData": "",
+            "extends": [],
             "templateData": "<router-outlet></router-outlet>\n"
         }
     ],

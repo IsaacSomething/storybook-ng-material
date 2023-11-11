@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "storybook-ng-material:build:production"
+              "buildTarget": "storybook-ng-material:build:production"
             },
             "development": {
-              "browserTarget": "storybook-ng-material:build:development"
+              "buildTarget": "storybook-ng-material:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "storybook-ng-material:build"
+            "buildTarget": "storybook-ng-material:build"
           }
         },
         "test": {

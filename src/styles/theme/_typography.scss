@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;700&family=Share+Tech+Mono&display=swap');
 
-$acth-app-typography-base: mat.define-legacy-typography-config(
+$acth-app-typography-base: mat.define-typography-level(
   $font-family: "'Fira code', sans-serif",
 );
 
