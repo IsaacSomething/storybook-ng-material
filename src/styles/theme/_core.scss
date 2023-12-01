@@ -15,9 +15,8 @@
 $storybook-ng-material-primary: mat.define-palette($mat-primary-palette);
 $storybook-ng-material-accent: mat.define-palette($mat-accent-palette);
 $storybook-ng-material-warn: mat.define-palette($mat-warn-palette);
-$storybook-ng-material-font: mat.define-typography-config(
-  $font-family: "'Fira code', sans-serif"
-);
+$storybook-ng-material-font: mat.define-typography-config($font-family:  "'Fira code', sans-serif");
+@include mat.typography-hierarchy($storybook-ng-material-font);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".

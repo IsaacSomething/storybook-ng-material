@@ -1,10 +1,3 @@
-@use '@angular/material' as mat;
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@100;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;700&family=Share+Tech+Mono&display=swap');
-
-$acth-app-typography-base: mat.define-typography-level(
-  $font-family: "'Fira code', sans-serif",
-);
-
-@include mat.all-legacy-component-typographies($acth-app-typography-base);
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;700&family=Share+Tech+Mono&display=swap'); 
