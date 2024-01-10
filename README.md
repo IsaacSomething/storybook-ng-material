@@ -13,7 +13,7 @@ This is a simple angular project with storybook setup for angular material and t
 Clone repo and install dependencies.
 
 ```
-$: npm run start
+$: npm start
 ```
 
 ![demo](./src/assets/sb.png)
