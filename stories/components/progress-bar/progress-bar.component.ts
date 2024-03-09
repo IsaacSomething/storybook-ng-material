@@ -10,8 +10,15 @@ import { SBHeaderModule } from '../../shared/sb-header';
   template: `
     <sb-header title="Progress Bar" matLink="components/progress-bar/api" />
 
+    <p class="text-sm">
+      --mdc-linear-progress-active-indicator-color: var(--mat-primary-500); <br />
+      --mdc-linear-progress-track-color: var(--mat-primary-500); <br />
+      why are these colors the same??????
+    </p>
+
+    <br />
     <div class="mx-4">
-      <mat-progress-bar [color]="color" [value]="value" [mode]="mode" />
+      <mat-progress-bar [value]="value" />
     </div>
   `
 })

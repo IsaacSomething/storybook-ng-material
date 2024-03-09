@@ -18,7 +18,7 @@ import { SBHeaderModule } from '../../shared/sb-header';
   template: `
     <sb-header title="Button" matLink="components/button/api" />
 
-    <mat-button-toggle-group [disabled]="disabled" [multiple]="multiple" [vertical]="vertical" [appearance]="appearance">
+    <mat-button-toggle-group [disabled]="disabled" [vertical]="vertical" [appearance]="appearance" [multiple]="multiple">
       <mat-button-toggle value="bold">[{{ label }} A]</mat-button-toggle>
       <mat-button-toggle value="italic">[{{ label }} B]</mat-button-toggle>
       <mat-button-toggle value="underline">[{{ label }} C]</mat-button-toggle>

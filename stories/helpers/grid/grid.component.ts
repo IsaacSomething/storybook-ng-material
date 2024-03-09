@@ -38,7 +38,7 @@ export class GridModule implements OnInit {
   @Input() rowFour!: number;
   tiles!: Tile[];
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.tiles = [
       { text: 'One', cols: 2, rows: 1, color: 'lightblue' },
       { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },

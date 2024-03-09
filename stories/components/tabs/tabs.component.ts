@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { SBHeaderModule } from '../../shared/sb-header';
 import { ThemePalette } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
+import { SBHeaderModule } from '../../shared/sb-header';
 
 @Component({
   selector: 'app-tabs',

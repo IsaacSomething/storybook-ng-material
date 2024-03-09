@@ -33,7 +33,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
       <!-- Empty content for bottom spacing if display is just title || subtitle -->
       <mat-card-content></mat-card-content>
 
-      <mat-card-content *ngIf="content">
+      <mat-card-content *ngIf="content" class="mt-4">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur quos nostrum veritatis assumenda corrupti sequi ut molestiae
         nesciunt, quo, eius accusamus dolor illo esse quaerat culpa vel accusantium dolore aspernatur?
       </mat-card-content>

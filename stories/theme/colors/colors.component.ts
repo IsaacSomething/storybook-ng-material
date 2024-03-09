@@ -10,7 +10,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
   imports: [CommonModule, SBHeaderModule, ClipboardModule, MatRippleModule],
   styleUrls: ['./colors.component.scss'],
   template: `
-    <sb-header title="Autocomplete" matLink="autocomplete" />
+    <sb-header title="Autocomplete" matLink="autocomplete" clipboard />
 
     <div class="mx-4">
       <div

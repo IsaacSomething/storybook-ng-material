@@ -12,7 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
     <sb-header title="Menu" matLink="components/menu/api" />
 
     <div class="mx-5">
-      <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">[Menu]</button>
+      <button mat-button [matMenuTriggerFor]="menu">[Menu]</button>
       <mat-menu
         #menu="matMenu"
         [yPosition]="yPosition"

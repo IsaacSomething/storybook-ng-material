@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, booleanAttribute } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -46,11 +46,5 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 export class SBHeaderModule {
   @Input({ required: true }) title!: string;
   @Input() matLink!: string;
-  @Input() set clipboard(value: BooleanInput) {
-    this._clipboard = coerceBooleanProperty(value);
-  }
-  get clipboard() {
-    return this._clipboard;
-  }
-  _clipboard = false;
+  @Input({ transform: booleanAttribute }) clipboard = false;
 }

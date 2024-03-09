@@ -1,8 +1,8 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { SBHeaderModule } from '../../shared/sb-header';
 import { MatButtonModule } from '@angular/material/button';
-import { ClipboardModule } from '@angular/cdk/clipboard';
+import { SBHeaderModule } from '../../shared/sb-header';
 
 @Component({
   selector: 'app-clipboard',
@@ -25,8 +25,6 @@ export class ClipModule {
 
   copied() {
     this.text = 'Copied!';
-    setTimeout(() => {
-      this.text = this.textValue;
-    }, 1000);
+    setTimeout(() => (this.text = this.textValue), 1000);
   }
 }
