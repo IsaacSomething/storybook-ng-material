@@ -26,7 +26,7 @@ export interface Tile {
   `,
   styles: []
 })
-export class GridModule implements OnInit {
+export class SbGridModule implements OnInit {
   @Input() cols!: number;
   @Input() colOne!: number;
   @Input() rowOne!: number;

@@ -44,7 +44,7 @@ import { SBHeaderModule } from '../../shared/sb-header';
   `,
   styles: []
 })
-export class RipplesModule {
+export class SbRipplesModule {
   @Input() centered!: boolean;
   @Input() disabled!: boolean;
   @Input() unbounded!: boolean;

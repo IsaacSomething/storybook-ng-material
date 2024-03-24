@@ -18,7 +18,7 @@ import { SBHeaderModule } from '../../shared/sb-header';
   `,
   styles: []
 })
-export class ClipModule {
+export class SbClipModule {
   text = 'Clip to copy text';
   textValue = 'Clip to copy text';
   textCopy = 'lorem ipsum dolor sit amet';

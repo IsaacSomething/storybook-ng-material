@@ -1,7 +1,7 @@
 import { ArgTypes, Meta, StoryObj } from '@storybook/angular';
-import { GridModule } from './grid.component';
+import { SbGridModule } from './grid.component';
 
-const argTypes: ArgTypes<GridModule> = {
+const argTypes: ArgTypes<SbGridModule> = {
   tiles: { table: { disable: true } },
   ngOnInit: { table: { disable: true } },
   cols: { control: { type: 'range', max: 5, min: 1 }, name: 'Columns' },
@@ -15,7 +15,7 @@ const argTypes: ArgTypes<GridModule> = {
   rowFour: { control: { type: 'range', max: 5, min: 1 }, name: 'Row 4' }
 };
 
-const args: Partial<GridModule> = {
+const args: Partial<SbGridModule> = {
   cols: 5,
   colOne: 2,
   rowOne: 1,
@@ -27,12 +27,12 @@ const args: Partial<GridModule> = {
   rowFour: 1
 };
 
-const meta: Meta<GridModule> = {
+const meta: Meta<SbGridModule> = {
   title: 'Helpers/Grid',
-  component: GridModule,
+  component: SbGridModule,
   parameters: { options: { showPanel: true } },
   argTypes
 };
 
 export default meta;
-export const Grid: StoryObj<GridModule> = { args };
+export const Grid: StoryObj<SbGridModule> = { args };

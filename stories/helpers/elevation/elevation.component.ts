@@ -18,6 +18,6 @@ import { SBHeaderModule } from '../../shared/sb-header';
   `,
   styles: []
 })
-export class ElevationModule {
+export class SbElevationModule {
   @Input() elevation!: number;
 }
